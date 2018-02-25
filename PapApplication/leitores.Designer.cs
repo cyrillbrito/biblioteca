@@ -77,7 +77,7 @@
             this.searchNome.Name = "searchNome";
             this.searchNome.Size = new System.Drawing.Size(136, 58);
             this.searchNome.TabIndex = 10;
-            this.searchNome.TextChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchNome.TextChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // p_esquerda
             // 
@@ -100,7 +100,7 @@
             this.searchLocal1.Name = "searchLocal1";
             this.searchLocal1.Size = new System.Drawing.Size(136, 58);
             this.searchLocal1.TabIndex = 12;
-            this.searchLocal1.TextChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchLocal1.TextChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // searchMorada
             // 
@@ -112,7 +112,7 @@
             this.searchMorada.Name = "searchMorada";
             this.searchMorada.Size = new System.Drawing.Size(136, 58);
             this.searchMorada.TabIndex = 11;
-            this.searchMorada.TextChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchMorada.TextChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // p_direita
             // 

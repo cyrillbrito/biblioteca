@@ -246,7 +246,7 @@
             this.searchEditora.Name = "searchEditora";
             this.searchEditora.Size = new System.Drawing.Size(136, 58);
             this.searchEditora.TabIndex = 10;
-            this.searchEditora.TextChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchEditora.TextChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // p_direita
             // 

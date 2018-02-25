@@ -1,7 +1,7 @@
-﻿using System;
+﻿using CbClass;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using CbClass;
 
 namespace PapApplication
 {
@@ -68,40 +68,9 @@ namespace PapApplication
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
-        private void search_ConditionChanged(object sender, EventArgs e)
+        private void Search_ConditionChanged(object sender, EventArgs e)
         {
-            // todo ver o caso negativo deta treta
-            var search = (Search) sender;;
-            var searchLocal = sender as SearchLocal;
-
-            var column = searchLocal == null ? search.CbIdColumn : searchLocal.CbColumnName;
-            var startPosition = _conditions.IndexOf(column, StringComparison.Ordinal);
-
-            if (startPosition != -1)
-            {
-                var endPosition = _conditions.IndexOf("AND", startPosition, StringComparison.Ordinal);
-
-                if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1 -2 = -3
-                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
-                else
-                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
-            }
-
-            if (!string.IsNullOrWhiteSpace(search?.CbValue))// Search normal
-            {
-                if (!string.IsNullOrWhiteSpace(_conditions))
-                    _conditions += " AND ";
-                _conditions += search.CbIdColumn + " = " + search.CbValue;
-            }
-            else if (searchLocal != null)// SearchLocal
-            {
-                if (!string.IsNullOrWhiteSpace(searchLocal.CbColumnName))
-                {
-                    if (!string.IsNullOrWhiteSpace(_conditions))
-                        _conditions += " AND ";
-                    _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
-                }
-            }
+            _conditions = FormsHelper.SearchConditionChanged(sender, _conditions);
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 

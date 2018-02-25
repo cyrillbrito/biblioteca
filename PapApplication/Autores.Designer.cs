@@ -85,7 +85,7 @@
             this.searchNacionalidade.Name = "searchNacionalidade";
             this.searchNacionalidade.Size = new System.Drawing.Size(136, 58);
             this.searchNacionalidade.TabIndex = 11;
-            this.searchNacionalidade.TextChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchNacionalidade.TextChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // searchNome
             // 
@@ -97,7 +97,7 @@
             this.searchNome.Name = "searchNome";
             this.searchNome.Size = new System.Drawing.Size(136, 58);
             this.searchNome.TabIndex = 10;
-            this.searchNome.TextChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchNome.TextChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // buttonSelect
             // 

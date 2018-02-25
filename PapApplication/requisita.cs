@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CbClass;
+using System;
 using System.Windows.Forms;
-using CbClass;
 
 namespace PapApplication
 {
@@ -78,45 +78,13 @@ namespace PapApplication
 
         private void Search_ConditionChanged(object sender, EventArgs e)
         {
-            var search = (Search) sender;
-            var searchLocal = sender as SearchLocal;
-            int startPosition;
-
-            if (searchLocal == null)
-                startPosition = _conditions.IndexOf(search.CbIdColumn);
-            else
-                startPosition = _conditions.IndexOf(searchLocal.CbColumnName);
-
-            if (startPosition != -1)//Foi encontrado
-            {
-                var endPosition = _conditions.IndexOf("AND", startPosition);
-                if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1 -2 = -3
-                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
-                else
-                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
-            }
-
-            if (!string.IsNullOrWhiteSpace(search?.CbValue))// Search normal
-            {
-                if (!string.IsNullOrWhiteSpace(_conditions))
-                    _conditions += " AND ";
-                _conditions += search.CbIdColumn + " = " + search.CbValue;
-            }
-            else if (searchLocal != null)// SearchLocal
-            {
-                if (!string.IsNullOrWhiteSpace(searchLocal.CbColumnName))
-                {
-                    if (!string.IsNullOrWhiteSpace(_conditions))
-                        _conditions += " AND ";
-                    _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
-                }
-            }
+            _conditions = FormsHelper.SearchConditionChanged(sender, _conditions);
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
         private void search_CheckBoxCheckedChange(object sender, EventArgs e)
         {
-            var search = (Search) sender;
+            var search = (Search)sender;
             if (!search.CbCheckBoxLocked)
             {
                 if (search.CBisChecked)
@@ -152,7 +120,7 @@ namespace PapApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            var search = (Search) sender;
+            var search = (Search)sender;
             Methods.SaveFormProperties();
 
             switch (search.CbFormName)

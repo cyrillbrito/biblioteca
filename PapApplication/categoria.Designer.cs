@@ -65,7 +65,7 @@
             this.searchCategoria.Name = "searchCategoria";
             this.searchCategoria.Size = new System.Drawing.Size(136, 58);
             this.searchCategoria.TabIndex = 10;
-            this.searchCategoria.TextChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchCategoria.TextChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // p_esquerda
             // 

@@ -292,7 +292,7 @@ namespace PapApplication
             this.searchCategoria.TabIndex = 0;
             this.searchCategoria.ButtonClick += new System.EventHandler(this.search_ButtonClick);
             this.searchCategoria.CheckBoxCheckedChanged += new System.EventHandler(this.search_CheckBoxCheckedChange);
-            this.searchCategoria.ConditionChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchCategoria.ConditionChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // radioRequisitado
             // 
@@ -330,7 +330,7 @@ namespace PapApplication
             this.searchLocal1.Name = "searchLocal1";
             this.searchLocal1.Size = new System.Drawing.Size(136, 58);
             this.searchLocal1.TabIndex = 10;
-            this.searchLocal1.TextChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchLocal1.TextChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // searchEditora
             // 
@@ -350,7 +350,7 @@ namespace PapApplication
             this.searchEditora.TabIndex = 9;
             this.searchEditora.ButtonClick += new System.EventHandler(this.search_ButtonClick);
             this.searchEditora.CheckBoxCheckedChanged += new System.EventHandler(this.search_CheckBoxCheckedChange);
-            this.searchEditora.ConditionChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchEditora.ConditionChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // searchAutor
             // 
@@ -370,7 +370,7 @@ namespace PapApplication
             this.searchAutor.TabIndex = 0;
             this.searchAutor.ButtonClick += new System.EventHandler(this.search_ButtonClick);
             this.searchAutor.CheckBoxCheckedChanged += new System.EventHandler(this.search_CheckBoxCheckedChange);
-            this.searchAutor.ConditionChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchAutor.ConditionChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // p_baixo
             // 
