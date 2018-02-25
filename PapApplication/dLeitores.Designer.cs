@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class dLeitores
+    partial class DLeitores
     {
         /// <summary>
         /// Required designer variable.
@@ -88,10 +88,10 @@
             // 
             // searchNome
             // 
-            this.searchNome.CBColumnName = "nome";
-            this.searchNome.CBReadOnly = false;
-            this.searchNome.CBText = "Nome";
-            this.searchNome.CBValue = "";
+            this.searchNome.CbColumnName = "nome";
+            this.searchNome.CbReadOnly = false;
+            this.searchNome.CbText = "Nome";
+            this.searchNome.CbValue = "";
             this.searchNome.Location = new System.Drawing.Point(138, 76);
             this.searchNome.Name = "searchNome";
             this.searchNome.Size = new System.Drawing.Size(136, 58);
@@ -99,10 +99,10 @@
             // 
             // searchEmail
             // 
-            this.searchEmail.CBColumnName = "email";
-            this.searchEmail.CBReadOnly = false;
-            this.searchEmail.CBText = "Email";
-            this.searchEmail.CBValue = "";
+            this.searchEmail.CbColumnName = "email";
+            this.searchEmail.CbReadOnly = false;
+            this.searchEmail.CbText = "Email";
+            this.searchEmail.CbValue = "";
             this.searchEmail.Location = new System.Drawing.Point(138, 140);
             this.searchEmail.Name = "searchEmail";
             this.searchEmail.Size = new System.Drawing.Size(136, 58);
@@ -110,10 +110,10 @@
             // 
             // searchMorada
             // 
-            this.searchMorada.CBColumnName = "morada";
-            this.searchMorada.CBReadOnly = false;
-            this.searchMorada.CBText = "Morada";
-            this.searchMorada.CBValue = "";
+            this.searchMorada.CbColumnName = "morada";
+            this.searchMorada.CbReadOnly = false;
+            this.searchMorada.CbText = "Morada";
+            this.searchMorada.CbValue = "";
             this.searchMorada.Location = new System.Drawing.Point(280, 12);
             this.searchMorada.Name = "searchMorada";
             this.searchMorada.Size = new System.Drawing.Size(136, 58);
@@ -121,10 +121,10 @@
             // 
             // searchTelemovel
             // 
-            this.searchTelemovel.CBColumnName = "telemovel";
-            this.searchTelemovel.CBReadOnly = false;
-            this.searchTelemovel.CBText = "Telemovel";
-            this.searchTelemovel.CBValue = "";
+            this.searchTelemovel.CbColumnName = "telemovel";
+            this.searchTelemovel.CbReadOnly = false;
+            this.searchTelemovel.CbText = "Telemovel";
+            this.searchTelemovel.CbValue = "";
             this.searchTelemovel.Location = new System.Drawing.Point(280, 76);
             this.searchTelemovel.Name = "searchTelemovel";
             this.searchTelemovel.Size = new System.Drawing.Size(136, 58);
@@ -132,10 +132,10 @@
             // 
             // searchId
             // 
-            this.searchId.CBColumnName = "id_leit";
-            this.searchId.CBReadOnly = true;
-            this.searchId.CBText = "ID";
-            this.searchId.CBValue = "";
+            this.searchId.CbColumnName = "id_leit";
+            this.searchId.CbReadOnly = true;
+            this.searchId.CbText = "ID";
+            this.searchId.CbValue = "";
             this.searchId.Location = new System.Drawing.Point(138, 12);
             this.searchId.Name = "searchId";
             this.searchId.Size = new System.Drawing.Size(136, 58);
@@ -197,7 +197,7 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "dLeitores";
+            this.Name = "DLeitores";
             this.Text = "dLeitores";
             this.Load += new System.EventHandler(this.dLeitores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

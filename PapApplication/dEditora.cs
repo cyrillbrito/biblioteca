@@ -11,100 +11,100 @@ using CBClass;
 
 namespace PapeApplication
 {
-    public partial class dEditora : Form
+    public partial class DEditora : Form
     {
-         int id;
-        bool edit = false;
+         int _id;
+        bool _edit = false;
 
-        public dEditora(int ID = 0, bool edit = false)
+        public DEditora(int id = 0, bool edit = false)
         {
             InitializeComponent();
 
-            id = ID;
+            _id = id;
             if (edit == false)
-                viewMode();
-            else if (id == 0)
+                ViewMode();
+            else if (_id == 0)
             {
-                editMode();
-                addMode();
+                EditMode();
+                AddMode();
             }
             else
             {
-                viewMode();
-                editMode();
+                ViewMode();
+                EditMode();
             }
         }
 
         private void dEditora_Load(object sender, EventArgs e)
         {
-            Methods.loadFormPosition(this);
+            Methods.LoadFormPosition(this);
         }
 
-        private void editMode()
+        private void EditMode()
         {
-            edit = true;
-            searchEditora.CBReadOnly = false;
+            _edit = true;
+            searchEditora.CbReadOnly = false;
             buttonCancel.Visible = true;
             buttonSave.Visible = true;
             buttonEdit.Visible = false;
             buttonEliminar.Visible = true;
         }
 
-        private void viewMode()
+        private void ViewMode()
         {
-            mysql query = new mysql("*", "editoras", "id_edit = " + id);
-            query.read();
+            Mysql query = new Mysql("*", "editoras", "id_edit = " + _id);
+            query.Read();
 
-            searchId.CBValue = query.read("id_edit").ToString();
-            searchEditora.CBValue = query.read("editora").ToString();
-            query.close();
+            searchId.CbValue = query.Read("id_edit").ToString();
+            searchEditora.CbValue = query.Read("editora").ToString();
+            query.Close();
 
-            edit = false;
-            searchEditora.CBReadOnly = true;
+            _edit = false;
+            searchEditora.CbReadOnly = true;
             buttonCancel.Visible = false;
             buttonSave.Visible = false;
             buttonEdit.Visible = true;
             buttonEliminar.Visible = false;
         }
 
-        private void addMode()
+        private void AddMode()
         {
-            edit = false;
-            mysql query = new mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'editoras'");
-            query.read();
-            searchId.CBValue = query.read("a").ToString();
-            id = Convert.ToInt16(searchId.CBValue);
+            _edit = false;
+            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'editoras'");
+            query.Read();
+            searchId.CbValue = query.Read("a").ToString();
+            _id = Convert.ToInt16(searchId.CbValue);
             buttonEliminar.Visible = false;
-            query.close();
+            query.Close();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            editMode();
+            EditMode();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            List<string> list = checkData();
+            List<string> list = CheckData();
             string str;
             if (list.Count == 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (edit)
+                    if (_edit)
                     {
-                        str = "editora = '" + searchEditora.CBValue + "'";
-                        mysql.update("editoras", str, "id_edit = " + id.ToString());
+                        str = "editora = '" + searchEditora.CbValue + "'";
+                        Mysql.Update("editoras", str, "id_edit = " + _id.ToString());
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else
                     {
-                        str = "'" + searchEditora.CBValue + "'";
-                        mysql.insert("editoras", "editora", str);
+                        str = "'" + searchEditora.CbValue + "'";
+                        Mysql.Insert("editoras", "editora", str);
                         MessageBox.Show("Os dados foram inseridos");
                     }
-                    viewMode();
+                    ViewMode();
                 }
             }
             else
@@ -126,11 +126,11 @@ namespace PapeApplication
                 this.Close();
         }
 
-        private List<string> checkData()
+        private List<string> CheckData()
         {
             List<string> list = new List<string>();
 
-            if (searchEditora.CBValue == "")
+            if (searchEditora.CbValue == "")
                 list.Add("Categoria");
 
             return list;
@@ -141,7 +141,7 @@ namespace PapeApplication
             DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                mysql.delete("editoras", "id_edit = " + id);
+                Mysql.Delete("editoras", "id_edit = " + _id);
 
                 MessageBox.Show("Registo Eliminado");
                 this.Close();

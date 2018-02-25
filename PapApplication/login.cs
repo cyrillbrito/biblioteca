@@ -11,9 +11,9 @@ using CBClass;
 
 namespace PapeApplication
 {
-    public partial class login : Form
+    public partial class Login : Form
     {
-        public login()
+        public Login()
         {
             InitializeComponent();
         }
@@ -22,27 +22,27 @@ namespace PapeApplication
         {
             if (textBoxId.Text != "")
             {
-                mysql query = new mysql("password", "funcionarios", "id_func = " + textBoxId.Text);
+                Mysql query = new Mysql("password", "funcionarios", "id_func = " + textBoxId.Text);
 
-                if (query.read())
-                    if (query.read("password") == textBoxPassword.Text)
+                if (query.Read())
+                    if (query.Read("password") == textBoxPassword.Text)
                     {
-                        Variables.funcId = Convert.ToInt16(textBoxId.Text);
-                        query.close();
+                        Variables.FuncId = Convert.ToInt16(textBoxId.Text);
+                        query.Close();
                         MessageBox.Show("Bem-vindo!");
-                        livros obj = new livros();
+                        Livros obj = new Livros();
                         this.Hide();
                         obj.ShowDialog();
                         this.Close();
                     }
                     else
                     {
-                        query.close();
+                        query.Close();
                         MessageBox.Show("Dados inseridos não estão corretos.");
                     }
                 else
                 {
-                    query.close();
+                    query.Close();
                     MessageBox.Show("Dados inseridos não estão corretos.");
                 }
             }

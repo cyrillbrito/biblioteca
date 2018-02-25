@@ -8,13 +8,13 @@ using System.Windows.Forms;
 
 namespace CBClass
 {
-    public class mysql
+    public class Mysql
     {
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=biblioteca;uid=root");
-        static MySqlCommand cmd;
-        MySqlDataReader rdr;
+        static MySqlConnection _con = new MySqlConnection("server=localhost;database=biblioteca;uid=root");
+        static MySqlCommand _cmd;
+        MySqlDataReader _rdr;
 
-        public mysql(string columns, string tables, string condition = null)
+        public Mysql(string columns, string tables, string condition = null)
         {
 
             string cmdStr = "SELECT " + columns + " FROM " + tables;
@@ -22,62 +22,62 @@ namespace CBClass
             if (condition != null && condition != "")
                 cmdStr += " WHERE " + condition;
 
-            con.Open();
-            cmd = new MySqlCommand(cmdStr, con);
-            rdr = cmd.ExecuteReader();
+            _con.Open();
+            _cmd = new MySqlCommand(cmdStr, _con);
+            _rdr = _cmd.ExecuteReader();
 
         }
 
-        public bool read()
+        public bool Read()
         {
-            return rdr.Read();
+            return _rdr.Read();
         }
 
-        public string read(string column)
+        public string Read(string column)
         {
-            return rdr[column].ToString();
+            return _rdr[column].ToString();
         }
 
-        public void close()
+        public void Close()
         {
-            rdr.Close();
-            con.Close();
+            _rdr.Close();
+            _con.Close();
         }
 
-        public void listView(ListView listView)
+        public void ListView(ListView listView)
         {
             listView.Items.Clear();
-            for (int i = 0; rdr.Read(); i++)//loop por todos os filmes
+            for (int i = 0; _rdr.Read(); i++)//loop por todos os filmes
             {
-                listView.Items.Add(rdr[0].ToString());//add filme
+                listView.Items.Add(_rdr[0].ToString());//add filme
                 for (int j = 1; listView.Columns.Count > j; j++)//loop por todas as colunas
-                    listView.Items[i].SubItems.Add(rdr[j].ToString());//add coluna
+                    listView.Items[i].SubItems.Add(_rdr[j].ToString());//add coluna
             }
-            con.Close();
+            _con.Close();
         }
 
-        public static void update(string table, string columns, string condition)
+        public static void Update(string table, string columns, string condition)
         {
-            cmd = new MySqlCommand("UPDATE " + table + " SET " + columns + " WHERE " + condition, con);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
+            _cmd = new MySqlCommand("UPDATE " + table + " SET " + columns + " WHERE " + condition, _con);
+            _con.Open();
+            _cmd.ExecuteNonQuery();
+            _con.Close();
         }
 
-        public static void insert(string table, string columns, string values)
+        public static void Insert(string table, string columns, string values)
         {
-            cmd = new MySqlCommand("INSERT INTO " + table + "(" + columns + ") VALUES(" + values + ")", con);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
+            _cmd = new MySqlCommand("INSERT INTO " + table + "(" + columns + ") VALUES(" + values + ")", _con);
+            _con.Open();
+            _cmd.ExecuteNonQuery();
+            _con.Close();
         }
 
-        public static void delete(string table, string conditon)
+        public static void Delete(string table, string conditon)
         {
-            cmd = new MySqlCommand("DELETE FROM " + table + " WHERE " + conditon, con);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
+            _cmd = new MySqlCommand("DELETE FROM " + table + " WHERE " + conditon, _con);
+            _con.Open();
+            _cmd.ExecuteNonQuery();
+            _con.Close();
         }
     }
 }

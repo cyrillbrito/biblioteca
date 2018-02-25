@@ -12,37 +12,37 @@ using System.IO;
 
 namespace PapeApplication
 {
-    public partial class dLeitores : Form
+    public partial class DLeitores : Form
     {
-        int id;
-        bool edit = false;
+        int _id;
+        bool _edit = false;
 
-        public dLeitores(int ID = 0, bool edit = false)
+        public DLeitores(int id = 0, bool edit = false)
         {
             InitializeComponent();
 
-            id = ID;
+            _id = id;
             if (edit == false)
-                viewMode();
-            else if (id == 0)
+                ViewMode();
+            else if (_id == 0)
             {
-                editMode();
-                addMode();
+                EditMode();
+                AddMode();
             }
             else
             {
-                viewMode();
-                editMode();
+                ViewMode();
+                EditMode();
             }
         }
 
-        private void editMode()
+        private void EditMode()
         {
-            edit = true;
-            searchNome.CBReadOnly = false;
-            searchEmail.CBReadOnly = false;
-            searchMorada.CBReadOnly = false;
-            searchTelemovel.CBReadOnly = false;
+            _edit = true;
+            searchNome.CbReadOnly = false;
+            searchEmail.CbReadOnly = false;
+            searchMorada.CbReadOnly = false;
+            searchTelemovel.CbReadOnly = false;
             buttonCancel.Visible = true;
             buttonSave.Visible = true;
             buttonEdit.Visible = false;
@@ -50,76 +50,76 @@ namespace PapeApplication
             buttonEliminar.Visible = true;
         }
 
-        private void viewMode()
+        private void ViewMode()
         {
-            mysql query = new mysql("*", "leitores", "id_leit = " + id);
-            query.read();
+            Mysql query = new Mysql("*", "leitores", "id_leit = " + _id);
+            query.Read();
 
-            searchId.CBValue = query.read("id_leit").ToString();
-            searchNome.CBValue = query.read("nome").ToString();
-            searchEmail.CBValue = query.read("email").ToString();
-            searchMorada.CBValue = query.read("morada").ToString();
-            searchTelemovel.CBValue = query.read("telemovel").ToString();
-            query.close();
+            searchId.CbValue = query.Read("id_leit").ToString();
+            searchNome.CbValue = query.Read("nome").ToString();
+            searchEmail.CbValue = query.Read("email").ToString();
+            searchMorada.CbValue = query.Read("morada").ToString();
+            searchTelemovel.CbValue = query.Read("telemovel").ToString();
+            query.Close();
 
-            edit = false;
-            searchNome.CBReadOnly = true;
-            searchEmail.CBReadOnly = true;
-            searchMorada.CBReadOnly = true;
-            searchTelemovel.CBReadOnly = true;
+            _edit = false;
+            searchNome.CbReadOnly = true;
+            searchEmail.CbReadOnly = true;
+            searchMorada.CbReadOnly = true;
+            searchTelemovel.CbReadOnly = true;
             buttonCancel.Visible = false;
             buttonSave.Visible = false;
             buttonEdit.Visible = true;
             buttonImagem.Visible = false;
             buttonEliminar.Visible = false;
 
-            if (File.Exists(Application.StartupPath + @"\leitores\" + id))
-                pictureBox1.ImageLocation = Application.StartupPath + @"\leitores\" + id;
+            if (File.Exists(Application.StartupPath + @"\leitores\" + _id))
+                pictureBox1.ImageLocation = Application.StartupPath + @"\leitores\" + _id;
         }
 
-        private void addMode()
+        private void AddMode()
         {
-            edit = false;
-            mysql query = new mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'leitores'");
-            query.read();
-            searchId.CBValue = query.read("a").ToString();
-            id = Convert.ToInt16(searchId.CBValue);
+            _edit = false;
+            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'leitores'");
+            query.Read();
+            searchId.CbValue = query.Read("a").ToString();
+            _id = Convert.ToInt16(searchId.CbValue);
             buttonEliminar.Visible = false;
-            query.close();
+            query.Close();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            editMode();
+            EditMode();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            List<string> list = checkData();
+            List<string> list = CheckData();
             string str;
             if (list.Count == 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (edit)
+                    if (_edit)
                     {
-                        str = "Nome = '" + searchNome.CBValue + "', email = '" + searchEmail.CBValue + "', morada = '" + searchMorada.CBValue + "', telemovel = '" + searchTelemovel.CBValue + "'";
-                        mysql.update("leitores", str, "id_leit = " + id.ToString());
+                        str = "Nome = '" + searchNome.CbValue + "', email = '" + searchEmail.CbValue + "', morada = '" + searchMorada.CbValue + "', telemovel = '" + searchTelemovel.CbValue + "'";
+                        Mysql.Update("leitores", str, "id_leit = " + _id.ToString());
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else
                     {
-                        str = "'" + searchNome.CBValue + "', '" + searchEmail.CBValue + "', '" + searchMorada.CBValue + "', '" + searchTelemovel.CBValue + "'";
-                        mysql.insert("leitores", "Nome, email, morada, telemovel", str);
+                        str = "'" + searchNome.CbValue + "', '" + searchEmail.CbValue + "', '" + searchMorada.CbValue + "', '" + searchTelemovel.CbValue + "'";
+                        Mysql.Insert("leitores", "Nome, email, morada, telemovel", str);
                         MessageBox.Show("Os dados foram inseridos");
                     }
                     if (File.Exists(Application.StartupPath + @"\leitores\temp"))
                     {
-                        File.Copy(Application.StartupPath + @"\leitores\temp", Application.StartupPath + @"\leitores\" + id, true);
+                        File.Copy(Application.StartupPath + @"\leitores\temp", Application.StartupPath + @"\leitores\" + _id, true);
                         File.Delete(Application.StartupPath + @"\leitores\temp");
                     }
-                    viewMode();
+                    ViewMode();
                 }
             }
             else
@@ -145,18 +145,18 @@ namespace PapeApplication
             }
         }
 
-        private List<string> checkData()
+        private List<string> CheckData()
         {
             int num;
             List<string> list = new List<string>();
 
-            if (searchNome.CBValue == "")
+            if (searchNome.CbValue == "")
                 list.Add("Nome");
-            if (searchEmail.CBValue.IndexOf('@') == -1)
+            if (searchEmail.CbValue.IndexOf('@') == -1)
                 list.Add("Email");
-            if (searchMorada.CBValue == "")
+            if (searchMorada.CbValue == "")
                 list.Add("Morada");
-            if (!int.TryParse(searchTelemovel.CBValue, out num) || num < 100000000)
+            if (!int.TryParse(searchTelemovel.CbValue, out num) || num < 100000000)
                 list.Add("Telemóvel");
 
             return list;
@@ -167,7 +167,7 @@ namespace PapeApplication
             DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                mysql.delete("leitores", "id_leit = " + id);
+                Mysql.Delete("leitores", "id_leit = " + _id);
 
                 MessageBox.Show("Registo Eliminado");
                 this.Close();
@@ -190,7 +190,7 @@ namespace PapeApplication
 
         private void dLeitores_Load(object sender, EventArgs e)
         {
-            Methods.loadFormPosition(this);
+            Methods.LoadFormPosition(this);
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PapeApplication
 {
-    public partial class funcionarios : Form
+    public partial class Funcionarios : Form
     {
-        public funcionarios()
+        public Funcionarios()
         {
             InitializeComponent();
         }

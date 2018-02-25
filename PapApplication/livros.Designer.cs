@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class livros
+    partial class Livros
     {
         /// <summary>
         /// Required designer variable.
@@ -275,15 +275,15 @@
             // searchCategoria
             // 
             this.searchCategoria.BackColor = System.Drawing.SystemColors.Control;
-            this.searchCategoria.CBCheckBoxLocked = false;
-            this.searchCategoria.CBColumnName = "Categoria";
-            this.searchCategoria.CBFormName = "categoria";
-            this.searchCategoria.CBIdColumn = "id_cate";
+            this.searchCategoria.CbCheckBoxLocked = false;
+            this.searchCategoria.CbColumnName = "Categoria";
+            this.searchCategoria.CbFormName = "categoria";
+            this.searchCategoria.CbIdColumn = "id_cate";
             this.searchCategoria.CBisChecked = false;
-            this.searchCategoria.CBReadOnly = false;
-            this.searchCategoria.CBTableName = "categorias";
-            this.searchCategoria.CBText = "Categoria";
-            this.searchCategoria.CBValue = "ID";
+            this.searchCategoria.CbReadOnly = false;
+            this.searchCategoria.CbTableName = "categorias";
+            this.searchCategoria.CbText = "Categoria";
+            this.searchCategoria.CbValue = "ID";
             this.searchCategoria.Location = new System.Drawing.Point(12, 88);
             this.searchCategoria.Name = "searchCategoria";
             this.searchCategoria.Size = new System.Drawing.Size(172, 65);
@@ -320,28 +320,28 @@
             // 
             // searchLocal1
             // 
-            this.searchLocal1.CBColumnName = "titulo";
-            this.searchLocal1.CBReadOnly = false;
-            this.searchLocal1.CBText = "Titulo";
-            this.searchLocal1.CBValue = "";
+            this.searchLocal1.CbColumnName = "titulo";
+            this.searchLocal1.CbReadOnly = false;
+            this.searchLocal1.CbText = "Titulo";
+            this.searchLocal1.CbValue = "";
             this.searchLocal1.Location = new System.Drawing.Point(12, 24);
             this.searchLocal1.Name = "searchLocal1";
             this.searchLocal1.Size = new System.Drawing.Size(136, 58);
             this.searchLocal1.TabIndex = 10;
-            this.searchLocal1.textChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchLocal1.TextChanged += new System.EventHandler(this.search_ConditionChanged);
             // 
             // searchEditora
             // 
             this.searchEditora.BackColor = System.Drawing.SystemColors.Control;
-            this.searchEditora.CBCheckBoxLocked = false;
-            this.searchEditora.CBColumnName = "Editora";
-            this.searchEditora.CBFormName = "editora";
-            this.searchEditora.CBIdColumn = "id_edit";
+            this.searchEditora.CbCheckBoxLocked = false;
+            this.searchEditora.CbColumnName = "Editora";
+            this.searchEditora.CbFormName = "editora";
+            this.searchEditora.CbIdColumn = "id_edit";
             this.searchEditora.CBisChecked = false;
-            this.searchEditora.CBReadOnly = false;
-            this.searchEditora.CBTableName = "Editoras";
-            this.searchEditora.CBText = "Editora";
-            this.searchEditora.CBValue = "ID";
+            this.searchEditora.CbReadOnly = false;
+            this.searchEditora.CbTableName = "Editoras";
+            this.searchEditora.CbText = "Editora";
+            this.searchEditora.CbValue = "ID";
             this.searchEditora.Location = new System.Drawing.Point(12, 230);
             this.searchEditora.Name = "searchEditora";
             this.searchEditora.Size = new System.Drawing.Size(172, 65);
@@ -353,15 +353,15 @@
             // searchAutor
             // 
             this.searchAutor.BackColor = System.Drawing.SystemColors.Control;
-            this.searchAutor.CBCheckBoxLocked = false;
-            this.searchAutor.CBColumnName = "Nome";
-            this.searchAutor.CBFormName = "autores";
-            this.searchAutor.CBIdColumn = "id_auto";
+            this.searchAutor.CbCheckBoxLocked = false;
+            this.searchAutor.CbColumnName = "Nome";
+            this.searchAutor.CbFormName = "autores";
+            this.searchAutor.CbIdColumn = "id_auto";
             this.searchAutor.CBisChecked = false;
-            this.searchAutor.CBReadOnly = false;
-            this.searchAutor.CBTableName = "Autores";
-            this.searchAutor.CBText = "Autor";
-            this.searchAutor.CBValue = "ID";
+            this.searchAutor.CbReadOnly = false;
+            this.searchAutor.CbTableName = "Autores";
+            this.searchAutor.CbText = "Autor";
+            this.searchAutor.CbValue = "ID";
             this.searchAutor.Location = new System.Drawing.Point(12, 159);
             this.searchAutor.Name = "searchAutor";
             this.searchAutor.Size = new System.Drawing.Size(172, 65);
@@ -389,7 +389,7 @@
             this.Controls.Add(this.p_cima);
             this.Controls.Add(this.p_baixo);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "livros";
+            this.Name = "Livros";
             this.Text = "livros";
             this.Load += new System.EventHandler(this.livros_Load);
             this.p_cima.ResumeLayout(false);

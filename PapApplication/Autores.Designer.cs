@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class autores
+    partial class Autores
     {
         /// <summary>
         /// Required designer variable.
@@ -77,27 +77,27 @@
             // 
             // searchNacionalidade
             // 
-            this.searchNacionalidade.CBColumnName = "nacionalidade";
-            this.searchNacionalidade.CBReadOnly = false;
-            this.searchNacionalidade.CBText = "Nacionalidade";
-            this.searchNacionalidade.CBValue = "";
+            this.searchNacionalidade.CbColumnName = "nacionalidade";
+            this.searchNacionalidade.CbReadOnly = false;
+            this.searchNacionalidade.CbText = "Nacionalidade";
+            this.searchNacionalidade.CbValue = "";
             this.searchNacionalidade.Location = new System.Drawing.Point(12, 88);
             this.searchNacionalidade.Name = "searchNacionalidade";
             this.searchNacionalidade.Size = new System.Drawing.Size(136, 58);
             this.searchNacionalidade.TabIndex = 11;
-            this.searchNacionalidade.textChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchNacionalidade.TextChanged += new System.EventHandler(this.search_ConditionChanged);
             // 
             // searchNome
             // 
-            this.searchNome.CBColumnName = "nome";
-            this.searchNome.CBReadOnly = false;
-            this.searchNome.CBText = "Nome";
-            this.searchNome.CBValue = "";
+            this.searchNome.CbColumnName = "nome";
+            this.searchNome.CbReadOnly = false;
+            this.searchNome.CbText = "Nome";
+            this.searchNome.CbValue = "";
             this.searchNome.Location = new System.Drawing.Point(12, 24);
             this.searchNome.Name = "searchNome";
             this.searchNome.Size = new System.Drawing.Size(136, 58);
             this.searchNome.TabIndex = 10;
-            this.searchNome.textChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchNome.TextChanged += new System.EventHandler(this.search_ConditionChanged);
             // 
             // buttonSelect
             // 
@@ -298,7 +298,7 @@
             this.Controls.Add(this.p_direita);
             this.Controls.Add(this.p_cima);
             this.Controls.Add(this.p_baixo);
-            this.Name = "autores";
+            this.Name = "Autores";
             this.Text = "Autores";
             this.Load += new System.EventHandler(this.autores_Load);
             this.p_esquerda.ResumeLayout(false);

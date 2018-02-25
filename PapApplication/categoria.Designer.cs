@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class categoria
+    partial class Categoria
     {
         /// <summary>
         /// Required designer variable.
@@ -57,15 +57,15 @@
             // 
             // searchCategoria
             // 
-            this.searchCategoria.CBColumnName = "categoria";
-            this.searchCategoria.CBReadOnly = false;
-            this.searchCategoria.CBText = "Categoria";
-            this.searchCategoria.CBValue = "";
+            this.searchCategoria.CbColumnName = "categoria";
+            this.searchCategoria.CbReadOnly = false;
+            this.searchCategoria.CbText = "Categoria";
+            this.searchCategoria.CbValue = "";
             this.searchCategoria.Location = new System.Drawing.Point(12, 24);
             this.searchCategoria.Name = "searchCategoria";
             this.searchCategoria.Size = new System.Drawing.Size(136, 58);
             this.searchCategoria.TabIndex = 10;
-            this.searchCategoria.textChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchCategoria.TextChanged += new System.EventHandler(this.search_ConditionChanged);
             // 
             // p_esquerda
             // 
@@ -278,7 +278,7 @@
             this.Controls.Add(this.p_direita);
             this.Controls.Add(this.p_cima);
             this.Controls.Add(this.p_baixo);
-            this.Name = "categoria";
+            this.Name = "Categoria";
             this.Text = "categoria";
             this.Load += new System.EventHandler(this.categoria_Load);
             this.p_esquerda.ResumeLayout(false);

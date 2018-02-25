@@ -11,39 +11,39 @@ using CBClass;
 
 namespace PapeApplication
 {
-    public partial class requisita : Form
+    public partial class Requisita : Form
     {
-        string columns = "id_requ";
-        string tables = "view_requisita";
-        string conditions = "", idli, idle;
+        string _columns = "id_requ";
+        string _tables = "view_requisita";
+        string _conditions = "", _idli, _idle;
 
-        public requisita(string idLivro = "0", string idLeitores = "0")
+        public Requisita(string idLivro = "0", string idLeitores = "0")
         {
             InitializeComponent();
 
-            idli=idLivro;
-            idle = idLeitores;
+            _idli=idLivro;
+            _idle = idLeitores;
         }
 
         private void Requisita_Load(object sender, EventArgs e)
         {
-            Methods.loadFormProperties(this);
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.LoadFormProperties(this);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
 
             searchLeitor.CBisChecked = true;
             searchLivro.CBisChecked = true;
-            searchLeitor.CBCheckBoxLocked = true;
-            searchLivro.CBCheckBoxLocked = true;
+            searchLeitor.CbCheckBoxLocked = true;
+            searchLivro.CbCheckBoxLocked = true;
 
-            if (idli != "0")
+            if (_idli != "0")
             {
-                searchLivro.CBValue = idli;
-                searchLivro.reload();
+                searchLivro.CbValue = _idli;
+                searchLivro.Reload();
             }
-            else if (idle != "0")
+            else if (_idle != "0")
             {
-                searchLeitor.CBValue = idle;
-                searchLeitor.reload();
+                searchLeitor.CbValue = _idle;
+                searchLeitor.Reload();
             }
         }
 
@@ -51,10 +51,10 @@ namespace PapeApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
-                Methods.saveFormProperties();
-                dRequisita obj = new dRequisita(Convert.ToInt32(listView.SelectedItems[0].Text));
+                Methods.SaveFormProperties();
+                DRequisita obj = new DRequisita(Convert.ToInt32(listView.SelectedItems[0].Text));
                 obj.ShowDialog();
-                Methods.updateListView(listView, columns, tables, conditions);
+                Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
@@ -64,10 +64,10 @@ namespace PapeApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
-                Methods.saveFormProperties();
-                dRequisita obj = new dRequisita(Convert.ToInt32(listView.SelectedItems[0].Text), true);
+                Methods.SaveFormProperties();
+                DRequisita obj = new DRequisita(Convert.ToInt32(listView.SelectedItems[0].Text), true);
                 obj.ShowDialog();
-                Methods.updateListView(listView, columns, tables, conditions);
+                Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
@@ -75,10 +75,10 @@ namespace PapeApplication
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Methods.saveFormProperties();
-            dRequisita obj = new dRequisita(0, true);
+            Methods.SaveFormProperties();
+            DRequisita obj = new DRequisita(0, true);
             obj.ShowDialog();
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_ConditionChanged(object sender, EventArgs e)
@@ -89,87 +89,87 @@ namespace PapeApplication
             int endPosition;
 
             if (searchLocal == null)
-                startPosition = conditions.IndexOf(search.CBIdColumn);
+                startPosition = _conditions.IndexOf(search.CbIdColumn);
             else
-                startPosition = conditions.IndexOf(searchLocal.CBColumnName);
+                startPosition = _conditions.IndexOf(searchLocal.CbColumnName);
 
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = conditions.IndexOf("AND", startPosition);
+                endPosition = _conditions.IndexOf("AND", startPosition);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1 -2 = -3
-                    conditions = conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
+                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
-                    conditions = conditions.Remove(startPosition, endPosition - startPosition + 3);
+                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            if (search != null && search.CBValue != "")// Search normal
+            if (search != null && search.CbValue != "")// Search normal
             {
-                if (conditions != "")
-                    conditions += " AND ";
-                conditions += search.CBIdColumn + " = " + search.CBValue;
+                if (_conditions != "")
+                    _conditions += " AND ";
+                _conditions += search.CbIdColumn + " = " + search.CbValue;
             }
             else if (searchLocal != null)// SearchLocal
             {
-                if (searchLocal.CBColumnName != "")
+                if (searchLocal.CbColumnName != "")
                 {
-                    if (conditions != "")
-                        conditions += " AND ";
-                    conditions += searchLocal.CBColumnName + " LIKE '%" + searchLocal.CBValue + "%'";
+                    if (_conditions != "")
+                        _conditions += " AND ";
+                    _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
                 }
             }
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_CheckBoxCheckedChange(object sender, EventArgs e)
         {
             CBClass.Controls.Search search = sender as CBClass.Controls.Search;
-            if (!search.CBCheckBoxLocked)
+            if (!search.CbCheckBoxLocked)
             {
                 if (search.CBisChecked)
                 {
-                    listView.Columns.Add(search.CBText);
-                    columns += ", " + search.CBColumnName;
+                    listView.Columns.Add(search.CbText);
+                    _columns += ", " + search.CbColumnName;
                 }
                 else
                 {
                     int i;
-                    for (i = 0; listView.Columns[i].Text != search.CBText; i++) ;
+                    for (i = 0; listView.Columns[i].Text != search.CbText; i++) ;
                     listView.Columns[i].Dispose();
-                    columns = columns.Replace(", " + search.CBColumnName, "");
+                    _columns = _columns.Replace(", " + search.CbColumnName, "");
                 }
-                Methods.updateListView(listView, columns, tables, conditions);
+                Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
         }
 
         private void ToolStrip_Click(object sender, EventArgs e)
         {
-            Methods.saveFormProperties();
+            Methods.SaveFormProperties();
             this.Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
-                case "Livros": livros a = new livros(); a.ShowDialog(); break;
-                case "Leitores": leitores b = new leitores(); b.ShowDialog(); break;
-                case "Requisitar": requisita c = new requisita(); c.ShowDialog(); break;
-                case "Autores": autores d = new autores(); d.ShowDialog(); break;
-                case "Categorias": categoria f = new categoria(); f.ShowDialog(); break;
-                case "Editoras": editora g = new editora(); g.ShowDialog(); break;
-                case "Funcionários": funcionarios h = new funcionarios(); h.ShowDialog(); break;
+                case "Livros": Livros a = new Livros(); a.ShowDialog(); break;
+                case "Leitores": Leitores b = new Leitores(); b.ShowDialog(); break;
+                case "Requisitar": Requisita c = new Requisita(); c.ShowDialog(); break;
+                case "Autores": Autores d = new Autores(); d.ShowDialog(); break;
+                case "Categorias": Categoria f = new Categoria(); f.ShowDialog(); break;
+                case "Editoras": Editora g = new Editora(); g.ShowDialog(); break;
+                case "Funcionários": Funcionarios h = new Funcionarios(); h.ShowDialog(); break;
             }
         }
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
             CBClass.Controls.Search search = sender as CBClass.Controls.Search;
-            Methods.saveFormProperties();
+            Methods.SaveFormProperties();
 
-            switch (search.CBFormName)
+            switch (search.CbFormName)
             {
-                case "livros": livros a = new livros(true); a.ShowDialog(); break;
-                case "leitores": leitores b = new leitores(true); b.ShowDialog(); break;
+                case "livros": Livros a = new Livros(true); a.ShowDialog(); break;
+                case "leitores": Leitores b = new Leitores(true); b.ShowDialog(); break;
             }
-            search.CBValue = Variables.returnValue.ToString();
-            search.reload();
-            Variables.returnValue = 0;
+            search.CbValue = Variables.ReturnValue.ToString();
+            search.Reload();
+            Variables.ReturnValue = 0;
         }
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
@@ -177,41 +177,41 @@ namespace PapeApplication
             int startPosition;
             int endPosition;
 
-            startPosition = conditions.IndexOf("data_devo");
+            startPosition = _conditions.IndexOf("data_devo");
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = conditions.IndexOf("AND", startPosition);
+                endPosition = _conditions.IndexOf("AND", startPosition);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1
-                    conditions = conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
+                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
-                    conditions = conditions.Remove(startPosition, endPosition - startPosition + 3);
+                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            startPosition = conditions.IndexOf("data_entr");
+            startPosition = _conditions.IndexOf("data_entr");
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = conditions.IndexOf("AND", startPosition);
+                endPosition = _conditions.IndexOf("AND", startPosition);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1
-                    conditions = conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
+                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
-                    conditions = conditions.Remove(startPosition, endPosition - startPosition + 3);
+                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
             if (!radioTodos.Checked)
             {
-                if (conditions != "")
-                    conditions += " AND ";
-                conditions += "data_devo IS ";
+                if (_conditions != "")
+                    _conditions += " AND ";
+                _conditions += "data_devo IS ";
                 if (radioNaBiblioteca.Checked)
-                    conditions += "NOT null";
+                    _conditions += "NOT null";
                 else
-                    conditions += "null";
+                    _conditions += "null";
 
                 if (radioAtraso.Checked)
-                    conditions += " AND data_entr < CURRENT_DATE";
+                    _conditions += " AND data_entr < CURRENT_DATE";
 
             }
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
     }
 }

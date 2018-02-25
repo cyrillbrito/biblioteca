@@ -11,116 +11,116 @@ using CBClass;
 
 namespace PapeApplication
 {
-    public partial class dLivros : Form
+    public partial class DLivros : Form
     {
-        int id;
-        bool edit = false;
+        int _id;
+        bool _edit = false;
 
-        public dLivros(int ID = 0, bool edit = false)
+        public DLivros(int id = 0, bool edit = false)
         {
             InitializeComponent();
 
-            id = ID;
+            _id = id;
             if (edit == false)
-                viewMode();
-            else if (id == 0)
+                ViewMode();
+            else if (_id == 0)
             {
-                editMode();
-                addMode();
+                EditMode();
+                AddMode();
             }
             else
             {
-                viewMode();
-                editMode();
+                ViewMode();
+                EditMode();
             }
         }
 
         private void dLivros_Load(object sender, EventArgs e)
         {
-            Methods.loadFormPosition(this);
+            Methods.LoadFormPosition(this);
         }
 
-        private void editMode()
+        private void EditMode()
         {
-            edit = true;
-            searchTitulo.CBReadOnly = false;
-            searchPaginas.CBReadOnly = false;
-            searchCategoria.CBReadOnly = false;
-            searchAutor.CBReadOnly = false;
-            searchEditora.CBReadOnly = false;
-            searchData.CBReadOnly = false;
+            _edit = true;
+            searchTitulo.CbReadOnly = false;
+            searchPaginas.CbReadOnly = false;
+            searchCategoria.CbReadOnly = false;
+            searchAutor.CbReadOnly = false;
+            searchEditora.CbReadOnly = false;
+            searchData.CbReadOnly = false;
             buttonCancel.Visible = true;
             buttonSave.Visible = true;
             buttonEdit.Visible = false;
             buttonEliminar.Visible = true;
         }
 
-        private void viewMode()
+        private void ViewMode()
         {
-            mysql query = new mysql("*", "livros", "id_livr = " + id);
-            query.read();
+            Mysql query = new Mysql("*", "livros", "id_livr = " + _id);
+            query.Read();
 
-            searchId.CBValue = query.read("id_livr").ToString();
-            searchTitulo.CBValue = query.read("titulo").ToString();
-            searchPaginas.CBValue = query.read("n_pagi").ToString();
-            searchCategoria.CBValue = query.read("id_cate").ToString();
-            searchAutor.CBValue = query.read("id_auto").ToString();
-            searchEditora.CBValue = query.read("id_edit").ToString();
-            searchEditora.CBValue = query.read("id_edit").ToString();
-            searchData.CBValue = query.read("data_lanc").ToString();
-            query.close();
+            searchId.CbValue = query.Read("id_livr").ToString();
+            searchTitulo.CbValue = query.Read("titulo").ToString();
+            searchPaginas.CbValue = query.Read("n_pagi").ToString();
+            searchCategoria.CbValue = query.Read("id_cate").ToString();
+            searchAutor.CbValue = query.Read("id_auto").ToString();
+            searchEditora.CbValue = query.Read("id_edit").ToString();
+            searchEditora.CbValue = query.Read("id_edit").ToString();
+            searchData.CbValue = query.Read("data_lanc").ToString();
+            query.Close();
 
-            edit = false;
-            searchTitulo.CBReadOnly = true;
-            searchPaginas.CBReadOnly = true;
-            searchCategoria.CBReadOnly = true;
-            searchAutor.CBReadOnly = true;
-            searchEditora.CBReadOnly = true;
-            searchData.CBReadOnly = true;
+            _edit = false;
+            searchTitulo.CbReadOnly = true;
+            searchPaginas.CbReadOnly = true;
+            searchCategoria.CbReadOnly = true;
+            searchAutor.CbReadOnly = true;
+            searchEditora.CbReadOnly = true;
+            searchData.CbReadOnly = true;
             buttonCancel.Visible = false;
             buttonSave.Visible = false;
             buttonEdit.Visible = true;
             buttonEliminar.Visible = false;
         }
 
-        private void addMode()
+        private void AddMode()
         {
-            edit = false;
-            mysql query = new mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'livros'");
-            query.read();
-            searchId.CBValue = query.read("a").ToString();
-            id = Convert.ToInt16(searchId.CBValue);
+            _edit = false;
+            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'livros'");
+            query.Read();
+            searchId.CbValue = query.Read("a").ToString();
+            _id = Convert.ToInt16(searchId.CbValue);
             buttonEliminar.Visible = false;
-            query.close();
+            query.Close();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            editMode();
+            EditMode();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            List<string> list = checkData();
+            List<string> list = CheckData();
             string str;
             if (list.Count == 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (edit)
+                    if (_edit)
                     {
-                        str = "titulo = '" + searchTitulo.CBValue + "', n_pagi = '" + searchPaginas.CBValue + "', id_cate = '" + searchCategoria.CBValue + "', id_auto = '" + searchAutor.CBValue + "', id_edit = '" + searchEditora.CBValue + "', data_lanc = '" + searchData.CBValue + "'";
-                        mysql.update("livros", str, "id_livr = " + id.ToString());
+                        str = "titulo = '" + searchTitulo.CbValue + "', n_pagi = '" + searchPaginas.CbValue + "', id_cate = '" + searchCategoria.CbValue + "', id_auto = '" + searchAutor.CbValue + "', id_edit = '" + searchEditora.CbValue + "', data_lanc = '" + searchData.CbValue + "'";
+                        Mysql.Update("livros", str, "id_livr = " + _id.ToString());
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else
                     {
-                        str = "'" + searchTitulo.CBValue + "', '" + searchPaginas.CBValue + "', '" + searchCategoria.CBValue + "', '" + searchAutor.CBValue + "', '" + searchEditora.CBValue + "', '" + searchData.CBValue + "'";
-                        mysql.insert("livros", "titulo, n_pagi, id_cate, id_auto, id_edit, data_lanc", str);
+                        str = "'" + searchTitulo.CbValue + "', '" + searchPaginas.CbValue + "', '" + searchCategoria.CbValue + "', '" + searchAutor.CbValue + "', '" + searchEditora.CbValue + "', '" + searchData.CbValue + "'";
+                        Mysql.Insert("livros", "titulo, n_pagi, id_cate, id_auto, id_edit, data_lanc", str);
                         MessageBox.Show("Os dados foram inseridos");
                     }
-                    viewMode();
+                    ViewMode();
                 }
             }
             else
@@ -142,20 +142,20 @@ namespace PapeApplication
                 this.Close();
         }
 
-        private List<string> checkData()
+        private List<string> CheckData()
         {
             int num;
             List<string> list = new List<string>();
 
-            if (searchTitulo.CBValue == "")
+            if (searchTitulo.CbValue == "")
                 list.Add("Titulo");
-            if (!int.TryParse(searchPaginas.CBValue, out num) || num <= 0)
+            if (!int.TryParse(searchPaginas.CbValue, out num) || num <= 0)
                 list.Add("Paginas");
-            if (searchCategoria.CBValue == "ID")
+            if (searchCategoria.CbValue == "ID")
                 list.Add("Categoria");
-            if (searchAutor.CBValue == "ID")
+            if (searchAutor.CbValue == "ID")
                 list.Add("Autor");
-            if (searchEditora.CBValue == "ID")
+            if (searchEditora.CbValue == "ID")
                 list.Add("Editora");
 
             return list;
@@ -165,15 +165,15 @@ namespace PapeApplication
         {
             CBClass.Controls.Search search = sender as CBClass.Controls.Search;
 
-            switch (search.CBFormName)
+            switch (search.CbFormName)
             {
-                case "categoria": categoria a = new categoria(true); a.ShowDialog(); break;
-                case "autores": autores b = new autores(true); b.ShowDialog(); break;
-                case "editora": editora c = new editora(true); c.ShowDialog(); break;
+                case "categoria": Categoria a = new Categoria(true); a.ShowDialog(); break;
+                case "autores": Autores b = new Autores(true); b.ShowDialog(); break;
+                case "editora": Editora c = new Editora(true); c.ShowDialog(); break;
             }
-            search.CBValue = Variables.returnValue.ToString();
-            search.reload();
-            Variables.returnValue = 0;
+            search.CbValue = Variables.ReturnValue.ToString();
+            search.Reload();
+            Variables.ReturnValue = 0;
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
@@ -181,7 +181,7 @@ namespace PapeApplication
             DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                mysql.delete("livros", "id_livr = " + id);
+                Mysql.Delete("livros", "id_livr = " + _id);
 
                 MessageBox.Show("Registo Eliminado");
                 this.Close();

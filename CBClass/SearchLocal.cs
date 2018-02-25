@@ -12,31 +12,31 @@ namespace CBClass
 {
     public partial class SearchLocal : UserControl
     {
-        string columnName;
+        string _columnName;
         
         [Description("Text that will appear"), Category("CB")]
-        public string CBText
+        public string CbText
         {
             get { return label.Text; }
             set { label.Text = value; }
         }
 
         [Description("Name of the column in the DataBase"), Category("CB")]
-        public string CBColumnName
+        public string CbColumnName
         {
-            get { return columnName; }
-            set { columnName = value; }
+            get { return _columnName; }
+            set { _columnName = value; }
         }
 
         [Description("Name of the form to serach"), Category("CB")]
-        public string CBValue
+        public string CbValue
         {
             get { return textBox.Text; }
             set { textBox.Text = value; }
         }
 
         [Description("Name of the form to serach"), Category("CB")]
-        public bool CBReadOnly
+        public bool CbReadOnly
         {
             get { return textBox.ReadOnly; }
             set { textBox.ReadOnly = value; }
@@ -47,11 +47,11 @@ namespace CBClass
             InitializeComponent();
         }
 
-        public event EventHandler textChanged;
+        public event EventHandler TextChanged;
         protected void textBox_TextChanged(object sender, EventArgs e)
         {
-            if (this.textChanged != null)
-                this.textChanged(this, e);   
+            if (this.TextChanged != null)
+                this.TextChanged(this, e);   
         }
     }
 }

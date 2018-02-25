@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class funcionarios
+    partial class Funcionarios
     {
         /// <summary>
         /// Required designer variable.

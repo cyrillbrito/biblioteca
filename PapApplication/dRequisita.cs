@@ -11,45 +11,45 @@ using CBClass;
 
 namespace PapeApplication
 {
-    public partial class dRequisita : Form
+    public partial class DRequisita : Form
     {
-        int id;
-        string id2;
-        bool edit = false;
+        int _id;
+        string _id2;
+        bool _edit = false;
 
-        public dRequisita(int ID = 0, bool edit = false)
+        public DRequisita(int id = 0, bool edit = false)
         {
             InitializeComponent();
 
-            id = ID;
+            _id = id;
             if (edit == false)
-                viewMode();
-            else if (id == 0)
+                ViewMode();
+            else if (_id == 0)
             {
-                editMode();
-                addMode();
+                EditMode();
+                AddMode();
             }
             else
             {
-                viewMode();
-                editMode();
+                ViewMode();
+                EditMode();
             }
         }
 
         private void dRequisita_Load(object sender, EventArgs e)
         {
-            Methods.loadFormPosition(this);
+            Methods.LoadFormPosition(this);
         }
 
-        private void editMode()
+        private void EditMode()
         {
-            id2 = searchLivro.CBValue;
-            edit = true;
-            searchLivro.CBReadOnly = false;
-            searchLeitor.CBReadOnly = false;
-            searchRequisita.CBReadOnly = false;
-            searchEntrega.CBReadOnly = false;
-            searchDevolucao.CBReadOnly = false;
+            _id2 = searchLivro.CbValue;
+            _edit = true;
+            searchLivro.CbReadOnly = false;
+            searchLeitor.CbReadOnly = false;
+            searchRequisita.CbReadOnly = false;
+            searchEntrega.CbReadOnly = false;
+            searchDevolucao.CbReadOnly = false;
             buttonCancel.Visible = true;
             buttonSave.Visible = true;
             buttonEdit.Visible = false;
@@ -58,19 +58,19 @@ namespace PapeApplication
             buttonEliminar.Visible = true;
         }
 
-        private void viewMode()
+        private void ViewMode()
         {
-            mysql query = new mysql("*", "view_requisita", "id_requ = " + id);
+            Mysql query = new Mysql("*", "view_requisita", "id_requ = " + _id);
 
-            query.read();
+            query.Read();
 
-            searchId.CBValue = query.read("id_requ").ToString();
-            searchLivro.CBValue = query.read("id_livr").ToString();
-            searchLeitor.CBValue = query.read("id_leit").ToString();
-            searchRequisita.CBValue = query.read("data_requ").ToString();
-            searchEntrega.CBValue = query.read("data_entr").ToString();
+            searchId.CbValue = query.Read("id_requ").ToString();
+            searchLivro.CbValue = query.Read("id_livr").ToString();
+            searchLeitor.CbValue = query.Read("id_leit").ToString();
+            searchRequisita.CbValue = query.Read("data_requ").ToString();
+            searchEntrega.CbValue = query.Read("data_entr").ToString();
 
-            if (query.read("data_devo").ToString() == "")
+            if (query.Read("data_devo").ToString() == "")
             {
                 searchDevolucao.Visible = false;
                 label1.Visible = true;
@@ -81,72 +81,72 @@ namespace PapeApplication
             {
                 searchDevolucao.Visible = true;
                 label1.Visible = false;
-                searchDevolucao.CBValue = query.read("data_devo").ToString();
+                searchDevolucao.CbValue = query.Read("data_devo").ToString();
                 buttonEntregar.Visible = false;
                 buttonEstender.Visible = false;
             }
-            query.close();
+            query.Close();
 
-            edit = false;
-            searchLivro.CBReadOnly = true;
-            searchLeitor.CBReadOnly = true;
-            searchRequisita.CBReadOnly = true;
-            searchEntrega.CBReadOnly = true;
-            searchDevolucao.CBReadOnly = true;
+            _edit = false;
+            searchLivro.CbReadOnly = true;
+            searchLeitor.CbReadOnly = true;
+            searchRequisita.CbReadOnly = true;
+            searchEntrega.CbReadOnly = true;
+            searchDevolucao.CbReadOnly = true;
             buttonCancel.Visible = false;
             buttonSave.Visible = false;
             buttonEdit.Visible = true;
             buttonEliminar.Visible = false;
         }
 
-        private void addMode()
+        private void AddMode()
         {
-            edit = false;
-            mysql query = new mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'requisita'");
-            query.read();
-            searchId.CBValue = query.read("a").ToString();
-            id = Convert.ToInt16(searchId.CBValue);
-            query.close();
+            _edit = false;
+            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'requisita'");
+            query.Read();
+            searchId.CbValue = query.Read("a").ToString();
+            _id = Convert.ToInt16(searchId.CbValue);
+            query.Close();
 
-            searchRequisita.CBValue = DateTime.Today.ToString("yyyy-MM-dd");
-            searchEntrega.CBValue = DateTime.Today.AddDays(15).ToString("yyyy-MM-dd"); ;
+            searchRequisita.CbValue = DateTime.Today.ToString("yyyy-MM-dd");
+            searchEntrega.CbValue = DateTime.Today.AddDays(15).ToString("yyyy-MM-dd"); ;
             searchDevolucao.Visible = false;
-            searchRequisita.CBReadOnly = true;
-            searchEntrega.CBReadOnly = true;
+            searchRequisita.CbReadOnly = true;
+            searchEntrega.CbReadOnly = true;
             buttonEliminar.Visible = false;
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            editMode();
+            EditMode();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            List<string> list = checkData();
+            List<string> list = CheckData();
             string str;
             if (list.Count == 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (edit)
+                    if (_edit)
                     {
-                        str = "id_livr = '" + searchLivro.CBValue + "', id_leit = '" + searchLeitor.CBValue + "', data_entr = '" + searchEntrega.CBValue + "', data_requ = '" + searchRequisita.CBValue + "'";
+                        str = "id_livr = '" + searchLivro.CbValue + "', id_leit = '" + searchLeitor.CbValue + "', data_entr = '" + searchEntrega.CbValue + "', data_requ = '" + searchRequisita.CbValue + "'";
                         if (searchDevolucao.Visible)
-                            str += ", data_devo = '" + searchDevolucao.CBValue + "'";
+                            str += ", data_devo = '" + searchDevolucao.CbValue + "'";
 
-                        mysql.update("requisita", str, "id_requ = " + id.ToString());
+                        Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else
                     {
-                        str = "'" + searchLivro.CBValue + "', '" + searchLeitor.CBValue + "', '" + searchRequisita.CBValue + "', '" + searchEntrega.CBValue + "', '" + Variables.funcId.ToString() + "'";
-                        mysql.insert("requisita", "id_livr, id_leit, data_requ, data_entr, id_func", str);
-                        mysql.update("livros", "requisitado = 1", "id_livr = " + searchLivro.CBValue);
+                        str = "'" + searchLivro.CbValue + "', '" + searchLeitor.CbValue + "', '" + searchRequisita.CbValue + "', '" + searchEntrega.CbValue + "', '" + Variables.FuncId.ToString() + "'";
+                        Mysql.Insert("requisita", "id_livr, id_leit, data_requ, data_entr, id_func", str);
+                        Mysql.Update("livros", "requisitado = 1", "id_livr = " + searchLivro.CbValue);
                         MessageBox.Show("Os dados foram inseridos");
                     }
-                    viewMode();
+                    ViewMode();
                 }
             }
             else
@@ -168,28 +168,28 @@ namespace PapeApplication
                 this.Close();
         }
 
-        private List<string> checkData()
+        private List<string> CheckData()
         {
             List<string> list = new List<string>();
-            mysql query;
+            Mysql query;
 
-            if (searchLivro.CBValue == "ID")
+            if (searchLivro.CbValue == "ID")
             {
                 list.Add("Livro");
             }
             else
             {
-                query = new mysql("requisitado", "livros", "id_livr = " + searchLivro.CBValue);
-                query.read();
-                if (Convert.ToBoolean(query.read("requisitado")) && id2 != searchLivro.CBValue)
+                query = new Mysql("requisitado", "livros", "id_livr = " + searchLivro.CbValue);
+                query.Read();
+                if (Convert.ToBoolean(query.Read("requisitado")) && _id2 != searchLivro.CbValue)
                     list.Add("O livro já está requisitado");
-                query.close();
+                query.Close();
             }
 
-            if (searchLeitor.CBValue == "ID")
+            if (searchLeitor.CbValue == "ID")
                 list.Add("Leitor");
 
-            if (DateTime.Compare(Convert.ToDateTime(searchRequisita.CBValue), Convert.ToDateTime(searchEntrega.CBValue)) >= 0)
+            if (DateTime.Compare(Convert.ToDateTime(searchRequisita.CbValue), Convert.ToDateTime(searchEntrega.CbValue)) >= 0)
                 list.Add("Data de requisição ou data limite de entraga");
 
 
@@ -202,10 +202,10 @@ namespace PapeApplication
             if (dialogResult == DialogResult.Yes)
             {
                 string str = "data_devo = '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
-                mysql.update("requisita", str, "id_requ = " + id.ToString());
-                mysql.update("livros", "requisitado = 0", "id_livr = " + searchLivro.CBValue);
+                Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
+                Mysql.Update("livros", "requisitado = 0", "id_livr = " + searchLivro.CbValue);
                 MessageBox.Show("Livro entregue.");
-                viewMode();
+                ViewMode();
             }
         }
 
@@ -214,15 +214,15 @@ namespace PapeApplication
             DialogResult dialogResult = MessageBox.Show("Pretende estender a data de entrega do livro em uma semana?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                mysql query = new mysql("data_entr", "requisita", "id_requ = " + id);
-                query.read();
+                Mysql query = new Mysql("data_entr", "requisita", "id_requ = " + _id);
+                query.Read();
 
-                string str = "data_entr = '" + Convert.ToDateTime(query.read("data_entr")).AddDays(7).ToString("yyyy-MM-dd") + "'";
-                query.close();
-                mysql.update("requisita", str, "id_requ = " + id.ToString());
+                string str = "data_entr = '" + Convert.ToDateTime(query.Read("data_entr")).AddDays(7).ToString("yyyy-MM-dd") + "'";
+                query.Close();
+                Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
 
                 MessageBox.Show("Livro entregue.");
-                viewMode();
+                ViewMode();
             }
         }
 
@@ -230,14 +230,14 @@ namespace PapeApplication
         {
             CBClass.Controls.Search search = sender as CBClass.Controls.Search;
 
-            switch (search.CBFormName)
+            switch (search.CbFormName)
             {
-                case "livros": livros a = new livros(true); a.ShowDialog(); break;
-                case "leitores": leitores b = new leitores(true); b.ShowDialog(); break;
+                case "livros": Livros a = new Livros(true); a.ShowDialog(); break;
+                case "leitores": Leitores b = new Leitores(true); b.ShowDialog(); break;
             }
-            search.CBValue = Variables.returnValue.ToString();
-            search.reload();
-            Variables.returnValue = 0;
+            search.CbValue = Variables.ReturnValue.ToString();
+            search.Reload();
+            Variables.ReturnValue = 0;
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
@@ -245,7 +245,7 @@ namespace PapeApplication
             DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                mysql.delete("requisita", "id_requ = " + id);
+                Mysql.Delete("requisita", "id_requ = " + _id);
 
                 MessageBox.Show("Registo Eliminado");
                 this.Close();

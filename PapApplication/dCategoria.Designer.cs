@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class dCategoria
+    partial class DCategoria
     {
         /// <summary>
         /// Required designer variable.
@@ -82,10 +82,10 @@
             // 
             // searchCategoria
             // 
-            this.searchCategoria.CBColumnName = "categoria";
-            this.searchCategoria.CBReadOnly = true;
-            this.searchCategoria.CBText = "Categoria";
-            this.searchCategoria.CBValue = "";
+            this.searchCategoria.CbColumnName = "categoria";
+            this.searchCategoria.CbReadOnly = true;
+            this.searchCategoria.CbText = "Categoria";
+            this.searchCategoria.CbValue = "";
             this.searchCategoria.Location = new System.Drawing.Point(12, 76);
             this.searchCategoria.Name = "searchCategoria";
             this.searchCategoria.Size = new System.Drawing.Size(136, 58);
@@ -93,10 +93,10 @@
             // 
             // searchId
             // 
-            this.searchId.CBColumnName = "id_livr";
-            this.searchId.CBReadOnly = true;
-            this.searchId.CBText = "ID";
-            this.searchId.CBValue = "";
+            this.searchId.CbColumnName = "id_livr";
+            this.searchId.CbReadOnly = true;
+            this.searchId.CbText = "ID";
+            this.searchId.CbValue = "";
             this.searchId.Location = new System.Drawing.Point(12, 12);
             this.searchId.Name = "searchId";
             this.searchId.Size = new System.Drawing.Size(136, 58);
@@ -128,7 +128,7 @@
             this.Controls.Add(this.searchId);
             this.Controls.Add(this.buttonEliminar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "dCategoria";
+            this.Name = "DCategoria";
             this.Text = "dCategoria";
             this.Load += new System.EventHandler(this.dCategoria_Load);
             this.ResumeLayout(false);

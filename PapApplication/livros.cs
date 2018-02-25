@@ -11,66 +11,66 @@ using CBClass;
 
 namespace PapeApplication
 {
-    public partial class livros : Form
+    public partial class Livros : Form
     {
-        string columns = "id_livr, titulo";
-        string tables = "view_livros";
-        string conditions = "", idc, ida, ide;
-        bool select;
+        string _columns = "id_livr, titulo";
+        string _tables = "view_livros";
+        string _conditions = "", _idc, _ida, _ide;
+        bool _select;
 
-        public livros(bool Select = false, string idCate = "0", string idAuto = "0", string idEdit = "0")
+        public Livros(bool @select = false, string idCate = "0", string idAuto = "0", string idEdit = "0")
         {
             InitializeComponent();
-            select = Select;
+            _select = @select;
 
-            idc = idCate;
-            ida = idAuto;
-            ide = idEdit;
+            _idc = idCate;
+            _ida = idAuto;
+            _ide = idEdit;
         }
 
         private void livros_Load(object sender, EventArgs e)
         {
-            if (select)
+            if (_select)
             {
                 menuStrip1.Visible = false;
                 buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
                 this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                Methods.loadFormProperties(this, true);
+                Methods.LoadFormProperties(this, true);
                 label1.Text = "Selecionar Livro";
             }
             else
-                Methods.loadFormProperties(this);
+                Methods.LoadFormProperties(this);
 
-            if (idc != "0")
+            if (_idc != "0")
             {
-                searchCategoria.CBValue = idc;
-                searchCategoria.reload();
+                searchCategoria.CbValue = _idc;
+                searchCategoria.Reload();
                 searchCategoria.CBisChecked = true;
             }
-            else if (ida != "0")
+            else if (_ida != "0")
             {
-                searchAutor.CBValue = ida;
-                searchAutor.reload();
+                searchAutor.CbValue = _ida;
+                searchAutor.Reload();
                 searchAutor.CBisChecked = true;
             }
-            else if (ide != "0")
+            else if (_ide != "0")
             {
-                searchEditora.CBValue = ide;
-                searchEditora.reload();
+                searchEditora.CbValue = _ide;
+                searchEditora.Reload();
                 searchEditora.CBisChecked = true;
             }
 
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void buttonDetails_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
-                Methods.saveFormProperties();
-                dLivros obj = new dLivros(Convert.ToInt32(listView.SelectedItems[0].Text));
+                Methods.SaveFormProperties();
+                DLivros obj = new DLivros(Convert.ToInt32(listView.SelectedItems[0].Text));
                 obj.ShowDialog();
-                Methods.updateListView(listView, columns, tables, conditions);
+                Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
@@ -80,10 +80,10 @@ namespace PapeApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
-                Methods.saveFormProperties();
-                dLivros obj = new dLivros(Convert.ToInt32(listView.SelectedItems[0].Text), true);
+                Methods.SaveFormProperties();
+                DLivros obj = new DLivros(Convert.ToInt32(listView.SelectedItems[0].Text), true);
                 obj.ShowDialog();
-                Methods.updateListView(listView, columns, tables, conditions);
+                Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
@@ -91,10 +91,10 @@ namespace PapeApplication
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Methods.saveFormProperties();
-            dLivros obj = new dLivros(0, true);
+            Methods.SaveFormProperties();
+            DLivros obj = new DLivros(0, true);
             obj.ShowDialog();
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_ConditionChanged(object sender, EventArgs e)
@@ -105,35 +105,35 @@ namespace PapeApplication
             int endPosition;
 
             if (searchLocal == null)
-                startPosition = conditions.IndexOf(search.CBIdColumn);
+                startPosition = _conditions.IndexOf(search.CbIdColumn);
             else
-                startPosition = conditions.IndexOf(searchLocal.CBColumnName);
+                startPosition = _conditions.IndexOf(searchLocal.CbColumnName);
 
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = conditions.IndexOf("AND", startPosition);
+                endPosition = _conditions.IndexOf("AND", startPosition);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1 -2 = -3
-                    conditions = conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
+                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
-                    conditions = conditions.Remove(startPosition, endPosition - startPosition + 3);
+                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            if (search != null && search.CBValue != "")// Search normal
+            if (search != null && search.CbValue != "")// Search normal
             {
-                if (conditions != "")
-                    conditions += " AND ";
-                conditions += search.CBIdColumn + " = " + search.CBValue;
+                if (_conditions != "")
+                    _conditions += " AND ";
+                _conditions += search.CbIdColumn + " = " + search.CbValue;
             }
             else if (searchLocal != null)// SearchLocal
             {
-                if (searchLocal.CBColumnName != "")
+                if (searchLocal.CbColumnName != "")
                 {
-                    if (conditions != "")
-                        conditions += " AND ";
-                    conditions += searchLocal.CBColumnName + " LIKE '%" + searchLocal.CBValue + "%'";
+                    if (_conditions != "")
+                        _conditions += " AND ";
+                    _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
                 }
             }
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_CheckBoxCheckedChange(object sender, EventArgs e)
@@ -141,32 +141,32 @@ namespace PapeApplication
             CBClass.Controls.Search search = sender as CBClass.Controls.Search;
             if (search.CBisChecked)
             {
-                listView.Columns.Add(search.CBText);
-                columns += ", " + search.CBColumnName;
+                listView.Columns.Add(search.CbText);
+                _columns += ", " + search.CbColumnName;
             }
             else
             {
                 int i;
-                for (i = 0; listView.Columns[i].Text != search.CBText; i++) ;
+                for (i = 0; listView.Columns[i].Text != search.CbText; i++) ;
                 listView.Columns[i].Dispose();
-                columns = columns.Replace(", " + search.CBColumnName, "");
+                _columns = _columns.Replace(", " + search.CbColumnName, "");
             }
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void ToolStrip_Click(object sender, EventArgs e)
         {
-            Methods.saveFormProperties();
+            Methods.SaveFormProperties();
             this.Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
-                case "Livros": livros a = new livros(); a.ShowDialog(); break;
-                case "Leitores": leitores b = new leitores(); b.ShowDialog(); break;
-                case "Requisitar": requisita c = new requisita(); c.ShowDialog(); break;
-                case "Autores": autores d = new autores(); d.ShowDialog(); break;
-                case "Categorias": categoria f = new categoria(); f.ShowDialog(); break;
-                case "Editoras": editora g = new editora(); g.ShowDialog(); break;
-                case "Funcionários": funcionarios h = new funcionarios(); h.ShowDialog(); break;
+                case "Livros": Livros a = new Livros(); a.ShowDialog(); break;
+                case "Leitores": Leitores b = new Leitores(); b.ShowDialog(); break;
+                case "Requisitar": Requisita c = new Requisita(); c.ShowDialog(); break;
+                case "Autores": Autores d = new Autores(); d.ShowDialog(); break;
+                case "Categorias": Categoria f = new Categoria(); f.ShowDialog(); break;
+                case "Editoras": Editora g = new Editora(); g.ShowDialog(); break;
+                case "Funcionários": Funcionarios h = new Funcionarios(); h.ShowDialog(); break;
             }
         }
 
@@ -174,16 +174,16 @@ namespace PapeApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
-                if (select)
+                if (_select)
                 {
-                    Variables.returnValue = Convert.ToInt32(listView.SelectedItems[0].Text);
+                    Variables.ReturnValue = Convert.ToInt32(listView.SelectedItems[0].Text);
                     this.Close();
                 }
                 else
                 {
-                    Methods.saveFormProperties();
+                    Methods.SaveFormProperties();
 
-                    requisita c = new requisita(listView.SelectedItems[0].Text);
+                    Requisita c = new Requisita(listView.SelectedItems[0].Text);
                     this.Hide();
                     c.ShowDialog();
                 }
@@ -197,43 +197,43 @@ namespace PapeApplication
             int startPosition;
             int endPosition;
 
-            startPosition = conditions.IndexOf("requisitado");
+            startPosition = _conditions.IndexOf("requisitado");
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = conditions.IndexOf("AND", startPosition);
+                endPosition = _conditions.IndexOf("AND", startPosition);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1
-                    conditions = conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
+                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
-                    conditions = conditions.Remove(startPosition, endPosition - startPosition + 3);
+                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
             if (!radioTodos.Checked)
             {
-                if (conditions != "")
-                    conditions += " AND ";
-                conditions += "requisitado = ";
+                if (_conditions != "")
+                    _conditions += " AND ";
+                _conditions += "requisitado = ";
                 if (radioRequisitado.Checked)
-                    conditions += "1";
+                    _conditions += "1";
                 else
-                    conditions += "0";
+                    _conditions += "0";
             }
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
             CBClass.Controls.Search search = sender as CBClass.Controls.Search;
-            Methods.saveFormProperties();
+            Methods.SaveFormProperties();
 
-            switch (search.CBFormName)
+            switch (search.CbFormName)
             {
-                case "categoria": categoria a = new categoria(true); a.ShowDialog(); break;
-                case "autores": autores b = new autores(true); b.ShowDialog(); break;
-                case "editora": editora c = new editora(true); c.ShowDialog(); break;
+                case "categoria": Categoria a = new Categoria(true); a.ShowDialog(); break;
+                case "autores": Autores b = new Autores(true); b.ShowDialog(); break;
+                case "editora": Editora c = new Editora(true); c.ShowDialog(); break;
             }
-            search.CBValue = Variables.returnValue.ToString();
-            search.reload();
-            Variables.returnValue = 0;
+            search.CbValue = Variables.ReturnValue.ToString();
+            search.Reload();
+            Variables.ReturnValue = 0;
         }
     }
 }

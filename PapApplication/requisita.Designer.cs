@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class requisita
+    partial class Requisita
     {
         /// <summary>
         /// Required designer variable.
@@ -119,15 +119,15 @@
             // searchLeitor
             // 
             this.searchLeitor.BackColor = System.Drawing.SystemColors.Control;
-            this.searchLeitor.CBCheckBoxLocked = false;
-            this.searchLeitor.CBColumnName = "Nome";
-            this.searchLeitor.CBFormName = "leitores";
-            this.searchLeitor.CBIdColumn = "id_leit";
+            this.searchLeitor.CbCheckBoxLocked = false;
+            this.searchLeitor.CbColumnName = "Nome";
+            this.searchLeitor.CbFormName = "leitores";
+            this.searchLeitor.CbIdColumn = "id_leit";
             this.searchLeitor.CBisChecked = false;
-            this.searchLeitor.CBReadOnly = false;
-            this.searchLeitor.CBTableName = "leitores";
-            this.searchLeitor.CBText = "Leitor";
-            this.searchLeitor.CBValue = "ID";
+            this.searchLeitor.CbReadOnly = false;
+            this.searchLeitor.CbTableName = "leitores";
+            this.searchLeitor.CbText = "Leitor";
+            this.searchLeitor.CbValue = "ID";
             this.searchLeitor.Location = new System.Drawing.Point(12, 95);
             this.searchLeitor.Name = "searchLeitor";
             this.searchLeitor.Size = new System.Drawing.Size(172, 65);
@@ -153,15 +153,15 @@
             // searchLivro
             // 
             this.searchLivro.BackColor = System.Drawing.SystemColors.Control;
-            this.searchLivro.CBCheckBoxLocked = false;
-            this.searchLivro.CBColumnName = "Titulo";
-            this.searchLivro.CBFormName = "livros";
-            this.searchLivro.CBIdColumn = "id_livr";
+            this.searchLivro.CbCheckBoxLocked = false;
+            this.searchLivro.CbColumnName = "Titulo";
+            this.searchLivro.CbFormName = "livros";
+            this.searchLivro.CbIdColumn = "id_livr";
             this.searchLivro.CBisChecked = false;
-            this.searchLivro.CBReadOnly = false;
-            this.searchLivro.CBTableName = "livros";
-            this.searchLivro.CBText = "Livro";
-            this.searchLivro.CBValue = "ID";
+            this.searchLivro.CbReadOnly = false;
+            this.searchLivro.CbTableName = "livros";
+            this.searchLivro.CbText = "Livro";
+            this.searchLivro.CbValue = "ID";
             this.searchLivro.Location = new System.Drawing.Point(12, 24);
             this.searchLivro.Name = "searchLivro";
             this.searchLivro.Size = new System.Drawing.Size(172, 65);
@@ -343,7 +343,7 @@
             this.Controls.Add(this.p_direita);
             this.Controls.Add(this.p_cima);
             this.Controls.Add(this.p_baixo);
-            this.Name = "requisita";
+            this.Name = "Requisita";
             this.Text = "requisitar";
             this.Load += new System.EventHandler(this.Requisita_Load);
             this.p_esquerda.ResumeLayout(false);

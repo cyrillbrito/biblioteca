@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class dLivros
+    partial class DLivros
     {
         /// <summary>
         /// Required designer variable.
@@ -43,10 +43,10 @@
             // 
             // searchPaginas
             // 
-            this.searchPaginas.CBColumnName = "n_pagi";
-            this.searchPaginas.CBReadOnly = true;
-            this.searchPaginas.CBText = "N. de Paginas";
-            this.searchPaginas.CBValue = "";
+            this.searchPaginas.CbColumnName = "n_pagi";
+            this.searchPaginas.CbReadOnly = true;
+            this.searchPaginas.CbText = "N. de Paginas";
+            this.searchPaginas.CbValue = "";
             this.searchPaginas.Location = new System.Drawing.Point(12, 154);
             this.searchPaginas.Name = "searchPaginas";
             this.searchPaginas.Size = new System.Drawing.Size(136, 58);
@@ -54,10 +54,10 @@
             // 
             // searchTitulo
             // 
-            this.searchTitulo.CBColumnName = "titulo";
-            this.searchTitulo.CBReadOnly = true;
-            this.searchTitulo.CBText = "Titulo";
-            this.searchTitulo.CBValue = "";
+            this.searchTitulo.CbColumnName = "titulo";
+            this.searchTitulo.CbReadOnly = true;
+            this.searchTitulo.CbText = "Titulo";
+            this.searchTitulo.CbValue = "";
             this.searchTitulo.Location = new System.Drawing.Point(12, 83);
             this.searchTitulo.Name = "searchTitulo";
             this.searchTitulo.Size = new System.Drawing.Size(136, 58);
@@ -65,10 +65,10 @@
             // 
             // searchId
             // 
-            this.searchId.CBColumnName = "id_livr";
-            this.searchId.CBReadOnly = true;
-            this.searchId.CBText = "ID";
-            this.searchId.CBValue = "";
+            this.searchId.CbColumnName = "id_livr";
+            this.searchId.CbReadOnly = true;
+            this.searchId.CbText = "ID";
+            this.searchId.CbValue = "";
             this.searchId.Location = new System.Drawing.Point(12, 12);
             this.searchId.Name = "searchId";
             this.searchId.Size = new System.Drawing.Size(136, 58);
@@ -121,10 +121,10 @@
             // searchData
             // 
             this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchData.CBNumberDays = 0;
-            this.searchData.CBReadOnly = true;
-            this.searchData.CBText = "Data de lançamento";
-            this.searchData.CBValue = "2014-06-09";
+            this.searchData.CbNumberDays = 0;
+            this.searchData.CbReadOnly = true;
+            this.searchData.CbText = "Data de lançamento";
+            this.searchData.CbValue = "2014-06-09";
             this.searchData.Location = new System.Drawing.Point(332, 12);
             this.searchData.Name = "searchData";
             this.searchData.Size = new System.Drawing.Size(164, 57);
@@ -133,15 +133,15 @@
             // searchCategoria
             // 
             this.searchCategoria.BackColor = System.Drawing.SystemColors.Control;
-            this.searchCategoria.CBCheckBoxLocked = true;
-            this.searchCategoria.CBColumnName = "categoria";
-            this.searchCategoria.CBFormName = "categoria";
-            this.searchCategoria.CBIdColumn = "id_cate";
+            this.searchCategoria.CbCheckBoxLocked = true;
+            this.searchCategoria.CbColumnName = "categoria";
+            this.searchCategoria.CbFormName = "categoria";
+            this.searchCategoria.CbIdColumn = "id_cate";
             this.searchCategoria.CBisChecked = true;
-            this.searchCategoria.CBReadOnly = true;
-            this.searchCategoria.CBTableName = "categorias";
-            this.searchCategoria.CBText = "Categoria";
-            this.searchCategoria.CBValue = "ID";
+            this.searchCategoria.CbReadOnly = true;
+            this.searchCategoria.CbTableName = "categorias";
+            this.searchCategoria.CbText = "Categoria";
+            this.searchCategoria.CbValue = "ID";
             this.searchCategoria.Location = new System.Drawing.Point(154, 12);
             this.searchCategoria.Name = "searchCategoria";
             this.searchCategoria.Size = new System.Drawing.Size(172, 65);
@@ -151,15 +151,15 @@
             // searchEditora
             // 
             this.searchEditora.BackColor = System.Drawing.SystemColors.Control;
-            this.searchEditora.CBCheckBoxLocked = true;
-            this.searchEditora.CBColumnName = "editora";
-            this.searchEditora.CBFormName = "editora";
-            this.searchEditora.CBIdColumn = "id_edit";
+            this.searchEditora.CbCheckBoxLocked = true;
+            this.searchEditora.CbColumnName = "editora";
+            this.searchEditora.CbFormName = "editora";
+            this.searchEditora.CbIdColumn = "id_edit";
             this.searchEditora.CBisChecked = true;
-            this.searchEditora.CBReadOnly = true;
-            this.searchEditora.CBTableName = "editoras";
-            this.searchEditora.CBText = "Editora";
-            this.searchEditora.CBValue = "ID";
+            this.searchEditora.CbReadOnly = true;
+            this.searchEditora.CbTableName = "editoras";
+            this.searchEditora.CbText = "Editora";
+            this.searchEditora.CbValue = "ID";
             this.searchEditora.Location = new System.Drawing.Point(154, 83);
             this.searchEditora.Name = "searchEditora";
             this.searchEditora.Size = new System.Drawing.Size(172, 65);
@@ -169,15 +169,15 @@
             // searchAutor
             // 
             this.searchAutor.BackColor = System.Drawing.SystemColors.Control;
-            this.searchAutor.CBCheckBoxLocked = true;
-            this.searchAutor.CBColumnName = "nome";
-            this.searchAutor.CBFormName = "autores";
-            this.searchAutor.CBIdColumn = "id_auto";
+            this.searchAutor.CbCheckBoxLocked = true;
+            this.searchAutor.CbColumnName = "nome";
+            this.searchAutor.CbFormName = "autores";
+            this.searchAutor.CbIdColumn = "id_auto";
             this.searchAutor.CBisChecked = true;
-            this.searchAutor.CBReadOnly = true;
-            this.searchAutor.CBTableName = "autores";
-            this.searchAutor.CBText = "Autor";
-            this.searchAutor.CBValue = "ID";
+            this.searchAutor.CbReadOnly = true;
+            this.searchAutor.CbTableName = "autores";
+            this.searchAutor.CbText = "Autor";
+            this.searchAutor.CbValue = "ID";
             this.searchAutor.Location = new System.Drawing.Point(154, 154);
             this.searchAutor.Name = "searchAutor";
             this.searchAutor.Size = new System.Drawing.Size(172, 65);
@@ -215,7 +215,7 @@
             this.Controls.Add(this.searchTitulo);
             this.Controls.Add(this.searchId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "dLivros";
+            this.Name = "DLivros";
             this.Text = "dLivros";
             this.Load += new System.EventHandler(this.dLivros_Load);
             this.ResumeLayout(false);

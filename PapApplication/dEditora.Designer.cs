@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class dEditora
+    partial class DEditora
     {
         /// <summary>
         /// Required designer variable.
@@ -82,10 +82,10 @@
             // 
             // searchEditora
             // 
-            this.searchEditora.CBColumnName = "editora";
-            this.searchEditora.CBReadOnly = true;
-            this.searchEditora.CBText = "Editora";
-            this.searchEditora.CBValue = "";
+            this.searchEditora.CbColumnName = "editora";
+            this.searchEditora.CbReadOnly = true;
+            this.searchEditora.CbText = "Editora";
+            this.searchEditora.CbValue = "";
             this.searchEditora.Location = new System.Drawing.Point(12, 76);
             this.searchEditora.Name = "searchEditora";
             this.searchEditora.Size = new System.Drawing.Size(136, 58);
@@ -93,10 +93,10 @@
             // 
             // searchId
             // 
-            this.searchId.CBColumnName = "id_livr";
-            this.searchId.CBReadOnly = true;
-            this.searchId.CBText = "ID";
-            this.searchId.CBValue = "";
+            this.searchId.CbColumnName = "id_livr";
+            this.searchId.CbReadOnly = true;
+            this.searchId.CbText = "ID";
+            this.searchId.CbValue = "";
             this.searchId.Location = new System.Drawing.Point(12, 12);
             this.searchId.Name = "searchId";
             this.searchId.Size = new System.Drawing.Size(136, 58);
@@ -128,7 +128,7 @@
             this.Controls.Add(this.searchId);
             this.Controls.Add(this.buttonEliminar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "dEditora";
+            this.Name = "DEditora";
             this.Text = "dEditora";
             this.Load += new System.EventHandler(this.dEditora_Load);
             this.ResumeLayout(false);

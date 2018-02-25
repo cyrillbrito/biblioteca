@@ -11,42 +11,42 @@ using CBClass;
 
 namespace PapeApplication
 {
-    public partial class dAutores : Form
+    public partial class DAutores : Form
     {
-         int id;
-        bool edit = false;
+         int _id;
+        bool _edit = false;
 
-        public dAutores(int ID = 0, bool edit = false)
+        public DAutores(int id = 0, bool edit = false)
         {
             InitializeComponent();
 
-            id = ID;
+            _id = id;
             if (edit == false)
-                viewMode();
-            else if (id == 0)
+                ViewMode();
+            else if (_id == 0)
             {
-                editMode();
-                addMode();
+                EditMode();
+                AddMode();
             }
             else
             {
-                viewMode();
-                editMode();
+                ViewMode();
+                EditMode();
             }
         }
 
         private void dAutores_Load(object sender, EventArgs e)
         {
-            Methods.loadFormPosition(this);
+            Methods.LoadFormPosition(this);
         }
         
-        private void editMode()
+        private void EditMode()
         {
-            edit = true;
-            searchNome.CBReadOnly = false;
-            searchNacionalidade.CBReadOnly = false;
-            searchDataNascimento.CBReadOnly = false;
-            searchDataFalecimento.CBReadOnly = false;
+            _edit = true;
+            searchNome.CbReadOnly = false;
+            searchNacionalidade.CbReadOnly = false;
+            searchDataNascimento.CbReadOnly = false;
+            searchDataFalecimento.CbReadOnly = false;
             buttonCancel.Visible = true;
             buttonSave.Visible = true;
             buttonEdit.Visible = false;
@@ -55,30 +55,30 @@ namespace PapeApplication
             buttonEliminar.Visible = true;
         }
 
-        private void viewMode()
+        private void ViewMode()
         {
-            mysql query = new mysql("*", "autores", "id_auto = " + id);
-            query.read();
+            Mysql query = new Mysql("*", "autores", "id_auto = " + _id);
+            query.Read();
 
-            searchId.CBValue = query.read("id_auto").ToString();
-            searchNome.CBValue = query.read("nome").ToString();
-            searchNacionalidade.CBValue = query.read("nacionalidade").ToString();
-            searchDataNascimento.CBValue = query.read("data_nasc").ToString();
-            if (query.read("data_fale").ToString() == "")
+            searchId.CbValue = query.Read("id_auto").ToString();
+            searchNome.CbValue = query.Read("nome").ToString();
+            searchNacionalidade.CbValue = query.Read("nacionalidade").ToString();
+            searchDataNascimento.CbValue = query.Read("data_nasc").ToString();
+            if (query.Read("data_fale").ToString() == "")
                 searchDataFalecimento.Visible = false;
             else
             {
                 searchDataFalecimento.Visible = true;
-                searchDataFalecimento.CBValue = query.read("data_fale").ToString();
+                searchDataFalecimento.CbValue = query.Read("data_fale").ToString();
             }
 
-            query.close();
+            query.Close();
 
-            edit = false;
-            searchNome.CBReadOnly = true;
-            searchNacionalidade.CBReadOnly = true;
-            searchDataNascimento.CBReadOnly = true;
-            searchDataFalecimento.CBReadOnly = true;
+            _edit = false;
+            searchNome.CbReadOnly = true;
+            searchNacionalidade.CbReadOnly = true;
+            searchDataNascimento.CbReadOnly = true;
+            searchDataFalecimento.CbReadOnly = true;
             buttonCancel.Visible = false;
             buttonSave.Visible = false;
             buttonEdit.Visible = true;
@@ -86,53 +86,53 @@ namespace PapeApplication
             buttonEliminar.Visible = false;
         }
 
-        private void addMode()
+        private void AddMode()
         {
-            edit = false;
-            mysql query = new mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'autores'");
-            query.read();
-            searchId.CBValue = query.read("a").ToString();
-            id = Convert.ToInt16(searchId.CBValue);
-            query.close();
+            _edit = false;
+            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'autores'");
+            query.Read();
+            searchId.CbValue = query.Read("a").ToString();
+            _id = Convert.ToInt16(searchId.CbValue);
+            query.Close();
             checkBox.Visible = true;
             buttonEliminar.Visible = false;
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            editMode();
+            EditMode();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            List<string> list = checkData();
+            List<string> list = CheckData();
             string str, str2;
             if (list.Count == 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (edit)
+                    if (_edit)
                     {
-                        str = "nome = '" + searchNome.CBValue + "', Nacionalidade = '" + searchNacionalidade.CBValue + "', data_nasc = '" + searchDataNascimento.CBValue + "'";
+                        str = "nome = '" + searchNome.CbValue + "', Nacionalidade = '" + searchNacionalidade.CbValue + "', data_nasc = '" + searchDataNascimento.CbValue + "'";
                         if(checkBox.Checked)
-                            str += ", data_fale = '" + searchDataFalecimento.CBValue + "'";
-                        mysql.update("autores", str, "id_auto = " + id.ToString());
+                            str += ", data_fale = '" + searchDataFalecimento.CbValue + "'";
+                        Mysql.Update("autores", str, "id_auto = " + _id.ToString());
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else
                     {
-                        str = "'" + searchNome.CBValue + "', '" + searchNacionalidade.CBValue + "', '" + searchDataNascimento.CBValue + "'";
+                        str = "'" + searchNome.CbValue + "', '" + searchNacionalidade.CbValue + "', '" + searchDataNascimento.CbValue + "'";
                         str2 = "nome, nacionalidade, data_nasc";
                         if (checkBox.Checked)
                         {
-                            str += ", '" + searchDataNascimento.CBValue + "'";
+                            str += ", '" + searchDataNascimento.CbValue + "'";
                             str2 += ", data_fale";
                         }
-                        mysql.insert("autores", str2, str);
+                        Mysql.Insert("autores", str2, str);
                         MessageBox.Show("Os dados foram inseridos");
                     }
-                    viewMode();
+                    ViewMode();
                 }
             }
             else
@@ -154,15 +154,15 @@ namespace PapeApplication
                 this.Close();
         }
 
-        private List<string> checkData()
+        private List<string> CheckData()
         {
             List<string> list = new List<string>();
 
-            if (searchNome.CBValue == "")
+            if (searchNome.CbValue == "")
                 list.Add("Nome");
-            if (searchNacionalidade.CBValue == "")
+            if (searchNacionalidade.CbValue == "")
                 list.Add("Nacionalidade");
-            if (checkBox.Checked && DateTime.Compare(Convert.ToDateTime(searchDataNascimento.CBValue), Convert.ToDateTime(searchDataFalecimento.CBValue)) >= 0)
+            if (checkBox.Checked && DateTime.Compare(Convert.ToDateTime(searchDataNascimento.CbValue), Convert.ToDateTime(searchDataFalecimento.CbValue)) >= 0)
                 list.Add("Data nacimento ou de falecimento");
 
             return list;
@@ -181,7 +181,7 @@ namespace PapeApplication
             DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                mysql.delete("autores", "id_auto = " + id);
+                Mysql.Delete("autores", "id_auto = " + _id);
 
                 MessageBox.Show("Registo Eliminado");
                 this.Close();

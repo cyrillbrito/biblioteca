@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class leitores
+    partial class Leitores
     {
         /// <summary>
         /// Required designer variable.
@@ -69,15 +69,15 @@
             // 
             // searchNome
             // 
-            this.searchNome.CBColumnName = "nome";
-            this.searchNome.CBReadOnly = false;
-            this.searchNome.CBText = "Nome";
-            this.searchNome.CBValue = "";
+            this.searchNome.CbColumnName = "nome";
+            this.searchNome.CbReadOnly = false;
+            this.searchNome.CbText = "Nome";
+            this.searchNome.CbValue = "";
             this.searchNome.Location = new System.Drawing.Point(12, 24);
             this.searchNome.Name = "searchNome";
             this.searchNome.Size = new System.Drawing.Size(136, 58);
             this.searchNome.TabIndex = 10;
-            this.searchNome.textChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchNome.TextChanged += new System.EventHandler(this.search_ConditionChanged);
             // 
             // p_esquerda
             // 
@@ -92,27 +92,27 @@
             // 
             // searchLocal1
             // 
-            this.searchLocal1.CBColumnName = "telemovel";
-            this.searchLocal1.CBReadOnly = false;
-            this.searchLocal1.CBText = "Telemóvel";
-            this.searchLocal1.CBValue = "";
+            this.searchLocal1.CbColumnName = "telemovel";
+            this.searchLocal1.CbReadOnly = false;
+            this.searchLocal1.CbText = "Telemóvel";
+            this.searchLocal1.CbValue = "";
             this.searchLocal1.Location = new System.Drawing.Point(12, 152);
             this.searchLocal1.Name = "searchLocal1";
             this.searchLocal1.Size = new System.Drawing.Size(136, 58);
             this.searchLocal1.TabIndex = 12;
-            this.searchLocal1.textChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchLocal1.TextChanged += new System.EventHandler(this.search_ConditionChanged);
             // 
             // searchMorada
             // 
-            this.searchMorada.CBColumnName = "morada";
-            this.searchMorada.CBReadOnly = false;
-            this.searchMorada.CBText = "Morada";
-            this.searchMorada.CBValue = "";
+            this.searchMorada.CbColumnName = "morada";
+            this.searchMorada.CbReadOnly = false;
+            this.searchMorada.CbText = "Morada";
+            this.searchMorada.CbValue = "";
             this.searchMorada.Location = new System.Drawing.Point(12, 88);
             this.searchMorada.Name = "searchMorada";
             this.searchMorada.Size = new System.Drawing.Size(136, 58);
             this.searchMorada.TabIndex = 11;
-            this.searchMorada.textChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchMorada.TextChanged += new System.EventHandler(this.search_ConditionChanged);
             // 
             // p_direita
             // 
@@ -320,7 +320,7 @@
             this.Controls.Add(this.p_direita);
             this.Controls.Add(this.p_cima);
             this.Controls.Add(this.p_baixo);
-            this.Name = "leitores";
+            this.Name = "Leitores";
             this.Text = "leitores";
             this.Load += new System.EventHandler(this.leitores_Load);
             this.p_esquerda.ResumeLayout(false);

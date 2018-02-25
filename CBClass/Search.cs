@@ -12,35 +12,35 @@ namespace CBClass.Controls
 {
     public partial class Search : UserControl
     {
-        string columnName, tableName, idColumn, formName;
-        bool checkBoxLocked;
+        string _columnName, _tableName, _idColumn, _formName;
+        bool _checkBoxLocked;
 
         [Description("Text that will appear"), Category("CB")]
-        public string CBText
+        public string CbText
         {
             get { return checkBox.Text; }
             set { checkBox.Text = value; }
         }
 
         [Description("Name of the table in the DataBase"), Category("CB")]
-        public string CBTableName
+        public string CbTableName
         {
-            get { return tableName; }
-            set { tableName = value; }
+            get { return _tableName; }
+            set { _tableName = value; }
         }
 
         [Description("Name of the column in the DataBase"), Category("CB")]
-        public string CBColumnName
+        public string CbColumnName
         {
-            get { return columnName; }
-            set { columnName = value; }
+            get { return _columnName; }
+            set { _columnName = value; }
         }
 
         [Description("Name of the primary key column in the DataBase"), Category("CB")]
-        public string CBIdColumn
+        public string CbIdColumn
         {
-            get { return idColumn; }
-            set { idColumn = value; }
+            get { return _idColumn; }
+            set { _idColumn = value; }
         }
 
         [Description("Is the checkBox Checked"), Category("CB")]
@@ -57,21 +57,21 @@ namespace CBClass.Controls
         }
 
         [Description("Name of the form to serach"), Category("CB")]
-        public string CBFormName
+        public string CbFormName
         {
-            get { return formName; }
-            set { formName = value; }
+            get { return _formName; }
+            set { _formName = value; }
         }
 
         [Description("Value in the textBoxId"), Category("CB")]
-        public string CBValue
+        public string CbValue
         {
             get { return textBoxId.Text; }
             set { textBoxId.Text = value; }
         }
 
         [Description("Is button visible"), Category("CB")]
-        public bool CBReadOnly
+        public bool CbReadOnly
         {
             get { return textBoxId.ReadOnly; }
             set
@@ -83,10 +83,10 @@ namespace CBClass.Controls
         }
 
         [Description("CheckBox is always on"), Category("CB")]
-        public bool CBCheckBoxLocked
+        public bool CbCheckBoxLocked
         {
-            get { return checkBoxLocked; }
-            set { checkBoxLocked = value; }
+            get { return _checkBoxLocked; }
+            set { _checkBoxLocked = value; }
         }
 
         public event EventHandler ButtonClick;
@@ -100,12 +100,12 @@ namespace CBClass.Controls
 
         private void Search_Load(object sender, EventArgs e)
         {
-            reload();
+            Reload();
         }
 
         private void textBoxId_Click(object sender, EventArgs e)
         {
-            if (!CBReadOnly && CBValue == "ID")
+            if (!CbReadOnly && CbValue == "ID")
             {
                 textBoxId.Clear();
                 textBoxId.ForeColor = System.Drawing.Color.Black;
@@ -114,7 +114,7 @@ namespace CBClass.Controls
 
         private void textBoxColumn_Click(object sender, EventArgs e)
         {
-            if (!CBReadOnly && textBoxColumn.Text == CBColumnName)
+            if (!CbReadOnly && textBoxColumn.Text == CbColumnName)
             {
                 textBoxColumn.Clear();
                 textBoxColumn.ForeColor = System.Drawing.Color.Black;
@@ -123,68 +123,68 @@ namespace CBClass.Controls
 
         private void textBoxId_Leave(object sender, EventArgs e)
         {
-            if (!CBReadOnly)
+            if (!CbReadOnly)
             {
-                if (CBValue == "")
+                if (CbValue == "")
                 {
                     if (this.ConditionChanged != null)
                         this.ConditionChanged(this, e);
                     textBoxId.ForeColor = System.Drawing.Color.Gray;
-                    CBValue = "ID";
-                    if (textBoxColumn.Text != columnName)
+                    CbValue = "ID";
+                    if (textBoxColumn.Text != _columnName)
                     {
-                        textBoxColumn.Text = CBColumnName;
+                        textBoxColumn.Text = CbColumnName;
                         textBoxColumn.ForeColor = System.Drawing.Color.Gray;
                     }
                 }
-                else if (updateColumn() /*&& this.ConditionChanged != null*/)
+                else if (UpdateColumn() /*&& this.ConditionChanged != null*/)
                     this.ConditionChanged(this, e);
             }
         }
 
         private void textBoxColumn_Leave(object sender, EventArgs e)
         {
-            if (!CBReadOnly)
+            if (!CbReadOnly)
             {
                 if (textBoxColumn.Text == "")
                 {
-                    textBoxColumn.Text = CBColumnName;
+                    textBoxColumn.Text = CbColumnName;
                     textBoxColumn.ForeColor = System.Drawing.Color.Gray;
                     textBoxId.Clear();
                     if (this.ConditionChanged != null)
                         this.ConditionChanged(this, e);
-                    CBValue = "ID";
+                    CbValue = "ID";
                     textBoxId.ForeColor = System.Drawing.Color.Gray;
                 }
                 else
                 {
-                    mysql query = new mysql("COUNT(" + CBIdColumn + ") as a", CBTableName, CBColumnName + " LIKE '%" + textBoxColumn.Text + "%'");
-                    query.read();
-                    if (query.read("a") == "1")
+                    Mysql query = new Mysql("COUNT(" + CbIdColumn + ") as a", CbTableName, CbColumnName + " LIKE '%" + textBoxColumn.Text + "%'");
+                    query.Read();
+                    if (query.Read("a") == "1")
                     {
-                        query.close();
-                        query = new mysql(CBIdColumn + ", " + CBColumnName, CBTableName, CBColumnName + " LIKE '%" + textBoxColumn.Text + "%'");
-                        query.read();
-                        CBValue = query.read(CBIdColumn);
-                        textBoxColumn.Text = query.read(CBColumnName);
-                        query.close();
+                        query.Close();
+                        query = new Mysql(CbIdColumn + ", " + CbColumnName, CbTableName, CbColumnName + " LIKE '%" + textBoxColumn.Text + "%'");
+                        query.Read();
+                        CbValue = query.Read(CbIdColumn);
+                        textBoxColumn.Text = query.Read(CbColumnName);
+                        query.Close();
                         textBoxId.ForeColor = System.Drawing.Color.Black;
                         if (this.ConditionChanged != null)
                             this.ConditionChanged(this, e);
                     }
                     else
                     {
-                        if (Convert.ToInt16(query.read("a")) > 1)
+                        if (Convert.ToInt16(query.Read("a")) > 1)
                             MessageBox.Show("Pouco específico");
                         else
                             MessageBox.Show("Sem resultados");
 
-                        query.close();
+                        query.Close();
                         textBoxColumn.Select();
                         textBoxColumn.Clear();
                         textBoxId.Clear();
                         textBoxId.ForeColor = System.Drawing.Color.Gray;
-                        CBValue = "ID";
+                        CbValue = "ID";
                     }
                 }
             }
@@ -192,7 +192,7 @@ namespace CBClass.Controls
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (CBCheckBoxLocked)
+            if (CbCheckBoxLocked)
                 checkBox.Checked = true;//se estiver em locked nao deixa mudar
             else
                 CBisChecked = checkBox.Checked;//para mudar a propriadade
@@ -203,8 +203,8 @@ namespace CBClass.Controls
                 textBoxId.Clear();
                 if (this.ConditionChanged != null)
                     this.ConditionChanged(this, e);
-                CBValue = "ID";
-                textBoxColumn.Text = columnName;
+                CbValue = "ID";
+                textBoxColumn.Text = _columnName;
                 textBoxColumn.ForeColor = System.Drawing.Color.Gray;
                 textBoxId.ForeColor = System.Drawing.Color.Gray;
             }
@@ -225,39 +225,39 @@ namespace CBClass.Controls
                 checkBox.Focus();
         }
 
-        private bool updateColumn()
+        private bool UpdateColumn()
         {
-            mysql query = new mysql(CBColumnName, CBTableName, CBIdColumn + " = " + CBValue);
-            if (query.read())
+            Mysql query = new Mysql(CbColumnName, CbTableName, CbIdColumn + " = " + CbValue);
+            if (query.Read())
             {
-                textBoxColumn.Text = query.read(CBColumnName);
-                query.close();
+                textBoxColumn.Text = query.Read(CbColumnName);
+                query.Close();
                 textBoxColumn.ForeColor = System.Drawing.Color.Black;
                 return true;
             }
             else
             {
-                query.close();
+                query.Close();
                 MessageBox.Show("Sem resultados");
                 textBoxId.Select();
                 textBoxId.Clear();
-                textBoxColumn.Text = CBColumnName;
+                textBoxColumn.Text = CbColumnName;
                 textBoxColumn.ForeColor = System.Drawing.Color.Gray;
                 return false;
             }
         }
 
-        public void reload()
+        public void Reload()
         {
-            if (CBValue != "ID")
+            if (CbValue != "ID")
             {
-                updateColumn();
+                UpdateColumn();
                 textBoxId.ForeColor = System.Drawing.Color.Black;
                 if (this.ConditionChanged != null)
                     this.ConditionChanged(this, new EventArgs());
             }
             else
-                textBoxColumn.Text = columnName;
+                textBoxColumn.Text = _columnName;
         }
     }
 }

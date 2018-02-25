@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class dAutores
+    partial class DAutores
     {
         /// <summary>
         /// Required designer variable.
@@ -43,10 +43,10 @@
             // searchDataNascimento
             // 
             this.searchDataNascimento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchDataNascimento.CBNumberDays = 0;
-            this.searchDataNascimento.CBReadOnly = true;
-            this.searchDataNascimento.CBText = "Data de nascimento";
-            this.searchDataNascimento.CBValue = "2014-06-09";
+            this.searchDataNascimento.CbNumberDays = 0;
+            this.searchDataNascimento.CbReadOnly = true;
+            this.searchDataNascimento.CbText = "Data de nascimento";
+            this.searchDataNascimento.CbValue = "2014-06-09";
             this.searchDataNascimento.Location = new System.Drawing.Point(154, 12);
             this.searchDataNascimento.Name = "searchDataNascimento";
             this.searchDataNascimento.Size = new System.Drawing.Size(164, 57);
@@ -98,10 +98,10 @@
             // 
             // searchNacionalidade
             // 
-            this.searchNacionalidade.CBColumnName = "nacionalidade";
-            this.searchNacionalidade.CBReadOnly = true;
-            this.searchNacionalidade.CBText = "Nacionalidade";
-            this.searchNacionalidade.CBValue = "";
+            this.searchNacionalidade.CbColumnName = "nacionalidade";
+            this.searchNacionalidade.CbReadOnly = true;
+            this.searchNacionalidade.CbText = "Nacionalidade";
+            this.searchNacionalidade.CbValue = "";
             this.searchNacionalidade.Location = new System.Drawing.Point(12, 140);
             this.searchNacionalidade.Name = "searchNacionalidade";
             this.searchNacionalidade.Size = new System.Drawing.Size(136, 58);
@@ -109,10 +109,10 @@
             // 
             // searchNome
             // 
-            this.searchNome.CBColumnName = "nome";
-            this.searchNome.CBReadOnly = true;
-            this.searchNome.CBText = "Nome";
-            this.searchNome.CBValue = "";
+            this.searchNome.CbColumnName = "nome";
+            this.searchNome.CbReadOnly = true;
+            this.searchNome.CbText = "Nome";
+            this.searchNome.CbValue = "";
             this.searchNome.Location = new System.Drawing.Point(12, 76);
             this.searchNome.Name = "searchNome";
             this.searchNome.Size = new System.Drawing.Size(136, 58);
@@ -120,10 +120,10 @@
             // 
             // searchId
             // 
-            this.searchId.CBColumnName = "id_livr";
-            this.searchId.CBReadOnly = true;
-            this.searchId.CBText = "ID";
-            this.searchId.CBValue = "";
+            this.searchId.CbColumnName = "id_livr";
+            this.searchId.CbReadOnly = true;
+            this.searchId.CbText = "ID";
+            this.searchId.CbValue = "";
             this.searchId.Location = new System.Drawing.Point(12, 12);
             this.searchId.Name = "searchId";
             this.searchId.Size = new System.Drawing.Size(136, 58);
@@ -132,10 +132,10 @@
             // searchDataFalecimento
             // 
             this.searchDataFalecimento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchDataFalecimento.CBNumberDays = 0;
-            this.searchDataFalecimento.CBReadOnly = true;
-            this.searchDataFalecimento.CBText = "Data de falecimento";
-            this.searchDataFalecimento.CBValue = "2014-06-09";
+            this.searchDataFalecimento.CbNumberDays = 0;
+            this.searchDataFalecimento.CbReadOnly = true;
+            this.searchDataFalecimento.CbText = "Data de falecimento";
+            this.searchDataFalecimento.CbValue = "2014-06-09";
             this.searchDataFalecimento.Location = new System.Drawing.Point(154, 77);
             this.searchDataFalecimento.Name = "searchDataFalecimento";
             this.searchDataFalecimento.Size = new System.Drawing.Size(164, 57);
@@ -184,7 +184,7 @@
             this.Controls.Add(this.searchNome);
             this.Controls.Add(this.searchId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "dAutores";
+            this.Name = "DAutores";
             this.Text = "dAutores";
             this.Load += new System.EventHandler(this.dAutores_Load);
             this.ResumeLayout(false);

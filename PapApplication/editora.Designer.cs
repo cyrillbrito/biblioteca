@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class editora
+    partial class Editora
     {
         /// <summary>
         /// Required designer variable.
@@ -238,15 +238,15 @@
             // 
             // searchEditora
             // 
-            this.searchEditora.CBColumnName = "editora";
-            this.searchEditora.CBReadOnly = false;
-            this.searchEditora.CBText = "Editora";
-            this.searchEditora.CBValue = "";
+            this.searchEditora.CbColumnName = "editora";
+            this.searchEditora.CbReadOnly = false;
+            this.searchEditora.CbText = "Editora";
+            this.searchEditora.CbValue = "";
             this.searchEditora.Location = new System.Drawing.Point(12, 24);
             this.searchEditora.Name = "searchEditora";
             this.searchEditora.Size = new System.Drawing.Size(136, 58);
             this.searchEditora.TabIndex = 10;
-            this.searchEditora.textChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchEditora.TextChanged += new System.EventHandler(this.search_ConditionChanged);
             // 
             // p_direita
             // 
@@ -278,7 +278,7 @@
             this.Controls.Add(this.p_direita);
             this.Controls.Add(this.p_baixo);
             this.Controls.Add(this.p_cima);
-            this.Name = "editora";
+            this.Name = "Editora";
             this.Text = "editora";
             this.Load += new System.EventHandler(this.editora_Load);
             this.p_cima.ResumeLayout(false);

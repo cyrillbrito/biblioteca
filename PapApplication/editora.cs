@@ -11,43 +11,43 @@ using CBClass;
 
 namespace PapeApplication
 {
-    public partial class editora : Form
+    public partial class Editora : Form
     {
-        string columns = "id_edit, editora";
-        string tables = "editoras";
-        string conditions = "";
-        bool select;
+        string _columns = "id_edit, editora";
+        string _tables = "editoras";
+        string _conditions = "";
+        bool _select;
 
-        public editora(bool Select = false)
+        public Editora(bool @select = false)
         {
             InitializeComponent();
-            select = Select;
+            _select = @select;
         }
 
         private void editora_Load(object sender, EventArgs e)
         {
-            if (select)
+            if (_select)
             {
                 menuStrip1.Visible = false;
                 buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
                 this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                Methods.loadFormProperties(this, true);
+                Methods.LoadFormProperties(this, true);
                 label1.Text = "Selecionar Editora";
             }
             else
-                Methods.loadFormProperties(this);
+                Methods.LoadFormProperties(this);
             
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void buttonDetails_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
-                Methods.saveFormProperties();
-                dEditora obj = new dEditora(Convert.ToInt32(listView.SelectedItems[0].Text));
+                Methods.SaveFormProperties();
+                DEditora obj = new DEditora(Convert.ToInt32(listView.SelectedItems[0].Text));
                 obj.ShowDialog();
-                Methods.updateListView(listView, columns, tables, conditions);
+                Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
@@ -57,10 +57,10 @@ namespace PapeApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
-                Methods.saveFormProperties();
-                dEditora obj = new dEditora(Convert.ToInt32(listView.SelectedItems[0].Text), true);
+                Methods.SaveFormProperties();
+                DEditora obj = new DEditora(Convert.ToInt32(listView.SelectedItems[0].Text), true);
                 obj.ShowDialog();
-                Methods.updateListView(listView, columns, tables, conditions);
+                Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
@@ -68,10 +68,10 @@ namespace PapeApplication
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Methods.saveFormProperties();
-            dEditora obj = new dEditora(0, true);
+            Methods.SaveFormProperties();
+            DEditora obj = new DEditora(0, true);
             obj.ShowDialog();
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_ConditionChanged(object sender, EventArgs e)
@@ -82,50 +82,50 @@ namespace PapeApplication
             int endPosition;
 
             if (searchLocal == null)
-                startPosition = conditions.IndexOf(search.CBIdColumn);
+                startPosition = _conditions.IndexOf(search.CbIdColumn);
             else
-                startPosition = conditions.IndexOf(searchLocal.CBColumnName);
+                startPosition = _conditions.IndexOf(searchLocal.CbColumnName);
 
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = conditions.IndexOf("AND", startPosition);
+                endPosition = _conditions.IndexOf("AND", startPosition);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1 -2 = -3
-                    conditions = conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
+                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
-                    conditions = conditions.Remove(startPosition, endPosition - startPosition + 3);
+                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            if (search != null && search.CBValue != "")// Search normal
+            if (search != null && search.CbValue != "")// Search normal
             {
-                if (conditions != "")
-                    conditions += " AND ";
-                conditions += search.CBIdColumn + " = " + search.CBValue;
+                if (_conditions != "")
+                    _conditions += " AND ";
+                _conditions += search.CbIdColumn + " = " + search.CbValue;
             }
             else if (searchLocal != null)// SearchLocal
             {
-                if (searchLocal.CBColumnName != "")
+                if (searchLocal.CbColumnName != "")
                 {
-                    if (conditions != "")
-                        conditions += " AND ";
-                    conditions += searchLocal.CBColumnName + " LIKE '%" + searchLocal.CBValue + "%'";
+                    if (_conditions != "")
+                        _conditions += " AND ";
+                    _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
                 }
             }
-            Methods.updateListView(listView, columns, tables, conditions);
+            Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void ToolStrip_Click(object sender, EventArgs e)
         {
-            Methods.saveFormProperties();
+            Methods.SaveFormProperties();
             this.Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
-                case "Livros": livros a = new livros(); a.ShowDialog(); break;
-                case "Leitores": leitores b = new leitores(); b.ShowDialog(); break;
-                case "Requisitar": requisita c = new requisita(); c.ShowDialog(); break;
-                case "Autores": autores d = new autores(); d.ShowDialog(); break;
-                case "Categorias": categoria f = new categoria(); f.ShowDialog(); break;
-                case "Editoras": editora g = new editora(); g.ShowDialog(); break;
-                case "Funcionários": funcionarios h = new funcionarios(); h.ShowDialog(); break;
+                case "Livros": Livros a = new Livros(); a.ShowDialog(); break;
+                case "Leitores": Leitores b = new Leitores(); b.ShowDialog(); break;
+                case "Requisitar": Requisita c = new Requisita(); c.ShowDialog(); break;
+                case "Autores": Autores d = new Autores(); d.ShowDialog(); break;
+                case "Categorias": Categoria f = new Categoria(); f.ShowDialog(); break;
+                case "Editoras": Editora g = new Editora(); g.ShowDialog(); break;
+                case "Funcionários": Funcionarios h = new Funcionarios(); h.ShowDialog(); break;
             }
         }
 
@@ -133,16 +133,16 @@ namespace PapeApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
-                if (select)
+                if (_select)
                 {
-                    Variables.returnValue = Convert.ToInt32(listView.SelectedItems[0].Text);
+                    Variables.ReturnValue = Convert.ToInt32(listView.SelectedItems[0].Text);
                     this.Close();
                 }
                 else
                 {
-                    Methods.saveFormProperties();
+                    Methods.SaveFormProperties();
 
-                    livros c = new livros(false, "0", "0", listView.SelectedItems[0].Text);
+                    Livros c = new Livros(false, "0", "0", listView.SelectedItems[0].Text);
                     this.Hide();
                     c.ShowDialog();
                 }

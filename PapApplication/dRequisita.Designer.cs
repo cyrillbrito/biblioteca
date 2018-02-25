@@ -1,6 +1,6 @@
 ﻿namespace PapeApplication
 {
-    partial class dRequisita
+    partial class DRequisita
     {
         /// <summary>
         /// Required designer variable.
@@ -89,10 +89,10 @@
             // 
             // searchId
             // 
-            this.searchId.CBColumnName = "id_livr";
-            this.searchId.CBReadOnly = true;
-            this.searchId.CBText = "ID";
-            this.searchId.CBValue = "";
+            this.searchId.CbColumnName = "id_livr";
+            this.searchId.CbReadOnly = true;
+            this.searchId.CbText = "ID";
+            this.searchId.CbValue = "";
             this.searchId.Location = new System.Drawing.Point(12, 12);
             this.searchId.Name = "searchId";
             this.searchId.Size = new System.Drawing.Size(136, 58);
@@ -101,10 +101,10 @@
             // searchDevolucao
             // 
             this.searchDevolucao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchDevolucao.CBNumberDays = 0;
-            this.searchDevolucao.CBReadOnly = false;
-            this.searchDevolucao.CBText = "Data da entrega";
-            this.searchDevolucao.CBValue = "2014-06-09";
+            this.searchDevolucao.CbNumberDays = 0;
+            this.searchDevolucao.CbReadOnly = false;
+            this.searchDevolucao.CbText = "Data da entrega";
+            this.searchDevolucao.CbValue = "2014-06-09";
             this.searchDevolucao.Location = new System.Drawing.Point(190, 147);
             this.searchDevolucao.Name = "searchDevolucao";
             this.searchDevolucao.Size = new System.Drawing.Size(164, 57);
@@ -113,10 +113,10 @@
             // searchRequisita
             // 
             this.searchRequisita.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchRequisita.CBNumberDays = 0;
-            this.searchRequisita.CBReadOnly = false;
-            this.searchRequisita.CBText = "Data requisição";
-            this.searchRequisita.CBValue = "2014-06-09";
+            this.searchRequisita.CbNumberDays = 0;
+            this.searchRequisita.CbReadOnly = false;
+            this.searchRequisita.CbText = "Data requisição";
+            this.searchRequisita.CbValue = "2014-06-09";
             this.searchRequisita.Location = new System.Drawing.Point(190, 12);
             this.searchRequisita.Name = "searchRequisita";
             this.searchRequisita.Size = new System.Drawing.Size(164, 57);
@@ -125,15 +125,15 @@
             // searchLivro
             // 
             this.searchLivro.BackColor = System.Drawing.SystemColors.Control;
-            this.searchLivro.CBCheckBoxLocked = true;
-            this.searchLivro.CBColumnName = "titulo";
-            this.searchLivro.CBFormName = "livros";
-            this.searchLivro.CBIdColumn = "id_livr";
+            this.searchLivro.CbCheckBoxLocked = true;
+            this.searchLivro.CbColumnName = "titulo";
+            this.searchLivro.CbFormName = "livros";
+            this.searchLivro.CbIdColumn = "id_livr";
             this.searchLivro.CBisChecked = true;
-            this.searchLivro.CBReadOnly = true;
-            this.searchLivro.CBTableName = "Livros";
-            this.searchLivro.CBText = "Livro";
-            this.searchLivro.CBValue = "ID";
+            this.searchLivro.CbReadOnly = true;
+            this.searchLivro.CbTableName = "Livros";
+            this.searchLivro.CbText = "Livro";
+            this.searchLivro.CbValue = "ID";
             this.searchLivro.Location = new System.Drawing.Point(12, 76);
             this.searchLivro.Name = "searchLivro";
             this.searchLivro.Size = new System.Drawing.Size(172, 65);
@@ -143,15 +143,15 @@
             // searchLeitor
             // 
             this.searchLeitor.BackColor = System.Drawing.SystemColors.Control;
-            this.searchLeitor.CBCheckBoxLocked = true;
-            this.searchLeitor.CBColumnName = "nome";
-            this.searchLeitor.CBFormName = "leitores";
-            this.searchLeitor.CBIdColumn = "id_leit";
+            this.searchLeitor.CbCheckBoxLocked = true;
+            this.searchLeitor.CbColumnName = "nome";
+            this.searchLeitor.CbFormName = "leitores";
+            this.searchLeitor.CbIdColumn = "id_leit";
             this.searchLeitor.CBisChecked = true;
-            this.searchLeitor.CBReadOnly = true;
-            this.searchLeitor.CBTableName = "Leitores";
-            this.searchLeitor.CBText = "Leitor";
-            this.searchLeitor.CBValue = "ID";
+            this.searchLeitor.CbReadOnly = true;
+            this.searchLeitor.CbTableName = "Leitores";
+            this.searchLeitor.CbText = "Leitor";
+            this.searchLeitor.CbValue = "ID";
             this.searchLeitor.Location = new System.Drawing.Point(12, 147);
             this.searchLeitor.Name = "searchLeitor";
             this.searchLeitor.Size = new System.Drawing.Size(172, 65);
@@ -184,10 +184,10 @@
             // searchEntrega
             // 
             this.searchEntrega.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchEntrega.CBNumberDays = 90;
-            this.searchEntrega.CBReadOnly = false;
-            this.searchEntrega.CBText = "Data limite de entrega";
-            this.searchEntrega.CBValue = "2014-06-12";
+            this.searchEntrega.CbNumberDays = 90;
+            this.searchEntrega.CbReadOnly = false;
+            this.searchEntrega.CbText = "Data limite de entrega";
+            this.searchEntrega.CbValue = "2014-06-12";
             this.searchEntrega.Location = new System.Drawing.Point(190, 76);
             this.searchEntrega.Name = "searchEntrega";
             this.searchEntrega.Size = new System.Drawing.Size(162, 55);
@@ -239,7 +239,7 @@
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "dRequisita";
+            this.Name = "DRequisita";
             this.Text = "dRequisitar";
             this.Load += new System.EventHandler(this.dRequisita_Load);
             this.ResumeLayout(false);
