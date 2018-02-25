@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3EDBD1B0-B16B-449F-BDB1-A8175900F650}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PapeApplication</RootNamespace>
+    <AssemblyName>PapeApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="autores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="autores.Designer.cs">
+      <DependentUpon>autores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="categoria.Designer.cs">
+      <DependentUpon>categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dAutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dAutores.Designer.cs">
+      <DependentUpon>dAutores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dCategoria.Designer.cs">
+      <DependentUpon>dCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dEditora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dEditora.Designer.cs">
+      <DependentUpon>dEditora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dLeitores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dLeitores.Designer.cs">
+      <DependentUpon>dLeitores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dLivros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dLivros.Designer.cs">
+      <DependentUpon>dLivros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dRequisita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dRequisita.Designer.cs">
+      <DependentUpon>dRequisita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editora.Designer.cs">
+      <DependentUpon>editora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="funcionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="funcionarios.Designer.cs">
+      <DependentUpon>funcionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="leitores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="leitores.Designer.cs">
+      <DependentUpon>leitores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="livros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="livros.Designer.cs">
+      <DependentUpon>livros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="requisita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="requisita.Designer.cs">
+      <DependentUpon>requisita.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Autores.resx">
+      <DependentUpon>autores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="categoria.resx">
+      <DependentUpon>categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dAutores.resx">
+      <DependentUpon>dAutores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dCategoria.resx">
+      <DependentUpon>dCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dEditora.resx">
+      <DependentUpon>dEditora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dLeitores.resx">
+      <DependentUpon>dLeitores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dLivros.resx">
+      <DependentUpon>dLivros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dRequisita.resx">
+      <DependentUpon>dRequisita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editora.resx">
+      <DependentUpon>editora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="leitores.resx">
+      <DependentUpon>leitores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="livros.resx">
+      <DependentUpon>livros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="requisita.resx">
+      <DependentUpon>requisita.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CBClass\CBClass.csproj">
+      <Project>{499dec1e-dcb3-465b-8199-942a3f725b03}</Project>
+      <Name>CBClass</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unknown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

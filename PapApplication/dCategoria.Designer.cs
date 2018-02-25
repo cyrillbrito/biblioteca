@@ -1,0 +1,147 @@
+﻿namespace PapeApplication
+{
+    partial class dCategoria
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.searchCategoria = new CBClass.SearchLocal();
+            this.searchId = new CBClass.SearchLocal();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Image = global::PapeApplication.Properties.Resources.cancel;
+            this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCancel.Location = new System.Drawing.Point(154, 58);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(120, 40);
+            this.buttonCancel.TabIndex = 27;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Visible = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Image = global::PapeApplication.Properties.Resources.save;
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSave.Location = new System.Drawing.Point(154, 12);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(120, 40);
+            this.buttonSave.TabIndex = 26;
+            this.buttonSave.Text = "Guardar";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Visible = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEdit.Image = global::PapeApplication.Properties.Resources.edit;
+            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEdit.Location = new System.Drawing.Point(154, 94);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(120, 40);
+            this.buttonEdit.TabIndex = 25;
+            this.buttonEdit.Text = "Editar";
+            this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
+            // searchCategoria
+            // 
+            this.searchCategoria.CBColumnName = "categoria";
+            this.searchCategoria.CBReadOnly = true;
+            this.searchCategoria.CBText = "Categoria";
+            this.searchCategoria.CBValue = "";
+            this.searchCategoria.Location = new System.Drawing.Point(12, 76);
+            this.searchCategoria.Name = "searchCategoria";
+            this.searchCategoria.Size = new System.Drawing.Size(136, 58);
+            this.searchCategoria.TabIndex = 20;
+            // 
+            // searchId
+            // 
+            this.searchId.CBColumnName = "id_livr";
+            this.searchId.CBReadOnly = true;
+            this.searchId.CBText = "ID";
+            this.searchId.CBValue = "";
+            this.searchId.Location = new System.Drawing.Point(12, 12);
+            this.searchId.Name = "searchId";
+            this.searchId.Size = new System.Drawing.Size(136, 58);
+            this.searchId.TabIndex = 19;
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminar.Image = global::PapeApplication.Properties.Resources.delete;
+            this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEliminar.Location = new System.Drawing.Point(154, 104);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(120, 40);
+            this.buttonEliminar.TabIndex = 28;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // dCategoria
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(280, 151);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.searchCategoria);
+            this.Controls.Add(this.searchId);
+            this.Controls.Add(this.buttonEliminar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "dCategoria";
+            this.Text = "dCategoria";
+            this.Load += new System.EventHandler(this.dCategoria_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonEdit;
+        private CBClass.SearchLocal searchCategoria;
+        private CBClass.SearchLocal searchId;
+        private System.Windows.Forms.Button buttonEliminar;
+    }
+}
