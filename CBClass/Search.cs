@@ -6,41 +6,26 @@ namespace CBClass.Controls
 {
     public partial class Search : UserControl
     {
-        string _columnName, _tableName, _idColumn, _formName;
-        bool _checkBoxLocked;
-
         [Description("Text that will appear"), Category("CB")]
         public string CbText
         {
-            get { return checkBox.Text; }
-            set { checkBox.Text = value; }
+            get => checkBox.Text;
+            set => checkBox.Text = value;
         }
 
         [Description("Name of the table in the DataBase"), Category("CB")]
-        public string CbTableName
-        {
-            get { return _tableName; }
-            set { _tableName = value; }
-        }
+        public string CbTableName { get; set; }
 
         [Description("Name of the column in the DataBase"), Category("CB")]
-        public string CbColumnName
-        {
-            get { return _columnName; }
-            set { _columnName = value; }
-        }
+        public string CbColumnName { get; set; }
 
         [Description("Name of the primary key column in the DataBase"), Category("CB")]
-        public string CbIdColumn
-        {
-            get { return _idColumn; }
-            set { _idColumn = value; }
-        }
+        public string CbIdColumn { get; set; }
 
         [Description("Is the checkBox Checked"), Category("CB")]
         public bool CBisChecked
         {
-            get { return checkBox.Checked; }
+            get => checkBox.Checked;
             set
             {
                 checkBox.Checked = value;
@@ -51,23 +36,19 @@ namespace CBClass.Controls
         }
 
         [Description("Name of the form to serach"), Category("CB")]
-        public string CbFormName
-        {
-            get { return _formName; }
-            set { _formName = value; }
-        }
+        public string CbFormName { get; set; }
 
         [Description("Value in the textBoxId"), Category("CB")]
         public string CbValue
         {
-            get { return textBoxId.Text; }
-            set { textBoxId.Text = value; }
+            get => textBoxId.Text;
+            set => textBoxId.Text = value;
         }
 
         [Description("Is button visible"), Category("CB")]
         public bool CbReadOnly
         {
-            get { return textBoxId.ReadOnly; }
+            get => textBoxId.ReadOnly;
             set
             {
                 button.Visible = !value;
@@ -77,11 +58,7 @@ namespace CBClass.Controls
         }
 
         [Description("CheckBox is always on"), Category("CB")]
-        public bool CbCheckBoxLocked
-        {
-            get { return _checkBoxLocked; }
-            set { _checkBoxLocked = value; }
-        }
+        public bool CbCheckBoxLocked { get; set; }
 
         public event EventHandler ButtonClick;
         public event EventHandler CheckBoxCheckedChanged;
@@ -125,7 +102,7 @@ namespace CBClass.Controls
                         this.ConditionChanged(this, e);
                     textBoxId.ForeColor = System.Drawing.Color.Gray;
                     CbValue = "ID";
-                    if (textBoxColumn.Text != _columnName)
+                    if (textBoxColumn.Text != CbColumnName)
                     {
                         textBoxColumn.Text = CbColumnName;
                         textBoxColumn.ForeColor = System.Drawing.Color.Gray;
@@ -180,7 +157,7 @@ namespace CBClass.Controls
                             MessageBox.Show("Pouco específico");
                         else
                             MessageBox.Show("Sem resultados");
-                        
+
                         textBoxColumn.Select();
                         textBoxColumn.Clear();
                         textBoxId.Clear();
@@ -205,7 +182,7 @@ namespace CBClass.Controls
                 if (this.ConditionChanged != null)
                     this.ConditionChanged(this, e);
                 CbValue = "ID";
-                textBoxColumn.Text = _columnName;
+                textBoxColumn.Text = CbColumnName;
                 textBoxColumn.ForeColor = System.Drawing.Color.Gray;
                 textBoxId.ForeColor = System.Drawing.Color.Gray;
             }
@@ -258,7 +235,7 @@ namespace CBClass.Controls
                     this.ConditionChanged(this, new EventArgs());
             }
             else
-                textBoxColumn.Text = _columnName;
+                textBoxColumn.Text = CbColumnName;
         }
     }
 }
