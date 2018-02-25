@@ -1,9 +1,9 @@
-﻿using CBClass;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using CbClass;
 
-namespace PapeApplication
+namespace PapApplication
 {
     public partial class Leitores : Form
     {

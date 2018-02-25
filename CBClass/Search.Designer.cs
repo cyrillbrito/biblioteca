@@ -1,4 +1,4 @@
-﻿namespace CBClass
+﻿namespace CbClass
 {
     partial class Search
     {
@@ -78,7 +78,7 @@
             // 
             // button
             // 
-            this.button.BackgroundImage = global::CBClass.Properties.Resources.SearchIcon;
+            this.button.BackgroundImage = global::CbClass.Properties.Resources.SearchIcon;
             this.button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button.Enabled = false;
             this.button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

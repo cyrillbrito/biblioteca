@@ -1,6 +1,6 @@
-﻿using CBClass;
+﻿using CbClass;
 
-namespace PapeApplication
+namespace PapApplication
 {
     partial class Requisita
     {
@@ -136,7 +136,7 @@ namespace PapeApplication
             this.searchLeitor.TabIndex = 1;
             this.searchLeitor.ButtonClick += new System.EventHandler(this.search_ButtonClick);
             this.searchLeitor.CheckBoxCheckedChanged += new System.EventHandler(this.search_CheckBoxCheckedChange);
-            this.searchLeitor.ConditionChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchLeitor.ConditionChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // radioTodos
             // 
@@ -170,7 +170,7 @@ namespace PapeApplication
             this.searchLivro.TabIndex = 0;
             this.searchLivro.ButtonClick += new System.EventHandler(this.search_ButtonClick);
             this.searchLivro.CheckBoxCheckedChanged += new System.EventHandler(this.search_CheckBoxCheckedChange);
-            this.searchLivro.ConditionChanged += new System.EventHandler(this.search_ConditionChanged);
+            this.searchLivro.ConditionChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // p_direita
             // 
@@ -186,7 +186,7 @@ namespace PapeApplication
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Image = global::PapeApplication.Properties.Resources.add;
+            this.buttonAdd.Image = global::PapApplication.Properties.Resources.add;
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdd.Location = new System.Drawing.Point(6, 24);
             this.buttonAdd.Name = "buttonAdd";
@@ -200,7 +200,7 @@ namespace PapeApplication
             // buttonEdit
             // 
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.Image = global::PapeApplication.Properties.Resources.edit;
+            this.buttonEdit.Image = global::PapApplication.Properties.Resources.edit;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEdit.Location = new System.Drawing.Point(6, 116);
             this.buttonEdit.Name = "buttonEdit";
@@ -214,7 +214,7 @@ namespace PapeApplication
             // buttonDetails
             // 
             this.buttonDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDetails.Image = global::PapeApplication.Properties.Resources.information;
+            this.buttonDetails.Image = global::PapApplication.Properties.Resources.information;
             this.buttonDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDetails.Location = new System.Drawing.Point(6, 70);
             this.buttonDetails.Name = "buttonDetails";

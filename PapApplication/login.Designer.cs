@@ -1,4 +1,4 @@
-﻿namespace PapeApplication
+﻿namespace PapApplication
 {
     partial class Login
     {
@@ -98,7 +98,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PapeApplication.Properties.Resources.logo;
+            this.pictureBox1.Image = global::PapApplication.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(44, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 125);

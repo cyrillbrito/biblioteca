@@ -1,4 +1,4 @@
-﻿namespace PapeApplication
+﻿namespace PapApplication
 {
     partial class Editora
     {
@@ -46,7 +46,7 @@
             this.buttonDetails = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
             this.p_esquerda = new System.Windows.Forms.Panel();
-            this.searchEditora = new CBClass.SearchLocal();
+            this.searchEditora = new CbClass.SearchLocal();
             this.p_direita = new System.Windows.Forms.Panel();
             this.p_baixo = new System.Windows.Forms.Panel();
             this.p_cima.SuspendLayout();
@@ -158,7 +158,7 @@
             // buttonSelect
             // 
             this.buttonSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelect.Image = global::PapeApplication.Properties.Resources.foward;
+            this.buttonSelect.Image = global::PapApplication.Properties.Resources.foward;
             this.buttonSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSelect.Location = new System.Drawing.Point(6, 162);
             this.buttonSelect.Name = "buttonSelect";
@@ -172,7 +172,7 @@
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Image = global::PapeApplication.Properties.Resources.add;
+            this.buttonAdd.Image = global::PapApplication.Properties.Resources.add;
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdd.Location = new System.Drawing.Point(6, 24);
             this.buttonAdd.Name = "buttonAdd";
@@ -186,7 +186,7 @@
             // buttonEdit
             // 
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.Image = global::PapeApplication.Properties.Resources.edit;
+            this.buttonEdit.Image = global::PapApplication.Properties.Resources.edit;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEdit.Location = new System.Drawing.Point(6, 116);
             this.buttonEdit.Name = "buttonEdit";
@@ -200,7 +200,7 @@
             // buttonDetails
             // 
             this.buttonDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDetails.Image = global::PapeApplication.Properties.Resources.information;
+            this.buttonDetails.Image = global::PapApplication.Properties.Resources.information;
             this.buttonDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDetails.Location = new System.Drawing.Point(6, 70);
             this.buttonDetails.Name = "buttonDetails";
@@ -302,7 +302,7 @@
         private System.Windows.Forms.Button buttonDetails;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.Panel p_esquerda;
-        private CBClass.SearchLocal searchEditora;
+        private CbClass.SearchLocal searchEditora;
         private System.Windows.Forms.Panel p_direita;
         private System.Windows.Forms.Panel p_baixo;
         private System.Windows.Forms.MenuStrip menuStrip1;

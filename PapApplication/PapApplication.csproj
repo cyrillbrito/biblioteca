@@ -7,8 +7,8 @@
     <ProjectGuid>{3EDBD1B0-B16B-449F-BDB1-A8175900F650}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PapeApplication</RootNamespace>
-    <AssemblyName>PapeApplication</AssemblyName>
+    <RootNamespace>PapApplication</RootNamespace>
+    <AssemblyName>PapApplication</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -99,6 +99,7 @@
     <Compile Include="editora.Designer.cs">
       <DependentUpon>editora.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsHelper.cs" />
     <Compile Include="leitores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,9 +189,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CBClass\CBClass.csproj">
+    <ProjectReference Include="..\CBClass\CbClass.csproj">
       <Project>{499dec1e-dcb3-465b-8199-942a3f725b03}</Project>
-      <Name>CBClass</Name>
+      <Name>CbClass</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

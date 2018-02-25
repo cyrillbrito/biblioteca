@@ -1,4 +1,4 @@
-﻿namespace PapeApplication
+﻿namespace PapApplication
 {
     partial class Leitores
     {
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.p_baixo = new System.Windows.Forms.Panel();
-            this.searchNome = new CBClass.SearchLocal();
+            this.searchNome = new CbClass.SearchLocal();
             this.p_esquerda = new System.Windows.Forms.Panel();
-            this.searchLocal1 = new CBClass.SearchLocal();
-            this.searchMorada = new CBClass.SearchLocal();
+            this.searchLocal1 = new CbClass.SearchLocal();
+            this.searchMorada = new CbClass.SearchLocal();
             this.p_direita = new System.Windows.Forms.Panel();
             this.buttonSelect = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -129,7 +129,7 @@
             // buttonSelect
             // 
             this.buttonSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelect.Image = global::PapeApplication.Properties.Resources.foward;
+            this.buttonSelect.Image = global::PapApplication.Properties.Resources.foward;
             this.buttonSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSelect.Location = new System.Drawing.Point(6, 162);
             this.buttonSelect.Name = "buttonSelect";
@@ -143,7 +143,7 @@
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Image = global::PapeApplication.Properties.Resources.add;
+            this.buttonAdd.Image = global::PapApplication.Properties.Resources.add;
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdd.Location = new System.Drawing.Point(6, 24);
             this.buttonAdd.Name = "buttonAdd";
@@ -157,7 +157,7 @@
             // buttonEdit
             // 
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.Image = global::PapeApplication.Properties.Resources.edit;
+            this.buttonEdit.Image = global::PapApplication.Properties.Resources.edit;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEdit.Location = new System.Drawing.Point(6, 116);
             this.buttonEdit.Name = "buttonEdit";
@@ -171,7 +171,7 @@
             // buttonDetails
             // 
             this.buttonDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDetails.Image = global::PapeApplication.Properties.Resources.information;
+            this.buttonDetails.Image = global::PapApplication.Properties.Resources.information;
             this.buttonDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDetails.Location = new System.Drawing.Point(6, 70);
             this.buttonDetails.Name = "buttonDetails";
@@ -336,7 +336,7 @@
         #endregion
 
         private System.Windows.Forms.Panel p_baixo;
-        private CBClass.SearchLocal searchNome;
+        private CbClass.SearchLocal searchNome;
         private System.Windows.Forms.Panel p_esquerda;
         private System.Windows.Forms.Panel p_direita;
         private System.Windows.Forms.Button buttonAdd;
@@ -346,8 +346,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private CBClass.SearchLocal searchMorada;
-        private CBClass.SearchLocal searchLocal1;
+        private CbClass.SearchLocal searchMorada;
+        private CbClass.SearchLocal searchLocal1;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button buttonSelect;

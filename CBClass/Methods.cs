@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace CBClass
+namespace CbClass
 {
     public class Methods
     {

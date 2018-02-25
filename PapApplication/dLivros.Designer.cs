@@ -1,6 +1,6 @@
-﻿using CBClass;
+﻿using CbClass;
 
-namespace PapeApplication
+namespace PapApplication
 {
     partial class DLivros
     {
@@ -30,13 +30,13 @@ namespace PapeApplication
         /// </summary>
         private void InitializeComponent()
         {
-            this.searchPaginas = new CBClass.SearchLocal();
-            this.searchTitulo = new CBClass.SearchLocal();
-            this.searchId = new CBClass.SearchLocal();
+            this.searchPaginas = new CbClass.SearchLocal();
+            this.searchTitulo = new CbClass.SearchLocal();
+            this.searchId = new CbClass.SearchLocal();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.searchData = new CBClass.SearchDate();
+            this.searchData = new CbClass.SearchDate();
             this.searchCategoria = new Search();
             this.searchEditora = new Search();
             this.searchAutor = new Search();
@@ -79,7 +79,7 @@ namespace PapeApplication
             // buttonEdit
             // 
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.Image = global::PapeApplication.Properties.Resources.edit;
+            this.buttonEdit.Image = global::PapApplication.Properties.Resources.edit;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEdit.Location = new System.Drawing.Point(502, 179);
             this.buttonEdit.Name = "buttonEdit";
@@ -93,7 +93,7 @@ namespace PapeApplication
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Image = global::PapeApplication.Properties.Resources.save;
+            this.buttonSave.Image = global::PapApplication.Properties.Resources.save;
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSave.Location = new System.Drawing.Point(502, 12);
             this.buttonSave.Name = "buttonSave";
@@ -108,7 +108,7 @@ namespace PapeApplication
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Image = global::PapeApplication.Properties.Resources.cancel;
+            this.buttonCancel.Image = global::PapApplication.Properties.Resources.cancel;
             this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonCancel.Location = new System.Drawing.Point(502, 58);
             this.buttonCancel.Name = "buttonCancel";
@@ -189,7 +189,7 @@ namespace PapeApplication
             // buttonEliminar
             // 
             this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminar.Image = global::PapeApplication.Properties.Resources.delete;
+            this.buttonEliminar.Image = global::PapApplication.Properties.Resources.delete;
             this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEliminar.Location = new System.Drawing.Point(502, 179);
             this.buttonEliminar.Name = "buttonEliminar";
@@ -226,13 +226,13 @@ namespace PapeApplication
 
         #endregion
 
-        private CBClass.SearchLocal searchId;
-        private CBClass.SearchLocal searchTitulo;
-        private CBClass.SearchLocal searchPaginas;
+        private CbClass.SearchLocal searchId;
+        private CbClass.SearchLocal searchTitulo;
+        private CbClass.SearchLocal searchPaginas;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
-        private CBClass.SearchDate searchData;
+        private CbClass.SearchDate searchData;
         private Search searchCategoria;
         private Search searchEditora;
         private Search searchAutor;

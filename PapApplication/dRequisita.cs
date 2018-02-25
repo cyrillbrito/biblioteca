@@ -1,9 +1,9 @@
-﻿using CBClass;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using CbClass;
 
-namespace PapeApplication
+namespace PapApplication
 {
     public partial class DRequisita : Form
     {

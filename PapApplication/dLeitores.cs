@@ -1,10 +1,10 @@
-﻿using CBClass;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using CbClass;
 
-namespace PapeApplication
+namespace PapApplication
 {
     public partial class DLeitores : Form
     {

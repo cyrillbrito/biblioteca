@@ -7,8 +7,8 @@
     <ProjectGuid>{499DEC1E-DCB3-465B-8199-942A3F725B03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CBClass</RootNamespace>
-    <AssemblyName>CBClass</AssemblyName>
+    <RootNamespace>CbClass</RootNamespace>
+    <AssemblyName>CbClass</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

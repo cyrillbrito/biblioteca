@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace CBClass
+namespace CbClass
 {
     public class Mysql : IDisposable
     {

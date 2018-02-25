@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace CBClass
+namespace CbClass
 {
     public partial class SearchDate : UserControl
     {

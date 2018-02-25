@@ -1,4 +1,4 @@
-﻿namespace CBClass
+﻿namespace CbClass
 {
     partial class SearchDate
     {

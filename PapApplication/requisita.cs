@@ -1,8 +1,8 @@
-﻿using CBClass;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using CbClass;
 
-namespace PapeApplication
+namespace PapApplication
 {
     public partial class Requisita : Form
     {
@@ -76,12 +76,11 @@ namespace PapeApplication
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
-        private void search_ConditionChanged(object sender, EventArgs e)
+        private void Search_ConditionChanged(object sender, EventArgs e)
         {
             var search = (Search) sender;
             var searchLocal = sender as SearchLocal;
             int startPosition;
-            int endPosition;
 
             if (searchLocal == null)
                 startPosition = _conditions.IndexOf(search.CbIdColumn);
@@ -90,7 +89,7 @@ namespace PapeApplication
 
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = _conditions.IndexOf("AND", startPosition);
+                var endPosition = _conditions.IndexOf("AND", startPosition);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1 -2 = -3
                     _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else

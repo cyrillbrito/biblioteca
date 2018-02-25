@@ -1,6 +1,6 @@
-﻿using CBClass;
+﻿using CbClass;
 
-namespace PapeApplication
+namespace PapApplication
 {
     partial class Livros
     {
@@ -53,7 +53,7 @@ namespace PapeApplication
             this.searchCategoria = new Search();
             this.radioRequisitado = new System.Windows.Forms.RadioButton();
             this.radioTodos = new System.Windows.Forms.RadioButton();
-            this.searchLocal1 = new CBClass.SearchLocal();
+            this.searchLocal1 = new CbClass.SearchLocal();
             this.searchEditora = new Search();
             this.searchAutor = new Search();
             this.p_baixo = new System.Windows.Forms.Panel();
@@ -194,7 +194,7 @@ namespace PapeApplication
             // buttonSelect
             // 
             this.buttonSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelect.Image = global::PapeApplication.Properties.Resources.foward;
+            this.buttonSelect.Image = global::PapApplication.Properties.Resources.foward;
             this.buttonSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSelect.Location = new System.Drawing.Point(6, 162);
             this.buttonSelect.Name = "buttonSelect";
@@ -208,7 +208,7 @@ namespace PapeApplication
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Image = global::PapeApplication.Properties.Resources.add;
+            this.buttonAdd.Image = global::PapApplication.Properties.Resources.add;
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdd.Location = new System.Drawing.Point(6, 24);
             this.buttonAdd.Name = "buttonAdd";
@@ -222,7 +222,7 @@ namespace PapeApplication
             // buttonEdit
             // 
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.Image = global::PapeApplication.Properties.Resources.edit;
+            this.buttonEdit.Image = global::PapApplication.Properties.Resources.edit;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEdit.Location = new System.Drawing.Point(6, 116);
             this.buttonEdit.Name = "buttonEdit";
@@ -236,7 +236,7 @@ namespace PapeApplication
             // buttonDetails
             // 
             this.buttonDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDetails.Image = global::PapeApplication.Properties.Resources.information;
+            this.buttonDetails.Image = global::PapApplication.Properties.Resources.information;
             this.buttonDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDetails.Location = new System.Drawing.Point(6, 70);
             this.buttonDetails.Name = "buttonDetails";
@@ -419,7 +419,7 @@ namespace PapeApplication
         private System.Windows.Forms.Panel p_esquerda;
         private System.Windows.Forms.Panel p_baixo;
         private Search searchEditora;
-        private CBClass.SearchLocal searchLocal1;
+        private CbClass.SearchLocal searchLocal1;
         private Search searchCategoria;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem livrosToolStrip;
