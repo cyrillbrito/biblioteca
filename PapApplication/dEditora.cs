@@ -1,14 +1,14 @@
-﻿using System;
+﻿using CbClass;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using CbClass;
 
 namespace PapApplication
 {
     public partial class DEditora : Form
     {
         private int _id;
-        private bool _edit = false;
+        private bool _edit;
 
         public DEditora(int id = 0, bool edit = false)
         {
@@ -50,8 +50,8 @@ namespace PapApplication
             {
                 query.Read();
 
-                searchId.CbValue = query.Read("id_edit").ToString();
-                searchEditora.CbValue = query.Read("editora").ToString();
+                searchId.CbValue = query.Read("id_edit");
+                searchEditora.CbValue = query.Read("editora");
             }
 
             _edit = false;
@@ -69,7 +69,7 @@ namespace PapApplication
             using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'editoras'"))
             {
                 query.Read();
-                searchId.CbValue = query.Read("a").ToString();
+                searchId.CbValue = query.Read("a");
                 _id = int.Parse(searchId.CbValue);
                 buttonEliminar.Visible = false;
             }
@@ -92,7 +92,7 @@ namespace PapApplication
                     if (_edit)
                     {
                         str = "editora = '" + searchEditora.CbValue + "'";
-                        Mysql.Update("editoras", str, "id_edit = " + _id.ToString());
+                        Mysql.Update("editoras", str, "id_edit = " + _id);
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else

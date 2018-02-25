@@ -1,14 +1,14 @@
-﻿using System;
+﻿using CbClass;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using CbClass;
 
 namespace PapApplication
 {
     public partial class DAutores : Form
     {
         private int _id;
-        private bool _edit = false;
+        private bool _edit;
 
         public DAutores(int id = 0, bool edit = false)
         {
@@ -55,18 +55,18 @@ namespace PapApplication
             {
                 query.Read();
 
-                searchId.CbValue = query.Read("id_auto").ToString();
-                searchNome.CbValue = query.Read("nome").ToString();
-                searchNacionalidade.CbValue = query.Read("nacionalidade").ToString();
-                searchDataNascimento.CbValue = query.Read("data_nasc").ToString();
+                searchId.CbValue = query.Read("id_auto");
+                searchNome.CbValue = query.Read("nome");
+                searchNacionalidade.CbValue = query.Read("nacionalidade");
+                searchDataNascimento.CbValue = query.Read("data_nasc");
                 // todo
-                if (query.Read("data_fale").ToString() == "")
+                if (query.Read("data_fale") == "")
                     searchDataFalecimento.Visible = false;
                 else
                 {
                     searchDataFalecimento.Visible = true;
                     // todo remover esta tostring
-                    searchDataFalecimento.CbValue = query.Read("data_fale").ToString();
+                    searchDataFalecimento.CbValue = query.Read("data_fale");
                 }
             }
 
@@ -89,7 +89,7 @@ namespace PapApplication
             using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'autores'"))
             {
                 query.Read();
-                searchId.CbValue = query.Read("a").ToString();
+                searchId.CbValue = query.Read("a");
                 _id = int.Parse(searchId.CbValue);
             }
 
@@ -116,7 +116,7 @@ namespace PapApplication
                         str = "nome = '" + searchNome.CbValue + "', Nacionalidade = '" + searchNacionalidade.CbValue + "', data_nasc = '" + searchDataNascimento.CbValue + "'";
                         if (checkBox.Checked)
                             str += ", data_fale = '" + searchDataFalecimento.CbValue + "'";
-                        Mysql.Update("autores", str, "id_auto = " + _id.ToString());
+                        Mysql.Update("autores", str, "id_auto = " + _id);
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else

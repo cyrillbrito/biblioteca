@@ -1,15 +1,15 @@
-﻿using System;
+﻿using CbClass;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using CbClass;
 
 namespace PapApplication
 {
     public partial class DLeitores : Form
     {
         private int _id;
-        private bool _edit = false;
+        private bool _edit;
 
         public DLeitores(int id = 0, bool edit = false)
         {
@@ -50,11 +50,11 @@ namespace PapApplication
             {
                 query.Read();
 
-                searchId.CbValue = query.Read("id_leit").ToString();
-                searchNome.CbValue = query.Read("nome").ToString();
-                searchEmail.CbValue = query.Read("email").ToString();
-                searchMorada.CbValue = query.Read("morada").ToString();
-                searchTelemovel.CbValue = query.Read("telemovel").ToString();
+                searchId.CbValue = query.Read("id_leit");
+                searchNome.CbValue = query.Read("nome");
+                searchEmail.CbValue = query.Read("email");
+                searchMorada.CbValue = query.Read("morada");
+                searchTelemovel.CbValue = query.Read("telemovel");
             }
 
             _edit = false;
@@ -79,7 +79,7 @@ namespace PapApplication
             using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'leitores'"))
             {
                 query.Read();
-                searchId.CbValue = query.Read("a").ToString();
+                searchId.CbValue = query.Read("a");
                 _id = int.Parse(searchId.CbValue);
                 buttonEliminar.Visible = false;
             }
@@ -102,7 +102,7 @@ namespace PapApplication
                     if (_edit)
                     {
                         str = "Nome = '" + searchNome.CbValue + "', email = '" + searchEmail.CbValue + "', morada = '" + searchMorada.CbValue + "', telemovel = '" + searchTelemovel.CbValue + "'";
-                        Mysql.Update("leitores", str, "id_leit = " + _id.ToString());
+                        Mysql.Update("leitores", str, "id_leit = " + _id);
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else
@@ -179,7 +179,7 @@ namespace PapApplication
             fileDialog.InitialDirectory = @"C:\";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                File.Copy(fileDialog.FileName.ToString(), Application.StartupPath + @"\leitores\temp", true);
+                File.Copy(fileDialog.FileName, Application.StartupPath + @"\leitores\temp", true);
                 if (File.Exists(Application.StartupPath + @"\leitores\temp"))
                     pictureBox1.ImageLocation = Application.StartupPath + @"\leitores\temp";
             }

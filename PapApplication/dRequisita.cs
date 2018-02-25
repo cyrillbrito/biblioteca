@@ -1,7 +1,7 @@
-﻿using System;
+﻿using CbClass;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using CbClass;
 
 namespace PapApplication
 {
@@ -9,7 +9,7 @@ namespace PapApplication
     {
         private int _id;
         private string _id2;
-        private bool _edit = false;
+        private bool _edit;
 
         public DRequisita(int id = 0, bool edit = false)
         {
@@ -58,13 +58,13 @@ namespace PapApplication
             {
                 query.Read();
 
-                searchId.CbValue = query.Read("id_requ").ToString();
-                searchLivro.CbValue = query.Read("id_livr").ToString();
-                searchLeitor.CbValue = query.Read("id_leit").ToString();
-                searchRequisita.CbValue = query.Read("data_requ").ToString();
-                searchEntrega.CbValue = query.Read("data_entr").ToString();
+                searchId.CbValue = query.Read("id_requ");
+                searchLivro.CbValue = query.Read("id_livr");
+                searchLeitor.CbValue = query.Read("id_leit");
+                searchRequisita.CbValue = query.Read("data_requ");
+                searchEntrega.CbValue = query.Read("data_entr");
 
-                if (query.Read("data_devo").ToString() == "")
+                if (query.Read("data_devo") == "")
                 {
                     searchDevolucao.Visible = false;
                     label1.Visible = true;
@@ -75,7 +75,7 @@ namespace PapApplication
                 {
                     searchDevolucao.Visible = true;
                     label1.Visible = false;
-                    searchDevolucao.CbValue = query.Read("data_devo").ToString();
+                    searchDevolucao.CbValue = query.Read("data_devo");
                     buttonEntregar.Visible = false;
                     buttonEstender.Visible = false;
                 }
@@ -100,12 +100,12 @@ namespace PapApplication
             using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'requisita'"))
             {
                 query.Read();
-                searchId.CbValue = query.Read("a").ToString();
+                searchId.CbValue = query.Read("a");
                 _id = int.Parse(searchId.CbValue);
             }
 
             searchRequisita.CbValue = DateTime.Today.ToString("yyyy-MM-dd");
-            searchEntrega.CbValue = DateTime.Today.AddDays(15).ToString("yyyy-MM-dd"); ;
+            searchEntrega.CbValue = DateTime.Today.AddDays(15).ToString("yyyy-MM-dd");
             searchDevolucao.Visible = false;
             searchRequisita.CbReadOnly = true;
             searchEntrega.CbReadOnly = true;
@@ -132,12 +132,12 @@ namespace PapApplication
                         if (searchDevolucao.Visible)
                             str += ", data_devo = '" + searchDevolucao.CbValue + "'";
 
-                        Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
+                        Mysql.Update("requisita", str, "id_requ = " + _id);
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else
                     {
-                        str = "'" + searchLivro.CbValue + "', '" + searchLeitor.CbValue + "', '" + searchRequisita.CbValue + "', '" + searchEntrega.CbValue + "', '" + Variables.FuncId.ToString() + "'";
+                        str = "'" + searchLivro.CbValue + "', '" + searchLeitor.CbValue + "', '" + searchRequisita.CbValue + "', '" + searchEntrega.CbValue + "', '" + Variables.FuncId + "'";
                         Mysql.Insert("requisita", "id_livr, id_leit, data_requ, data_entr, id_func", str);
                         Mysql.Update("livros", "requisitado = 1", "id_livr = " + searchLivro.CbValue);
                         MessageBox.Show("Os dados foram inseridos");
@@ -197,7 +197,7 @@ namespace PapApplication
             if (dialogResult == DialogResult.Yes)
             {
                 var str = "data_devo = '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
-                Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
+                Mysql.Update("requisita", str, "id_requ = " + _id);
                 Mysql.Update("livros", "requisitado = 0", "id_livr = " + searchLivro.CbValue);
                 MessageBox.Show("Livro entregue.");
                 ViewMode();
@@ -215,7 +215,7 @@ namespace PapApplication
                     query.Read();
 
                     var str = $"data_entr = '{Convert.ToDateTime(query.Read("data_entr")).AddDays(7):yyyy-MM-dd}'";
-                    Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
+                    Mysql.Update("requisita", str, "id_requ = " + _id);
                 }
 
                 MessageBox.Show("Livro entregue.");
@@ -225,7 +225,7 @@ namespace PapApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            var search = (Search) sender;
+            var search = (Search)sender;
 
             switch (search.CbFormName)
             {

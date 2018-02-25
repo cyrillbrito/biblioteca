@@ -1,14 +1,14 @@
-﻿using System;
+﻿using CbClass;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using CbClass;
 
 namespace PapApplication
 {
     public partial class DLivros : Form
     {
         private int _id;
-        private bool _edit = false;
+        private bool _edit;
 
         public DLivros(int id = 0, bool edit = false)
         {
@@ -55,14 +55,14 @@ namespace PapApplication
             {
                 query.Read();
 
-                searchId.CbValue = query.Read("id_livr").ToString();
-                searchTitulo.CbValue = query.Read("titulo").ToString();
-                searchPaginas.CbValue = query.Read("n_pagi").ToString();
-                searchCategoria.CbValue = query.Read("id_cate").ToString();
-                searchAutor.CbValue = query.Read("id_auto").ToString();
-                searchEditora.CbValue = query.Read("id_edit").ToString();
-                searchEditora.CbValue = query.Read("id_edit").ToString();
-                searchData.CbValue = query.Read("data_lanc").ToString();
+                searchId.CbValue = query.Read("id_livr");
+                searchTitulo.CbValue = query.Read("titulo");
+                searchPaginas.CbValue = query.Read("n_pagi");
+                searchCategoria.CbValue = query.Read("id_cate");
+                searchAutor.CbValue = query.Read("id_auto");
+                searchEditora.CbValue = query.Read("id_edit");
+                searchEditora.CbValue = query.Read("id_edit");
+                searchData.CbValue = query.Read("data_lanc");
             }
 
             _edit = false;
@@ -86,7 +86,7 @@ namespace PapApplication
             {
                 query.Read();
                 // todo tostring ?
-                searchId.CbValue = query.Read("a").ToString();
+                searchId.CbValue = query.Read("a");
                 _id = int.Parse(searchId.CbValue);
                 buttonEliminar.Visible = false;
             }
@@ -109,7 +109,7 @@ namespace PapApplication
                     if (_edit)
                     {
                         str = "titulo = '" + searchTitulo.CbValue + "', n_pagi = '" + searchPaginas.CbValue + "', id_cate = '" + searchCategoria.CbValue + "', id_auto = '" + searchAutor.CbValue + "', id_edit = '" + searchEditora.CbValue + "', data_lanc = '" + searchData.CbValue + "'";
-                        Mysql.Update("livros", str, "id_livr = " + _id.ToString());
+                        Mysql.Update("livros", str, "id_livr = " + _id);
                         MessageBox.Show("Os dados foram alterados.");
                     }
                     else
@@ -161,7 +161,7 @@ namespace PapApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            var search = (Search) sender;;
+            var search = (Search)sender; ;
 
             switch (search.CbFormName)
             {
