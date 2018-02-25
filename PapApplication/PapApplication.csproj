@@ -99,7 +99,6 @@
     <Compile Include="editora.Designer.cs">
       <DependentUpon>editora.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsHelper.cs" />
     <Compile Include="leitores.cs">
       <SubType>Form</SubType>
     </Compile>

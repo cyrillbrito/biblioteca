@@ -1,5 +1,6 @@
 ﻿using CbClass;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PapApplication
@@ -26,7 +27,16 @@ namespace PapApplication
 
         private void Livros_Load(object sender, EventArgs e)
         {
-            FormsHelper.FormLoad(this, menuStrip1, buttonSelect, label1, _select, "Livro");
+            if (_select)
+            {
+                menuStrip1.Visible = false;
+                buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
+                FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                Methods.LoadFormProperties(this, true);
+                label1.Text = "Selecionar Livro";
+            }
+            else
+                Methods.LoadFormProperties(this);
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
 
             if (_idc != "0")
@@ -85,7 +95,32 @@ namespace PapApplication
 
         private void Search_ConditionChanged(object sender, EventArgs e)
         {
-            _conditions = FormsHelper.SearchConditionChanged(sender, _conditions);
+            var search = sender as Search;
+            var searchLocal = sender as SearchLocal;
+
+            if ((search == null || search.CbValue == "") && (searchLocal == null || searchLocal.CbValue == ""))
+                return;
+
+            var startPosition = _conditions.IndexOf(search != null ? search.CbIdColumn : searchLocal.CbColumnName, StringComparison.Ordinal);
+
+            if (startPosition != -1)
+            {
+                var endPosition = _conditions.IndexOf("AND", startPosition, StringComparison.Ordinal);
+
+                if (endPosition == -1)
+                    _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
+                else
+                    _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
+            }
+
+            if (_conditions != "")
+                _conditions += " AND ";
+
+            if (search != null)
+                _conditions += search.CbIdColumn + " = " + search.CbValue;
+            else
+                _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
+
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
