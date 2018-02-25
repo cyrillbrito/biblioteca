@@ -322,7 +322,7 @@
             this.Controls.Add(this.p_baixo);
             this.Name = "Leitores";
             this.Text = "leitores";
-            this.Load += new System.EventHandler(this.leitores_Load);
+            this.Load += new System.EventHandler(this.Leitores_Load);
             this.p_esquerda.ResumeLayout(false);
             this.p_direita.ResumeLayout(false);
             this.p_cima.ResumeLayout(false);

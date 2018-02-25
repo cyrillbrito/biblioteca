@@ -1,6 +1,5 @@
 ﻿using CbClass;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace PapApplication
@@ -25,18 +24,10 @@ namespace PapApplication
             _ide = idEdit;
         }
 
-        private void livros_Load(object sender, EventArgs e)
+        private void Livros_Load(object sender, EventArgs e)
         {
-            if (_select)
-            {
-                menuStrip1.Visible = false;
-                buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
-                FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                Methods.LoadFormProperties(this, true);
-                label1.Text = "Selecionar Livro";
-            }
-            else
-                Methods.LoadFormProperties(this);
+            FormsHelper.FormLoad(this, menuStrip1, buttonSelect, label1, _select, "Livro");
+            Methods.UpdateListView(listView, _columns, Tables, _conditions);
 
             if (_idc != "0")
             {
@@ -56,8 +47,6 @@ namespace PapApplication
                 searchEditora.Reload();
                 searchEditora.CBisChecked = true;
             }
-
-            Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
         private void buttonDetails_Click(object sender, EventArgs e)

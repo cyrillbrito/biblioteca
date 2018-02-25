@@ -18,19 +18,9 @@ namespace PapApplication
             _select = @select;
         }
 
-        private void leitores_Load(object sender, EventArgs e)
+        private void Leitores_Load(object sender, EventArgs e)
         {
-            if (_select)
-            {
-                menuStrip1.Visible = false;
-                buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
-                FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                Methods.LoadFormProperties(this, true);
-                label1.Text = "Selecionar Leitor";
-            }
-            else
-                Methods.LoadFormProperties(this);
-
+            FormsHelper.FormLoad(this, menuStrip1, buttonSelect, label1, _select, "Leitor");
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
@@ -38,6 +28,7 @@ namespace PapApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
+                Methods.SaveFormProperties();
                 var obj = new DLeitores(int.Parse(listView.SelectedItems[0].Text));
                 obj.ShowDialog();
                 Methods.UpdateListView(listView, _columns, Tables, _conditions);

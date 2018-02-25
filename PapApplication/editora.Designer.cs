@@ -280,7 +280,7 @@
             this.Controls.Add(this.p_cima);
             this.Name = "Editora";
             this.Text = "editora";
-            this.Load += new System.EventHandler(this.editora_Load);
+            this.Load += new System.EventHandler(this.Editora_Load);
             this.p_cima.ResumeLayout(false);
             this.p_cima.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

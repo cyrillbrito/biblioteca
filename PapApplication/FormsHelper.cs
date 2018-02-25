@@ -1,10 +1,26 @@
 ﻿using CbClass;
 using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace PapApplication
 {
     static class FormsHelper
     {
+        public static void FormLoad(Form form, MenuStrip menuStrip, Button selectButton, Label label, bool isSelect, string type)
+        {
+            if (isSelect)
+            {
+                menuStrip.Visible = false;
+                selectButton.Font = new Font(selectButton.Font, FontStyle.Bold);
+                form.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                Methods.LoadFormProperties(form, true);
+                label.Text = $"Selecionar {type}";
+            }
+            else
+                Methods.LoadFormProperties(form);
+        }
+        
         public static string SearchConditionChanged(object sender, string conditions)
         {
             var search = sender as Search;

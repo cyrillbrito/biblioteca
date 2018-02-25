@@ -393,7 +393,7 @@ namespace PapApplication
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Livros";
             this.Text = "livros";
-            this.Load += new System.EventHandler(this.livros_Load);
+            this.Load += new System.EventHandler(this.Livros_Load);
             this.p_cima.ResumeLayout(false);
             this.p_cima.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

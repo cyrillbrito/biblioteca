@@ -1,6 +1,5 @@
 ﻿using CbClass;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace PapApplication
@@ -18,19 +17,9 @@ namespace PapApplication
             _select = @select;
         }
 
-        private void categoria_Load(object sender, EventArgs e)
+        private void Categoria_Load(object sender, EventArgs e)
         {
-            if (_select)
-            {
-                menuStrip1.Visible = false;
-                buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
-                FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                Methods.LoadFormProperties(this, true);
-                label1.Text = "Selecionar Categoria";
-            }
-            else
-                Methods.LoadFormProperties(this);
-
+            FormsHelper.FormLoad(this, menuStrip1, buttonSelect, label1, _select, "Categoria");
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 

@@ -280,7 +280,7 @@
             this.Controls.Add(this.p_baixo);
             this.Name = "Categoria";
             this.Text = "categoria";
-            this.Load += new System.EventHandler(this.categoria_Load);
+            this.Load += new System.EventHandler(this.Categoria_Load);
             this.p_esquerda.ResumeLayout(false);
             this.p_direita.ResumeLayout(false);
             this.p_cima.ResumeLayout(false);

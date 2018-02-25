@@ -1,6 +1,5 @@
 ﻿using CbClass;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace PapApplication
@@ -20,17 +19,7 @@ namespace PapApplication
 
         private void Autores_Load(object sender, EventArgs e)
         {
-            if (_select)
-            {
-                menuStrip1.Visible = false;
-                buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
-                FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                Methods.LoadFormProperties(this, true);
-                label1.Text = "Selecionar Autore";
-            }
-            else
-                Methods.LoadFormProperties(this);
-
+            FormsHelper.FormLoad(this, menuStrip1, buttonSelect, label1, _select, "Autor");
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
@@ -109,6 +98,11 @@ namespace PapApplication
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

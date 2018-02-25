@@ -218,6 +218,7 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Lista de Autores";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // menuStrip1
             // 
@@ -288,7 +289,7 @@
             this.funcionariosToolStripMenuItem.Visible = false;
             this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.ToolStrip_Click);
             // 
-            // autores
+            // Autores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

@@ -18,7 +18,7 @@ namespace PapApplication
             _select = @select;
         }
 
-        private void editora_Load(object sender, EventArgs e)
+        private void Editora_Load(object sender, EventArgs e)
         {
             if (_select)
             {
