@@ -119,11 +119,11 @@ namespace PapeApplication
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            List<string> list = CheckData();
+            var list = CheckData();
             string str;
             if (list.Count == 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
+                var dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (_edit)
@@ -148,7 +148,7 @@ namespace PapeApplication
             else
             {
                 str = "Os seguintes campos estão incorectos:";
-                foreach (string s in list)
+                foreach (var s in list)
                 {
                     str += "\n     - " + s;
                 }
@@ -159,7 +159,7 @@ namespace PapeApplication
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
                 this.Close();
         }
@@ -193,10 +193,10 @@ namespace PapeApplication
 
         private void buttonEntregar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Pretende entregar o livro?", "", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Pretende entregar o livro?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string str = "data_devo = '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
+                var str = "data_devo = '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
                 Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
                 Mysql.Update("livros", "requisitado = 0", "id_livr = " + searchLivro.CbValue);
                 MessageBox.Show("Livro entregue.");
@@ -225,12 +225,12 @@ namespace PapeApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            Search search = sender as Search;
+            var search = sender as Search;
 
             switch (search.CbFormName)
             {
-                case "livros": Livros a = new Livros(true); a.ShowDialog(); break;
-                case "leitores": Leitores b = new Leitores(true); b.ShowDialog(); break;
+                case "livros": var a = new Livros(true); a.ShowDialog(); break;
+                case "leitores": var b = new Leitores(true); b.ShowDialog(); break;
             }
             search.CbValue = Variables.ReturnValue.ToString();
             search.Reload();
@@ -239,7 +239,7 @@ namespace PapeApplication
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Mysql.Delete("requisita", "id_requ = " + _id);

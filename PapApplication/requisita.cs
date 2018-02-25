@@ -52,7 +52,7 @@ namespace PapeApplication
             if (listView.SelectedItems.Count == 1)
             {
                 Methods.SaveFormProperties();
-                DRequisita obj = new DRequisita(Convert.ToInt32(listView.SelectedItems[0].Text));
+                var obj = new DRequisita(int.Parse(listView.SelectedItems[0].Text));
                 obj.ShowDialog();
                 Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
@@ -65,7 +65,7 @@ namespace PapeApplication
             if (listView.SelectedItems.Count == 1)
             {
                 Methods.SaveFormProperties();
-                DRequisita obj = new DRequisita(Convert.ToInt32(listView.SelectedItems[0].Text), true);
+                var obj = new DRequisita(int.Parse(listView.SelectedItems[0].Text), true);
                 obj.ShowDialog();
                 Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
@@ -76,15 +76,15 @@ namespace PapeApplication
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
-            DRequisita obj = new DRequisita(0, true);
+            var obj = new DRequisita(0, true);
             obj.ShowDialog();
             Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
-            Search search = sender as Search;
-            CBClass.SearchLocal searchLocal = sender as CBClass.SearchLocal;
+            var search = sender as Search;
+            var searchLocal = sender as CBClass.SearchLocal;
             int startPosition;
             int endPosition;
 
@@ -122,7 +122,7 @@ namespace PapeApplication
 
         private void search_CheckBoxCheckedChange(object sender, EventArgs e)
         {
-            Search search = sender as Search;
+            var search = sender as Search;
             if (!search.CbCheckBoxLocked)
             {
                 if (search.CBisChecked)
@@ -147,25 +147,25 @@ namespace PapeApplication
             this.Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
-                case "Livros": Livros a = new Livros(); a.ShowDialog(); break;
-                case "Leitores": Leitores b = new Leitores(); b.ShowDialog(); break;
-                case "Requisitar": Requisita c = new Requisita(); c.ShowDialog(); break;
-                case "Autores": Autores d = new Autores(); d.ShowDialog(); break;
-                case "Categorias": Categoria f = new Categoria(); f.ShowDialog(); break;
-                case "Editoras": Editora g = new Editora(); g.ShowDialog(); break;
-                case "Funcionários": Funcionarios h = new Funcionarios(); h.ShowDialog(); break;
+                case "Livros": var a = new Livros(); a.ShowDialog(); break;
+                case "Leitores": var b = new Leitores(); b.ShowDialog(); break;
+                case "Requisitar": var c = new Requisita(); c.ShowDialog(); break;
+                case "Autores": var d = new Autores(); d.ShowDialog(); break;
+                case "Categorias": var f = new Categoria(); f.ShowDialog(); break;
+                case "Editoras": var g = new Editora(); g.ShowDialog(); break;
+                case "Funcionários": var h = new Funcionarios(); h.ShowDialog(); break;
             }
         }
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            Search search = sender as Search;
+            var search = sender as Search;
             Methods.SaveFormProperties();
 
             switch (search.CbFormName)
             {
-                case "livros": Livros a = new Livros(true); a.ShowDialog(); break;
-                case "leitores": Leitores b = new Leitores(true); b.ShowDialog(); break;
+                case "livros": var a = new Livros(true); a.ShowDialog(); break;
+                case "leitores": var b = new Leitores(true); b.ShowDialog(); break;
             }
             search.CbValue = Variables.ReturnValue.ToString();
             search.Reload();

@@ -104,11 +104,11 @@ namespace PapeApplication
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            List<string> list = CheckData();
+            var list = CheckData();
             string str, str2;
             if (list.Count == 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
+                var dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (_edit)
@@ -137,7 +137,7 @@ namespace PapeApplication
             else
             {
                 str = "Os seguintes campos estão incorectos:";
-                foreach (string s in list)
+                foreach (var s in list)
                 {
                     str += "\n     - " + s;
                 }
@@ -148,14 +148,14 @@ namespace PapeApplication
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
                 this.Close();
         }
 
         private List<string> CheckData()
         {
-            List<string> list = new List<string>();
+            var list = new List<string>();
 
             if (searchNome.CbValue == "")
                 list.Add("Nome");
@@ -177,7 +177,7 @@ namespace PapeApplication
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Mysql.Delete("autores", "id_auto = " + _id);

@@ -165,7 +165,7 @@
             this.buttonDetails.Text = "Ver Dados";
             this.buttonDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDetails.UseVisualStyleBackColor = true;
-            this.buttonDetails.Click += new System.EventHandler(this.buttonDetails_Click);
+            this.buttonDetails.Click += new System.EventHandler(this.ButtonDetails_Click);
             // 
             // columnHeader1
             // 
@@ -187,7 +187,7 @@
             this.listView.TabIndex = 15;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
-            this.listView.DoubleClick += new System.EventHandler(this.buttonDetails_Click);
+            this.listView.DoubleClick += new System.EventHandler(this.ButtonDetails_Click);
             // 
             // columnHeader2
             // 
@@ -300,7 +300,7 @@
             this.Controls.Add(this.p_baixo);
             this.Name = "Autores";
             this.Text = "Autores";
-            this.Load += new System.EventHandler(this.autores_Load);
+            this.Load += new System.EventHandler(this.Autores_Load);
             this.p_esquerda.ResumeLayout(false);
             this.p_direita.ResumeLayout(false);
             this.p_cima.ResumeLayout(false);

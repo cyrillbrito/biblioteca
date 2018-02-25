@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace CBClass
+﻿namespace CBClass
 {
     public class Variables
     {

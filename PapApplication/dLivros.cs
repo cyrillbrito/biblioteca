@@ -87,7 +87,7 @@ namespace PapeApplication
                 query.Read();
                 // todo tostring ?
                 searchId.CbValue = query.Read("a").ToString();
-                _id = Convert.ToInt16(searchId.CbValue);
+                _id = int.Parse(searchId.CbValue);
                 buttonEliminar.Visible = false;
             }
         }
@@ -99,11 +99,11 @@ namespace PapeApplication
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            List<string> list = CheckData();
+            var list = CheckData();
             string str;
             if (list.Count == 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
+                var dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (_edit)
@@ -124,7 +124,7 @@ namespace PapeApplication
             else
             {
                 str = "Os seguintes campos estão incorectos:";
-                foreach (string s in list)
+                foreach (var s in list)
                 {
                     str += "\n     - " + s;
                 }
@@ -135,7 +135,7 @@ namespace PapeApplication
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
                 this.Close();
         }
@@ -143,7 +143,7 @@ namespace PapeApplication
         private List<string> CheckData()
         {
             int num;
-            List<string> list = new List<string>();
+            var list = new List<string>();
 
             if (searchTitulo.CbValue == "")
                 list.Add("Titulo");
@@ -161,13 +161,13 @@ namespace PapeApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            Search search = sender as Search;
+            var search = sender as Search;
 
             switch (search.CbFormName)
             {
-                case "categoria": Categoria a = new Categoria(true); a.ShowDialog(); break;
-                case "autores": Autores b = new Autores(true); b.ShowDialog(); break;
-                case "editora": Editora c = new Editora(true); c.ShowDialog(); break;
+                case "categoria": var a = new Categoria(true); a.ShowDialog(); break;
+                case "autores": var b = new Autores(true); b.ShowDialog(); break;
+                case "editora": var c = new Editora(true); c.ShowDialog(); break;
             }
             search.CbValue = Variables.ReturnValue.ToString();
             search.Reload();
@@ -176,7 +176,7 @@ namespace PapeApplication
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Mysql.Delete("livros", "id_livr = " + _id);

@@ -151,7 +151,7 @@ namespace CBClass
                     else
                     {
                         // todo change converter
-                        if (Convert.ToInt16(count) > 1)
+                        if (int.Parse(count) > 1)
                             MessageBox.Show("Pouco específico");
                         else
                             MessageBox.Show("Sem resultados");

@@ -44,7 +44,7 @@ namespace PapeApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
-                DLeitores obj = new DLeitores(Convert.ToInt32(listView.SelectedItems[0].Text));
+                var obj = new DLeitores(int.Parse(listView.SelectedItems[0].Text));
                 obj.ShowDialog();
                 Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
@@ -56,7 +56,7 @@ namespace PapeApplication
         {
             if (listView.SelectedItems.Count == 1)
             {
-                DLeitores obj = new DLeitores(Convert.ToInt32(listView.SelectedItems[0].Text), true);
+                var obj = new DLeitores(int.Parse(listView.SelectedItems[0].Text), true);
                 obj.ShowDialog();
                 Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
@@ -66,15 +66,15 @@ namespace PapeApplication
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            DLeitores obj = new DLeitores(0, true);
+            var obj = new DLeitores(0, true);
             obj.ShowDialog();
             Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
-            Search search = sender as Search;
-            CBClass.SearchLocal searchLocal = sender as CBClass.SearchLocal;
+            var search = sender as Search;
+            var searchLocal = sender as CBClass.SearchLocal;
             int startPosition;
             int endPosition;
 
@@ -112,7 +112,7 @@ namespace PapeApplication
 
         private void search_CheckBoxCheckedChange(object sender, EventArgs e)
         {
-            Search search = sender as Search;
+            var search = sender as Search;
             if (search.CBisChecked)
             {
                 listView.Columns.Add(search.CbText);
@@ -134,13 +134,13 @@ namespace PapeApplication
             this.Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
-                case "Livros": Livros a = new Livros(); a.ShowDialog(); break;
-                case "Leitores": Leitores b = new Leitores(); b.ShowDialog(); break;
-                case "Requisitar": Requisita c = new Requisita(); c.ShowDialog(); break;
-                case "Autores": Autores d = new Autores(); d.ShowDialog(); break;
-                case "Categorias": Categoria f = new Categoria(); f.ShowDialog(); break;
-                case "Editoras": Editora g = new Editora(); g.ShowDialog(); break;
-                case "Funcionários": Funcionarios h = new Funcionarios(); h.ShowDialog(); break;
+                case "Livros": var a = new Livros(); a.ShowDialog(); break;
+                case "Leitores": var b = new Leitores(); b.ShowDialog(); break;
+                case "Requisitar": var c = new Requisita(); c.ShowDialog(); break;
+                case "Autores": var d = new Autores(); d.ShowDialog(); break;
+                case "Categorias": var f = new Categoria(); f.ShowDialog(); break;
+                case "Editoras": var g = new Editora(); g.ShowDialog(); break;
+                case "Funcionários": var h = new Funcionarios(); h.ShowDialog(); break;
             }
         }
 
@@ -150,14 +150,14 @@ namespace PapeApplication
             {
                 if (_select)
                 {
-                    Variables.ReturnValue = Convert.ToInt32(listView.SelectedItems[0].Text);
+                    Variables.ReturnValue = int.Parse(listView.SelectedItems[0].Text);
                     this.Close();
                 }
                 else
                 {
                     Methods.SaveFormProperties();
 
-                    Requisita c = new Requisita("0", listView.SelectedItems[0].Text);
+                    var c = new Requisita("0", listView.SelectedItems[0].Text);
                     this.Hide();
                     c.ShowDialog();
                 }

@@ -45,7 +45,7 @@ namespace PapeApplication
             if (listView.SelectedItems.Count == 1)
             {
                 Methods.SaveFormProperties();
-                DCategoria obj = new DCategoria(Convert.ToInt32(listView.SelectedItems[0].Text));
+                var obj = new DCategoria(int.Parse(listView.SelectedItems[0].Text));
                 obj.ShowDialog();
                 Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
@@ -58,7 +58,7 @@ namespace PapeApplication
             if (listView.SelectedItems.Count == 1)
             {
                 Methods.SaveFormProperties();
-                DCategoria obj = new DCategoria(Convert.ToInt32(listView.SelectedItems[0].Text), true);
+                var obj = new DCategoria(int.Parse(listView.SelectedItems[0].Text), true);
                 obj.ShowDialog();
                 Methods.UpdateListView(listView, _columns, _tables, _conditions);
             }
@@ -69,15 +69,15 @@ namespace PapeApplication
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
-            DCategoria obj = new DCategoria(0, true);
+            var obj = new DCategoria(0, true);
             obj.ShowDialog();
             Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
-            Search search = sender as Search;
-            CBClass.SearchLocal searchLocal = sender as CBClass.SearchLocal;
+            var search = sender as Search;
+            var searchLocal = sender as CBClass.SearchLocal;
             int startPosition;
             int endPosition;
 
@@ -119,13 +119,13 @@ namespace PapeApplication
             this.Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
-                case "Livros": Livros a = new Livros(); a.ShowDialog(); break;
-                case "Leitores": Leitores b = new Leitores(); b.ShowDialog(); break;
-                case "Requisitar": Requisita c = new Requisita(); c.ShowDialog(); break;
-                case "Autores": Autores d = new Autores(); d.ShowDialog(); break;
-                case "Categorias": Categoria f = new Categoria(); f.ShowDialog(); break;
-                case "Editoras": Editora g = new Editora(); g.ShowDialog(); break;
-                case "Funcionários": Funcionarios h = new Funcionarios(); h.ShowDialog(); break;
+                case "Livros": var a = new Livros(); a.ShowDialog(); break;
+                case "Leitores": var b = new Leitores(); b.ShowDialog(); break;
+                case "Requisitar": var c = new Requisita(); c.ShowDialog(); break;
+                case "Autores": var d = new Autores(); d.ShowDialog(); break;
+                case "Categorias": var f = new Categoria(); f.ShowDialog(); break;
+                case "Editoras": var g = new Editora(); g.ShowDialog(); break;
+                case "Funcionários": var h = new Funcionarios(); h.ShowDialog(); break;
             }
         }
 
@@ -135,14 +135,14 @@ namespace PapeApplication
             {
                 if (_select)
                 {
-                    Variables.ReturnValue = Convert.ToInt32(listView.SelectedItems[0].Text);
+                    Variables.ReturnValue = int.Parse(listView.SelectedItems[0].Text);
                     this.Close();
                 }
                 else
                 {
                     Methods.SaveFormProperties();
 
-                    Livros c = new Livros(false, listView.SelectedItems[0].Text, "0", "0");
+                    var c = new Livros(false, listView.SelectedItems[0].Text, "0", "0");
                     this.Hide();
                     c.ShowDialog();
                 }
