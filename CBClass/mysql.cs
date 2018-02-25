@@ -7,8 +7,7 @@ namespace CBClass
     public class Mysql : IDisposable
     {
         private static readonly MySqlConnection Connection = new MySqlConnection("server=localhost;database=biblioteca;uid=root");
-        private static MySqlCommand _cmd;
-        private readonly MySqlDataReader _rdr;
+        private readonly MySqlDataReader _reader;
 
         public Mysql(string columns, string tables, string condition = null)
         {
@@ -18,61 +17,60 @@ namespace CBClass
                 cmdStr += $" WHERE {condition}";
 
             Connection.Open();
-            _cmd = new MySqlCommand(cmdStr, Connection);
-            _rdr = _cmd.ExecuteReader();
+            var cmd = new MySqlCommand(cmdStr, Connection);
+            _reader = cmd.ExecuteReader();
         }
 
         public bool Read()
         {
-            return _rdr.Read();
+            return _reader.Read();
         }
 
         public string Read(string column)
         {
-            return _rdr[column].ToString();
-        }
-
-        public void Dispose()
-        {
-            _rdr.Close();
-            Connection.Close();
+            return _reader[column].ToString();
         }
 
         public void ListView(ListView listView)
         {
             listView.Items.Clear();
 
-            for (int i = 0; _rdr.Read(); i++)
+            for (int i = 0; _reader.Read(); i++)
             {
-                listView.Items.Add(_rdr[0].ToString());
+                listView.Items.Add(_reader[0].ToString());
                 for (int j = 1; listView.Columns.Count > j; j++)
-                    listView.Items[i].SubItems.Add(_rdr[j].ToString());
+                    listView.Items[i].SubItems.Add(_reader[j].ToString());
             }
+        }
+
+        public void Dispose()
+        {
+            _reader.Close();
+            Connection.Close();
         }
 
         public static void Update(string table, string columns, string condition)
         {
-            _cmd = new MySqlCommand("UPDATE " + table + " SET " + columns + " WHERE " + condition, Connection);
+            var cmd = new MySqlCommand("UPDATE " + table + " SET " + columns + " WHERE " + condition, Connection);
             Connection.Open();
-            _cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             Connection.Close();
         }
 
         public static void Insert(string table, string columns, string values)
         {
-            _cmd = new MySqlCommand("INSERT INTO " + table + "(" + columns + ") VALUES(" + values + ")", Connection);
+            var cmd = new MySqlCommand("INSERT INTO " + table + "(" + columns + ") VALUES(" + values + ")", Connection);
             Connection.Open();
-            _cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             Connection.Close();
         }
 
         public static void Delete(string table, string conditon)
         {
-            _cmd = new MySqlCommand("DELETE FROM " + table + " WHERE " + conditon, Connection);
+            var cmd = new MySqlCommand("DELETE FROM " + table + " WHERE " + conditon, Connection);
             Connection.Open();
-            _cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             Connection.Close();
         }
-
     }
 }

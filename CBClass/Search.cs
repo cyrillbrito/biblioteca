@@ -152,15 +152,15 @@ namespace CBClass.Controls
                 }
                 else
                 {
-                    string countA;
+                    string count;
                     using (var query = new Mysql("COUNT(" + CbIdColumn + ") as a", CbTableName, CbColumnName + " LIKE '%" + textBoxColumn.Text + "%'"))
                     {
                         query.Read();
                         query.Read("a");
-                        countA = query.Read("a");
+                        count = query.Read("a");
                     }
 
-                    if (countA == "1")
+                    if (count == "1")
                     {
                         using (var query = new Mysql(CbIdColumn + ", " + CbColumnName, CbTableName, CbColumnName + " LIKE '%" + textBoxColumn.Text + "%'"))
                         {
@@ -175,12 +175,12 @@ namespace CBClass.Controls
                     }
                     else
                     {
-                        if (Convert.ToInt16(query.Read("a")) > 1)
+                        // todo change converter
+                        if (Convert.ToInt16(count) > 1)
                             MessageBox.Show("Pouco específico");
                         else
                             MessageBox.Show("Sem resultados");
-
-                        query.Close();
+                        
                         textBoxColumn.Select();
                         textBoxColumn.Clear();
                         textBoxId.Clear();
