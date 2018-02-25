@@ -70,7 +70,7 @@ namespace PapeApplication
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
-            var search = sender as Search;
+            var search = (Search) sender;
             var searchLocal = sender as SearchLocal;
             int startPosition;
 
@@ -110,7 +110,7 @@ namespace PapeApplication
         {
             Methods.SaveFormProperties();
             Hide();
-            switch ((sender as ToolStripMenuItem).Text)
+            switch (((ToolStripMenuItem) sender).Text)
             {
                 case "Livros": var a = new Livros(); a.ShowDialog(); break;
                 case "Leitores": var b = new Leitores(); b.ShowDialog(); break;

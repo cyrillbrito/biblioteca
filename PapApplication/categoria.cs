@@ -70,10 +70,9 @@ namespace PapeApplication
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
-            var search = sender as Search;
+            var search = (Search)sender;
             var searchLocal = sender as SearchLocal;
             int startPosition;
-            int endPosition;
 
             if (searchLocal == null)
                 startPosition = _conditions.IndexOf(search.CbIdColumn);
@@ -82,7 +81,7 @@ namespace PapeApplication
 
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = _conditions.IndexOf("AND", startPosition);
+                var endPosition = _conditions.IndexOf("AND", startPosition);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1 -2 = -3
                     _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
@@ -111,7 +110,7 @@ namespace PapeApplication
         {
             Methods.SaveFormProperties();
             Hide();
-            switch ((sender as ToolStripMenuItem).Text)
+            switch (((ToolStripMenuItem)sender).Text)
             {
                 case "Livros": var a = new Livros(); a.ShowDialog(); break;
                 case "Leitores": var b = new Leitores(); b.ShowDialog(); break;
@@ -135,7 +134,7 @@ namespace PapeApplication
                 {
                     Methods.SaveFormProperties();
 
-                    var c = new Livros(false, listView.SelectedItems[0].Text, "0", "0");
+                    var c = new Livros(false, listView.SelectedItems[0].Text);
                     Hide();
                     c.ShowDialog();
                 }

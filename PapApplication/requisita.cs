@@ -78,7 +78,7 @@ namespace PapeApplication
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
-            var search = sender as Search;
+            var search = (Search) sender;
             var searchLocal = sender as SearchLocal;
             int startPosition;
             int endPosition;
@@ -117,7 +117,7 @@ namespace PapeApplication
 
         private void search_CheckBoxCheckedChange(object sender, EventArgs e)
         {
-            var search = sender as Search;
+            var search = (Search) sender;
             if (!search.CbCheckBoxLocked)
             {
                 if (search.CBisChecked)
@@ -153,7 +153,7 @@ namespace PapeApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            var search = sender as Search;
+            var search = (Search) sender;
             Methods.SaveFormProperties();
 
             switch (search.CbFormName)

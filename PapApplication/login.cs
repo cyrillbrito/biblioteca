@@ -13,21 +13,22 @@ namespace PapeApplication
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(textBoxId.Text))
+            if (int.TryParse(textBoxId.Text, out int id))
             {
+                bool success;
                 using (var query = new Mysql("password", "funcionarios", "id_func = " + textBoxId.Text))
-                {
-                    if (query.Read() && query.Read("password") == textBoxPassword.Text)
-                    {
-                        Variables.FuncId = int.Parse(textBoxId.Text);
+                    success = query.Read() && query.Read("password") == textBoxPassword.Text;
 
-                        MessageBox.Show("Bem-vindo!");
-                        var obj = new Livros();
-                        Hide();
-                        obj.ShowDialog();
-                        Close();
-                        return;
-                    }
+                if (success)
+                {
+                    Variables.FuncId = int.Parse(textBoxId.Text);
+
+                    MessageBox.Show("Bem-vindo!");
+                    var obj = new Livros();
+                    Hide();
+                    obj.ShowDialog();
+                    Close();
+                    return;
                 }
             }
 

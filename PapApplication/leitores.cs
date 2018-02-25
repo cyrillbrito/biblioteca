@@ -67,7 +67,7 @@ namespace PapeApplication
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
-            var search = sender as Search;
+            var search = (Search) sender;
             var searchLocal = sender as SearchLocal;
             int startPosition;
 
@@ -103,29 +103,11 @@ namespace PapeApplication
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
-        private void search_CheckBoxCheckedChange(object sender, EventArgs e)
-        {
-            var search = sender as Search;
-            if (search.CBisChecked)
-            {
-                listView.Columns.Add(search.CbText);
-                _columns += ", " + search.CbColumnName;
-            }
-            else
-            {
-                int i;
-                for (i = 0; listView.Columns[i].Text != search.CbText; i++) ;
-                listView.Columns[i].Dispose();
-                _columns = _columns.Replace(", " + search.CbColumnName, "");
-            }
-            Methods.UpdateListView(listView, _columns, Tables, _conditions);
-        }
-
         private void ToolStrip_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
             Hide();
-            switch ((sender as ToolStripMenuItem).Text)
+            switch (((ToolStripMenuItem) sender).Text)
             {
                 case "Livros": var a = new Livros(); a.ShowDialog(); break;
                 case "Leitores": var b = new Leitores(); b.ShowDialog(); break;

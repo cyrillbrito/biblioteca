@@ -71,7 +71,7 @@ namespace PapeApplication
         private void search_ConditionChanged(object sender, EventArgs e)
         {
             // todo ver o caso negativo deta treta
-            var search = sender as Search;
+            var search = (Search) sender;;
             var searchLocal = sender as SearchLocal;
 
             var column = searchLocal == null ? search.CbIdColumn : searchLocal.CbColumnName;

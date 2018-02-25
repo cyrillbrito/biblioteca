@@ -225,7 +225,7 @@ namespace PapeApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            var search = sender as Search;
+            var search = (Search) sender;
 
             switch (search.CbFormName)
             {
