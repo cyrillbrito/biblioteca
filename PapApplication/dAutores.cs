@@ -59,8 +59,8 @@ namespace PapApplication
                 searchNome.CbValue = query.Read("nome");
                 searchNacionalidade.CbValue = query.Read("nacionalidade");
                 searchDataNascimento.CbValue = query.Read("data_nasc");
-                // todo
-                if (query.Read("data_fale") == "")
+
+                if (string.IsNullOrWhiteSpace(query.Read("data_fale")))
                     searchDataFalecimento.Visible = false;
                 else
                 {
@@ -157,9 +157,9 @@ namespace PapApplication
         {
             var list = new List<string>();
 
-            if (searchNome.CbValue == "")
+            if (string.IsNullOrWhiteSpace(searchNome.CbValue))
                 list.Add("Nome");
-            if (searchNacionalidade.CbValue == "")
+            if (string.IsNullOrWhiteSpace(searchNacionalidade.CbValue))
                 list.Add("Nacionalidade");
             if (checkBox.Checked && DateTime.Compare(Convert.ToDateTime(searchDataNascimento.CbValue), Convert.ToDateTime(searchDataFalecimento.CbValue)) >= 0)
                 list.Add("Data nacimento ou de falecimento");

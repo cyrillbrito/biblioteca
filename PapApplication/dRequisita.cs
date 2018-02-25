@@ -64,7 +64,7 @@ namespace PapApplication
                 searchRequisita.CbValue = query.Read("data_requ");
                 searchEntrega.CbValue = query.Read("data_entr");
 
-                if (query.Read("data_devo") == "")
+                if (string.IsNullOrWhiteSpace(query.Read("data_devo")))
                 {
                     searchDevolucao.Visible = false;
                     label1.Visible = true;

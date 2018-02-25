@@ -145,7 +145,7 @@ namespace PapApplication
             int num;
             var list = new List<string>();
 
-            if (searchTitulo.CbValue == "")
+            if (string.IsNullOrWhiteSpace(searchTitulo.CbValue))
                 list.Add("Titulo");
             if (!int.TryParse(searchPaginas.CbValue, out num) || num <= 0)
                 list.Add("Paginas");

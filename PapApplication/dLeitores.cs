@@ -147,11 +147,11 @@ namespace PapApplication
             int num;
             var list = new List<string>();
 
-            if (searchNome.CbValue == "")
+            if (string.IsNullOrWhiteSpace(searchNome.CbValue))
                 list.Add("Nome");
             if (searchEmail.CbValue.IndexOf('@') == -1)
                 list.Add("Email");
-            if (searchMorada.CbValue == "")
+            if (string.IsNullOrWhiteSpace(searchMorada.CbValue))
                 list.Add("Morada");
             if (!int.TryParse(searchTelemovel.CbValue, out num) || num < 100000000)
                 list.Add("Telemóvel");

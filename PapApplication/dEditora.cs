@@ -127,7 +127,7 @@ namespace PapApplication
         {
             var list = new List<string>();
 
-            if (searchEditora.CbValue == "")
+            if (string.IsNullOrWhiteSpace(searchEditora.CbValue))
                 list.Add("Categoria");
 
             return list;

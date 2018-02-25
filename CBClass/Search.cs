@@ -96,7 +96,7 @@ namespace CbClass
         {
             if (!CbReadOnly)
             {
-                if (CbValue == "")
+                if (string.IsNullOrWhiteSpace(CbValue))
                 {
                     ConditionChanged?.Invoke(this, e);
                     textBoxId.ForeColor = System.Drawing.Color.Gray;
@@ -116,7 +116,7 @@ namespace CbClass
         {
             if (!CbReadOnly)
             {
-                if (textBoxColumn.Text == "")
+                if (string.IsNullOrWhiteSpace(textBoxColumn.Text))
                 {
                     textBoxColumn.Text = CbColumnName;
                     textBoxColumn.ForeColor = System.Drawing.Color.Gray;
@@ -150,11 +150,7 @@ namespace CbClass
                     }
                     else
                     {
-                        // todo change converter
-                        if (int.Parse(count) > 1)
-                            MessageBox.Show("Pouco específico");
-                        else
-                            MessageBox.Show("Sem resultados");
+                        MessageBox.Show(int.Parse(count) > 1 ? "Pouco específico" : "Sem resultados");
 
                         textBoxColumn.Select();
                         textBoxColumn.Clear();
