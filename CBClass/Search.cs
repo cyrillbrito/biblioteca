@@ -228,23 +228,23 @@ namespace CBClass.Controls
 
         private bool UpdateColumn()
         {
-            Mysql query = new Mysql(CbColumnName, CbTableName, CbIdColumn + " = " + CbValue);
-            if (query.Read())
+            using (var query = new Mysql(CbColumnName, CbTableName, CbIdColumn + " = " + CbValue))
             {
-                textBoxColumn.Text = query.Read(CbColumnName);
-                query.Close();
-                textBoxColumn.ForeColor = System.Drawing.Color.Black;
-                return true;
-            }
-            else
-            {
-                query.Close();
-                MessageBox.Show("Sem resultados");
-                textBoxId.Select();
-                textBoxId.Clear();
-                textBoxColumn.Text = CbColumnName;
-                textBoxColumn.ForeColor = System.Drawing.Color.Gray;
-                return false;
+                if (query.Read())
+                {
+                    textBoxColumn.Text = query.Read(CbColumnName);
+                    textBoxColumn.ForeColor = System.Drawing.Color.Black;
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Sem resultados");
+                    textBoxId.Select();
+                    textBoxId.Clear();
+                    textBoxColumn.Text = CbColumnName;
+                    textBoxColumn.ForeColor = System.Drawing.Color.Gray;
+                    return false;
+                }
             }
         }
 

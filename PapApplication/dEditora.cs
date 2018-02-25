@@ -1,19 +1,13 @@
-﻿using System;
+﻿using CBClass;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CBClass;
 
 namespace PapeApplication
 {
     public partial class DEditora : Form
     {
-         int _id;
+        int _id;
         bool _edit = false;
 
         public DEditora(int id = 0, bool edit = false)
@@ -52,12 +46,13 @@ namespace PapeApplication
 
         private void ViewMode()
         {
-            Mysql query = new Mysql("*", "editoras", "id_edit = " + _id);
-            query.Read();
+            using (var query = new Mysql("*", "editoras", "id_edit = " + _id))
+            {
+                query.Read();
 
-            searchId.CbValue = query.Read("id_edit").ToString();
-            searchEditora.CbValue = query.Read("editora").ToString();
-            query.Close();
+                searchId.CbValue = query.Read("id_edit").ToString();
+                searchEditora.CbValue = query.Read("editora").ToString();
+            }
 
             _edit = false;
             searchEditora.CbReadOnly = true;

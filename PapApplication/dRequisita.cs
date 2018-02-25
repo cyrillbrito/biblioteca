@@ -1,13 +1,7 @@
-﻿using System;
+﻿using CBClass;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CBClass;
 
 namespace PapeApplication
 {
@@ -211,16 +205,18 @@ namespace PapeApplication
 
         private void buttonEstender_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Pretende estender a data de entrega do livro em uma semana?", "", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Pretende estender a data de entrega do livro em uma semana?", "", MessageBoxButtons.YesNo);
+
             if (dialogResult == DialogResult.Yes)
             {
-                Mysql query = new Mysql("data_entr", "requisita", "id_requ = " + _id);
-                query.Read();
+                using (var query = new Mysql("data_entr", "requisita", "id_requ = " + _id))
+                {
+                    query.Read();
 
-                string str = "data_entr = '" + Convert.ToDateTime(query.Read("data_entr")).AddDays(7).ToString("yyyy-MM-dd") + "'";
-                query.Close();
-                Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
-
+                    var str = $"data_entr = '{Convert.ToDateTime(query.Read("data_entr")).AddDays(7):yyyy-MM-dd}'";
+                    Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
+                }
+                
                 MessageBox.Show("Livro entregue.");
                 ViewMode();
             }

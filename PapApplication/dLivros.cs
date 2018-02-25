@@ -1,13 +1,7 @@
-﻿using System;
+﻿using CBClass;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CBClass;
 
 namespace PapeApplication
 {
@@ -57,18 +51,19 @@ namespace PapeApplication
 
         private void ViewMode()
         {
-            Mysql query = new Mysql("*", "livros", "id_livr = " + _id);
-            query.Read();
+            using (var query = new Mysql("*", "livros", "id_livr = " + _id))
+            {
+                query.Read();
 
-            searchId.CbValue = query.Read("id_livr").ToString();
-            searchTitulo.CbValue = query.Read("titulo").ToString();
-            searchPaginas.CbValue = query.Read("n_pagi").ToString();
-            searchCategoria.CbValue = query.Read("id_cate").ToString();
-            searchAutor.CbValue = query.Read("id_auto").ToString();
-            searchEditora.CbValue = query.Read("id_edit").ToString();
-            searchEditora.CbValue = query.Read("id_edit").ToString();
-            searchData.CbValue = query.Read("data_lanc").ToString();
-            query.Close();
+                searchId.CbValue = query.Read("id_livr").ToString();
+                searchTitulo.CbValue = query.Read("titulo").ToString();
+                searchPaginas.CbValue = query.Read("n_pagi").ToString();
+                searchCategoria.CbValue = query.Read("id_cate").ToString();
+                searchAutor.CbValue = query.Read("id_auto").ToString();
+                searchEditora.CbValue = query.Read("id_edit").ToString();
+                searchEditora.CbValue = query.Read("id_edit").ToString();
+                searchData.CbValue = query.Read("data_lanc").ToString();
+            }
 
             _edit = false;
             searchTitulo.CbReadOnly = true;

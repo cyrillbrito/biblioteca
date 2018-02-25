@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CBClass;
+using System;
 using System.Windows.Forms;
-using CBClass;
 
 namespace PapeApplication
 {
@@ -22,34 +15,23 @@ namespace PapeApplication
         {
             if (textBoxId.Text != "")
             {
-                Mysql query = new Mysql("password", "funcionarios", "id_func = " + textBoxId.Text);
-
-                if (query.Read())
-                    if (query.Read("password") == textBoxPassword.Text)
+                using (var query = new Mysql("password", "funcionarios", "id_func = " + textBoxId.Text))
+                {
+                    if (query.Read() && query.Read("password") == textBoxPassword.Text)
                     {
-                        Variables.FuncId = Convert.ToInt16(textBoxId.Text);
-                        query.Close();
+                        Variables.FuncId = int.Parse(textBoxId.Text);
+
                         MessageBox.Show("Bem-vindo!");
-                        Livros obj = new Livros();
+                        var obj = new Livros();
                         this.Hide();
                         obj.ShowDialog();
                         this.Close();
+                        return;
                     }
-                    else
-                    {
-                        query.Close();
-                        MessageBox.Show("Dados inseridos não estão corretos.");
-                    }
-                else
-                {
-                    query.Close();
-                    MessageBox.Show("Dados inseridos não estão corretos.");
                 }
             }
-            else
-            {
-                MessageBox.Show("Dados inseridos não estão corretos.");
-            }
+
+            MessageBox.Show("Dados inseridos não estão corretos.");
         }
     }
 }
