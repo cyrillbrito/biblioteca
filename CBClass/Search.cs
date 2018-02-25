@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CBClass.Controls
@@ -158,19 +152,26 @@ namespace CBClass.Controls
                 }
                 else
                 {
-                    Mysql query = new Mysql("COUNT(" + CbIdColumn + ") as a", CbTableName, CbColumnName + " LIKE '%" + textBoxColumn.Text + "%'");
-                    query.Read();
-                    if (query.Read("a") == "1")
+                    string countA;
+                    using (var query = new Mysql("COUNT(" + CbIdColumn + ") as a", CbTableName, CbColumnName + " LIKE '%" + textBoxColumn.Text + "%'"))
                     {
-                        query.Close();
-                        query = new Mysql(CbIdColumn + ", " + CbColumnName, CbTableName, CbColumnName + " LIKE '%" + textBoxColumn.Text + "%'");
                         query.Read();
-                        CbValue = query.Read(CbIdColumn);
-                        textBoxColumn.Text = query.Read(CbColumnName);
-                        query.Close();
+                        query.Read("a");
+                        countA = query.Read("a");
+                    }
+
+                    if (countA == "1")
+                    {
+                        using (var query = new Mysql(CbIdColumn + ", " + CbColumnName, CbTableName, CbColumnName + " LIKE '%" + textBoxColumn.Text + "%'"))
+                        {
+                            query.Read();
+                            CbValue = query.Read(CbIdColumn);
+                            textBoxColumn.Text = query.Read(CbColumnName);
+                        }
+
                         textBoxId.ForeColor = System.Drawing.Color.Black;
-                        if (this.ConditionChanged != null)
-                            this.ConditionChanged(this, e);
+
+                        ConditionChanged?.Invoke(this, e);
                     }
                     else
                     {

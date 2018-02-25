@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CBClass;
+﻿using System.Windows.Forms;
 
 namespace CBClass
 {
@@ -41,12 +35,11 @@ namespace CBClass
 
         public static void UpdateListView(ListView listView, string columns, string tables, string conditions)
         {
-            int i;
-            Mysql query = new Mysql(columns, tables, conditions);
-            query.ListView(listView);
-            for (i = 0; i < listView.Columns.Count; i++)
+            using (var query = new Mysql(columns, tables, conditions))
+                query.ListView(listView);
+
+            for (int i = 0; i < listView.Columns.Count; i++)
                 listView.Columns[i].Width = -2;
-            query.Close();
-        }        
+        }
     }
 }
