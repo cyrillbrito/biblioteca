@@ -94,9 +94,14 @@ namespace PapApplication
                 }
                 else
                 {
-                    int i;
-                    for (i = 0; listView.Columns[i].Text != search.CbText; i++) ;
-                    listView.Columns[i].Dispose();
+                    for (int i = 0; i < listView.Columns.Count; i++)
+                    {
+                        if (listView.Columns[i].Text == search.CbText)
+                        {
+                            listView.Columns[i].Dispose();
+                            break;
+                        }
+                    }
                     _columns = _columns.Replace(", " + search.CbColumnName, "");
                 }
                 Methods.UpdateListView(listView, _columns, Tables, _conditions);
@@ -107,7 +112,7 @@ namespace PapApplication
         {
             Methods.SaveFormProperties();
             Hide();
-            switch ((sender as ToolStripMenuItem).Text)
+            switch (((ToolStripMenuItem)sender).Text)
             {
                 case "Livros": var a = new Livros(); a.ShowDialog(); break;
                 case "Leitores": var b = new Leitores(); b.ShowDialog(); break;
@@ -135,23 +140,20 @@ namespace PapApplication
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            int startPosition;
-            int endPosition;
-
-            startPosition = _conditions.IndexOf("data_devo");
+            var startPosition = _conditions.IndexOf("data_devo", StringComparison.Ordinal);
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = _conditions.IndexOf("AND", startPosition);
+                int endPosition = _conditions.IndexOf("AND", startPosition, StringComparison.Ordinal);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1
                     _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
                     _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            startPosition = _conditions.IndexOf("data_entr");
+            startPosition = _conditions.IndexOf("data_entr", StringComparison.Ordinal);
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = _conditions.IndexOf("AND", startPosition);
+                int endPosition = _conditions.IndexOf("AND", startPosition, StringComparison.Ordinal);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1
                     _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
@@ -170,8 +172,8 @@ namespace PapApplication
 
                 if (radioAtraso.Checked)
                     _conditions += " AND data_entr < CURRENT_DATE";
-
             }
+
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
     }

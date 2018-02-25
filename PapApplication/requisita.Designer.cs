@@ -1,4 +1,6 @@
 ﻿using CbClass;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace PapApplication
 {
@@ -7,7 +9,7 @@ namespace PapApplication
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -361,29 +363,29 @@ namespace PapApplication
 
         #endregion
 
-        private System.Windows.Forms.Panel p_baixo;
-        private System.Windows.Forms.Panel p_esquerda;
-        private System.Windows.Forms.Panel p_direita;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.Panel p_cima;
+        private Panel p_baixo;
+        private Panel p_esquerda;
+        private Panel p_direita;
+        private ColumnHeader columnHeader1;
+        private ListView listView;
+        private Panel p_cima;
         private Search searchLivro;
         private Search searchLeitor;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem livrosToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem leitoresToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem requisitarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem autoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editorasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonDetails;
-        private System.Windows.Forms.RadioButton radioNaBiblioteca;
-        private System.Windows.Forms.RadioButton radioRequisitado;
-        private System.Windows.Forms.RadioButton radioTodos;
-        private System.Windows.Forms.RadioButton radioAtraso;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem livrosToolStrip;
+        private ToolStripMenuItem leitoresToolStrip;
+        private ToolStripMenuItem requisitarToolStripMenuItem;
+        private ToolStripMenuItem autoresToolStripMenuItem;
+        private ToolStripMenuItem categoriasToolStripMenuItem;
+        private ToolStripMenuItem editorasToolStripMenuItem;
+        private ToolStripMenuItem funcionariosToolStripMenuItem;
+        private Label label1;
+        private Button buttonAdd;
+        private Button buttonEdit;
+        private Button buttonDetails;
+        private RadioButton radioNaBiblioteca;
+        private RadioButton radioRequisitado;
+        private RadioButton radioTodos;
+        private RadioButton radioAtraso;
     }
 }

@@ -1,4 +1,6 @@
 ﻿using CbClass;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace PapApplication
 {
@@ -7,7 +9,7 @@ namespace PapApplication
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -226,17 +228,17 @@ namespace PapApplication
 
         #endregion
 
-        private CbClass.SearchLocal searchId;
-        private CbClass.SearchLocal searchTitulo;
-        private CbClass.SearchLocal searchPaginas;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonCancel;
-        private CbClass.SearchDate searchData;
+        private SearchLocal searchId;
+        private SearchLocal searchTitulo;
+        private SearchLocal searchPaginas;
+        private Button buttonEdit;
+        private Button buttonSave;
+        private Button buttonCancel;
+        private SearchDate searchData;
         private Search searchCategoria;
         private Search searchEditora;
         private Search searchAutor;
-        private System.Windows.Forms.Button buttonEliminar;
+        private Button buttonEliminar;
 
     }
 }

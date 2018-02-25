@@ -65,7 +65,6 @@ namespace PapApplication
                 else
                 {
                     searchDataFalecimento.Visible = true;
-                    // todo remover esta tostring
                     searchDataFalecimento.CbValue = query.Read("data_fale");
                 }
             }
@@ -105,7 +104,7 @@ namespace PapApplication
         private void buttonSave_Click(object sender, EventArgs e)
         {
             var list = CheckData();
-            string str, str2;
+            string str;
             if (list.Count == 0)
             {
                 var dialogResult = MessageBox.Show("Tem a certeza que pretende guadar?", "", MessageBoxButtons.YesNo);
@@ -122,7 +121,7 @@ namespace PapApplication
                     else
                     {
                         str = "'" + searchNome.CbValue + "', '" + searchNacionalidade.CbValue + "', '" + searchDataNascimento.CbValue + "'";
-                        str2 = "nome, nacionalidade, data_nasc";
+                        var str2 = "nome, nacionalidade, data_nasc";
                         if (checkBox.Checked)
                         {
                             str += ", '" + searchDataNascimento.CbValue + "'";
@@ -169,10 +168,7 @@ namespace PapApplication
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox.Checked)
-                searchDataFalecimento.Visible = true;
-            else
-                searchDataFalecimento.Visible = false;
+            searchDataFalecimento.Visible = checkBox.Checked;
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)

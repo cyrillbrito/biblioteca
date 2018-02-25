@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CbClass;
+using System;
 using System.Windows.Forms;
-using CbClass;
 
 namespace PapApplication
 {
@@ -13,7 +13,7 @@ namespace PapApplication
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(textBoxId.Text, out int id))
+            if (int.TryParse(textBoxId.Text, out int _))
             {
                 bool success;
                 using (var query = new Mysql("password", "funcionarios", "id_func = " + textBoxId.Text))

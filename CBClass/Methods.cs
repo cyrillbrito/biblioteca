@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace CbClass
 {
@@ -10,27 +11,30 @@ namespace CbClass
             {
                 form.Width = Variables.FormProperties[0];
                 form.Height = Variables.FormProperties[1];
-                form.Location = new System.Drawing.Point(Variables.FormProperties[2], Variables.FormProperties[3]);
+                form.Location = new Point(Variables.FormProperties[2], Variables.FormProperties[3]);
             }
             else
             {
                 form.Width = Variables.FormProperties[0] - 100;
                 form.Height = Variables.FormProperties[1] - 100;
-                form.Location = new System.Drawing.Point(Variables.FormProperties[2] + 100, Variables.FormProperties[3] + 100);
+                form.Location = new Point(Variables.FormProperties[2] + 100, Variables.FormProperties[3] + 100);
             }
         }
 
         public static void LoadFormPosition(Form form, bool tool = false)
         {
-            form.Location = new System.Drawing.Point(Variables.FormProperties[2] + 100, Variables.FormProperties[3] + 100);
+            form.Location = new Point(Variables.FormProperties[2] + 100, Variables.FormProperties[3] + 100);
         }
 
         public static void SaveFormProperties()
         {
-            Variables.FormProperties[0] = Form.ActiveForm.Width;
-            Variables.FormProperties[1] = Form.ActiveForm.Height;
-            Variables.FormProperties[2] = Form.ActiveForm.Location.X;
-            Variables.FormProperties[3] = Form.ActiveForm.Location.Y;
+            if (Form.ActiveForm != null)
+            {
+                Variables.FormProperties[0] = Form.ActiveForm.Width;
+                Variables.FormProperties[1] = Form.ActiveForm.Height;
+                Variables.FormProperties[2] = Form.ActiveForm.Location.X;
+                Variables.FormProperties[3] = Form.ActiveForm.Location.Y;
+            }
         }
 
         public static void UpdateListView(ListView listView, string columns, string tables, string conditions)

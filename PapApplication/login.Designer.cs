@@ -1,11 +1,14 @@
-﻿namespace PapApplication
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace PapApplication
 {
     partial class Login
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -130,12 +133,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.TextBox textBoxId;
-        private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private TextBox textBoxPassword;
+        private TextBox textBoxId;
+        private Button buttonLogin;
+        private PictureBox pictureBox1;
     }
 }

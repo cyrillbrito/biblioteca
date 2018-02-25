@@ -1,4 +1,6 @@
 ﻿using CbClass;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace PapApplication
 {
@@ -7,7 +9,7 @@ namespace PapApplication
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -407,32 +409,32 @@ namespace PapApplication
 
         #endregion
 
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ListView listView;
+        private ColumnHeader columnHeader1;
         private Search searchAutor;
-        private System.Windows.Forms.Panel p_cima;
-        private System.Windows.Forms.Button buttonDetails;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Panel p_direita;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Panel p_esquerda;
-        private System.Windows.Forms.Panel p_baixo;
+        private Panel p_cima;
+        private Button buttonDetails;
+        private Button buttonAdd;
+        private Panel p_direita;
+        private Button buttonEdit;
+        private Panel p_esquerda;
+        private Panel p_baixo;
         private Search searchEditora;
-        private CbClass.SearchLocal searchLocal1;
+        private SearchLocal searchLocal1;
         private Search searchCategoria;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem livrosToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem leitoresToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem requisitarToolStripMenuItem;
-        private System.Windows.Forms.Button buttonSelect;
-        private System.Windows.Forms.ToolStripMenuItem autoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editorasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
-        private System.Windows.Forms.RadioButton radioNaBiblioteca;
-        private System.Windows.Forms.RadioButton radioRequisitado;
-        private System.Windows.Forms.RadioButton radioTodos;
-        private System.Windows.Forms.Label label1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem livrosToolStrip;
+        private ToolStripMenuItem leitoresToolStrip;
+        private ToolStripMenuItem requisitarToolStripMenuItem;
+        private Button buttonSelect;
+        private ToolStripMenuItem autoresToolStripMenuItem;
+        private ToolStripMenuItem categoriasToolStripMenuItem;
+        private ToolStripMenuItem editorasToolStripMenuItem;
+        private ToolStripMenuItem funcionariosToolStripMenuItem;
+        private RadioButton radioNaBiblioteca;
+        private RadioButton radioRequisitado;
+        private RadioButton radioTodos;
+        private Label label1;
     }
 }

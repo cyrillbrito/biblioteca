@@ -12,10 +12,10 @@ namespace PapApplication
         private string _conditions = "";
         private readonly bool _select;
 
-        public Editora(bool @select = false)
+        public Editora(bool select = false)
         {
             InitializeComponent();
-            _select = @select;
+            _select = select;
         }
 
         private void Editora_Load(object sender, EventArgs e)

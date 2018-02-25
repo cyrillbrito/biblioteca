@@ -1,11 +1,15 @@
-﻿namespace PapApplication
+﻿using CbClass;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace PapApplication
 {
     partial class DLeitores
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -207,16 +211,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonEdit;
-        private CbClass.SearchLocal searchNome;
-        private CbClass.SearchLocal searchEmail;
-        private CbClass.SearchLocal searchMorada;
-        private CbClass.SearchLocal searchTelemovel;
-        private CbClass.SearchLocal searchId;
-        private System.Windows.Forms.Button buttonEliminar;
-        private System.Windows.Forms.Button buttonImagem;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Button buttonCancel;
+        private Button buttonSave;
+        private Button buttonEdit;
+        private SearchLocal searchNome;
+        private SearchLocal searchEmail;
+        private SearchLocal searchMorada;
+        private SearchLocal searchTelemovel;
+        private SearchLocal searchId;
+        private Button buttonEliminar;
+        private Button buttonImagem;
+        private PictureBox pictureBox1;
     }
 }

@@ -1,11 +1,15 @@
-﻿namespace PapApplication
+﻿using CbClass;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace PapApplication
 {
     partial class DAutores
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -194,15 +198,15 @@
 
         #endregion
 
-        private CbClass.SearchDate searchDataNascimento;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonEdit;
-        private CbClass.SearchLocal searchNacionalidade;
-        private CbClass.SearchLocal searchNome;
-        private CbClass.SearchLocal searchId;
-        private CbClass.SearchDate searchDataFalecimento;
-        private System.Windows.Forms.CheckBox checkBox;
-        private System.Windows.Forms.Button buttonEliminar;
+        private SearchDate searchDataNascimento;
+        private Button buttonCancel;
+        private Button buttonSave;
+        private Button buttonEdit;
+        private SearchLocal searchNacionalidade;
+        private SearchLocal searchNome;
+        private SearchLocal searchId;
+        private SearchDate searchDataFalecimento;
+        private CheckBox checkBox;
+        private Button buttonEliminar;
     }
 }

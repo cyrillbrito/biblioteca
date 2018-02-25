@@ -144,7 +144,6 @@ namespace PapApplication
 
         private List<string> CheckData()
         {
-            int num;
             var list = new List<string>();
 
             if (string.IsNullOrWhiteSpace(searchNome.CbValue))
@@ -153,7 +152,7 @@ namespace PapApplication
                 list.Add("Email");
             if (string.IsNullOrWhiteSpace(searchMorada.CbValue))
                 list.Add("Morada");
-            if (!int.TryParse(searchTelemovel.CbValue, out num) || num < 100000000)
+            if (!int.TryParse(searchTelemovel.CbValue, out var num) || num < 100000000)
                 list.Add("Telemóvel");
 
             return list;
@@ -173,10 +172,13 @@ namespace PapApplication
 
         private void buttonImagem_Click(object sender, EventArgs e)
         {
-            var fileDialog = new OpenFileDialog();
-            fileDialog.Title = "Escolher a Imagem";
-            fileDialog.Filter = "JPEG|*.jpg|PNG|*.png";
-            fileDialog.InitialDirectory = @"C:\";
+            var fileDialog = new OpenFileDialog
+            {
+                Title = "Escolher a Imagem",
+                Filter = "JPEG|*.jpg|PNG|*.png",
+                InitialDirectory = @"C:\"
+            };
+
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 File.Copy(fileDialog.FileName, Application.StartupPath + @"\leitores\temp", true);

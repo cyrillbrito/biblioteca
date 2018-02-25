@@ -1,6 +1,5 @@
 ﻿using CbClass;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace PapApplication
@@ -12,10 +11,10 @@ namespace PapApplication
         private readonly bool _select;
         private string _conditions;
 
-        public Leitores(bool @select = false)
+        public Leitores(bool select = false)
         {
             InitializeComponent();
-            _select = @select;
+            _select = select;
         }
 
         private void Leitores_Load(object sender, EventArgs e)

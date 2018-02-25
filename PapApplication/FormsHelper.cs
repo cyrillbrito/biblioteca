@@ -20,12 +20,13 @@ namespace PapApplication
             else
                 Methods.LoadFormProperties(form);
         }
-        
+
         public static string SearchConditionChanged(object sender, string conditions)
         {
             var search = sender as Search;
             var searchLocal = sender as SearchLocal;
 
+            // todo 
             var startPosition = conditions.IndexOf(searchLocal == null ? search.CbIdColumn : searchLocal.CbColumnName, StringComparison.Ordinal);
 
             if (startPosition != -1)//Foi encontrado

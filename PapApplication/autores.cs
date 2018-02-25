@@ -11,10 +11,10 @@ namespace PapApplication
         private readonly bool _select;
         private string _conditions;
 
-        public Autores(bool @select = false)
+        public Autores(bool select = false)
         {
             InitializeComponent();
-            _select = @select;
+            _select = select;
         }
 
         private void Autores_Load(object sender, EventArgs e)

@@ -1,11 +1,15 @@
-﻿namespace PapApplication
+﻿using CbClass;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace PapApplication
 {
     partial class Leitores
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -335,31 +339,31 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel p_baixo;
-        private CbClass.SearchLocal searchNome;
-        private System.Windows.Forms.Panel p_esquerda;
-        private System.Windows.Forms.Panel p_direita;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonDetails;
-        private System.Windows.Forms.Panel p_cima;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private CbClass.SearchLocal searchMorada;
-        private CbClass.SearchLocal searchLocal1;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Button buttonSelect;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem livrosToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem leitoresToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem requisitarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem autoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editorasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
+        private Panel p_baixo;
+        private SearchLocal searchNome;
+        private Panel p_esquerda;
+        private Panel p_direita;
+        private Button buttonAdd;
+        private Button buttonEdit;
+        private Button buttonDetails;
+        private Panel p_cima;
+        private ColumnHeader columnHeader1;
+        private ListView listView;
+        private ColumnHeader columnHeader2;
+        private SearchLocal searchMorada;
+        private SearchLocal searchLocal1;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private Button buttonSelect;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem livrosToolStrip;
+        private ToolStripMenuItem leitoresToolStrip;
+        private ToolStripMenuItem requisitarToolStripMenuItem;
+        private ToolStripMenuItem autoresToolStripMenuItem;
+        private ToolStripMenuItem categoriasToolStripMenuItem;
+        private ToolStripMenuItem editorasToolStripMenuItem;
+        private ToolStripMenuItem funcionariosToolStripMenuItem;
+        private Label label1;
 
     }
 }

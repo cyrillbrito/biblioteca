@@ -1,11 +1,14 @@
-﻿namespace CbClass
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CbClass
 {
     partial class Search
     {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -120,10 +123,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxId;
-        private System.Windows.Forms.CheckBox checkBox;
-        private System.Windows.Forms.TextBox textBoxColumn;
-        private System.Windows.Forms.Button button;
-        private System.Windows.Forms.Panel panel;
+        private TextBox textBoxId;
+        private CheckBox checkBox;
+        private TextBox textBoxColumn;
+        private Button button;
+        private Panel panel;
     }
 }

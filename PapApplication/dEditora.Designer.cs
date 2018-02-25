@@ -1,11 +1,15 @@
-﻿namespace PapApplication
+﻿using CbClass;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace PapApplication
 {
     partial class DEditora
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -137,11 +141,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonEdit;
-        private CbClass.SearchLocal searchEditora;
-        private CbClass.SearchLocal searchId;
-        private System.Windows.Forms.Button buttonEliminar;
+        private Button buttonCancel;
+        private Button buttonSave;
+        private Button buttonEdit;
+        private SearchLocal searchEditora;
+        private SearchLocal searchId;
+        private Button buttonEliminar;
     }
 }

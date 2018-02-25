@@ -14,10 +14,10 @@ namespace PapApplication
         private readonly string _ide;
         private readonly bool _select;
 
-        public Livros(bool @select = false, string idCate = "0", string idAuto = "0", string idEdit = "0")
+        public Livros(bool select = false, string idCate = "0", string idAuto = "0", string idEdit = "0")
         {
             InitializeComponent();
-            _select = @select;
+            _select = select;
 
             _idc = idCate;
             _ida = idAuto;
@@ -99,9 +99,14 @@ namespace PapApplication
             }
             else
             {
-                int i;
-                for (i = 0; listView.Columns[i].Text != search.CbText; i++) ;
-                listView.Columns[i].Dispose();
+                for (int i = 0; i < listView.Columns.Count; i++)
+                {
+                    if (listView.Columns[i].Text == search.CbText)
+                    {
+                        listView.Columns[i].Dispose();
+                        break;
+                    }
+                }
                 _columns = _columns.Replace(", " + search.CbColumnName, "");
             }
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
@@ -111,7 +116,7 @@ namespace PapApplication
         {
             Methods.SaveFormProperties();
             Hide();
-            switch ((sender as ToolStripMenuItem).Text)
+            switch (((ToolStripMenuItem)sender).Text)
             {
                 case "Livros": var a = new Livros(); a.ShowDialog(); break;
                 case "Leitores": var b = new Leitores(); b.ShowDialog(); break;
@@ -146,13 +151,11 @@ namespace PapApplication
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            int startPosition;
-            int endPosition;
+            var startPosition = _conditions.IndexOf("requisitado", StringComparison.Ordinal);
 
-            startPosition = _conditions.IndexOf("requisitado");
             if (startPosition != -1)//Foi encontrado
             {
-                endPosition = _conditions.IndexOf("AND", startPosition);
+                var endPosition = _conditions.IndexOf("AND", startPosition, StringComparison.Ordinal);
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1
                     _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else

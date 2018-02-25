@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CbClass
@@ -79,7 +80,7 @@ namespace CbClass
             if (!CbReadOnly && CbValue == "ID")
             {
                 textBoxId.Clear();
-                textBoxId.ForeColor = System.Drawing.Color.Black;
+                textBoxId.ForeColor = Color.Black;
             }
         }
 
@@ -88,7 +89,7 @@ namespace CbClass
             if (!CbReadOnly && textBoxColumn.Text == CbColumnName)
             {
                 textBoxColumn.Clear();
-                textBoxColumn.ForeColor = System.Drawing.Color.Black;
+                textBoxColumn.ForeColor = Color.Black;
             }
         }
 
@@ -99,12 +100,12 @@ namespace CbClass
                 if (string.IsNullOrWhiteSpace(CbValue))
                 {
                     ConditionChanged?.Invoke(this, e);
-                    textBoxId.ForeColor = System.Drawing.Color.Gray;
+                    textBoxId.ForeColor = Color.Gray;
                     CbValue = "ID";
                     if (textBoxColumn.Text != CbColumnName)
                     {
                         textBoxColumn.Text = CbColumnName;
-                        textBoxColumn.ForeColor = System.Drawing.Color.Gray;
+                        textBoxColumn.ForeColor = Color.Gray;
                     }
                 }
                 else if (UpdateColumn())
@@ -119,11 +120,11 @@ namespace CbClass
                 if (string.IsNullOrWhiteSpace(textBoxColumn.Text))
                 {
                     textBoxColumn.Text = CbColumnName;
-                    textBoxColumn.ForeColor = System.Drawing.Color.Gray;
+                    textBoxColumn.ForeColor = Color.Gray;
                     textBoxId.Clear();
                     ConditionChanged?.Invoke(this, e);
                     CbValue = "ID";
-                    textBoxId.ForeColor = System.Drawing.Color.Gray;
+                    textBoxId.ForeColor = Color.Gray;
                 }
                 else
                 {
@@ -144,7 +145,7 @@ namespace CbClass
                             textBoxColumn.Text = query.Read(CbColumnName);
                         }
 
-                        textBoxId.ForeColor = System.Drawing.Color.Black;
+                        textBoxId.ForeColor = Color.Black;
 
                         ConditionChanged?.Invoke(this, e);
                     }
@@ -155,7 +156,7 @@ namespace CbClass
                         textBoxColumn.Select();
                         textBoxColumn.Clear();
                         textBoxId.Clear();
-                        textBoxId.ForeColor = System.Drawing.Color.Gray;
+                        textBoxId.ForeColor = Color.Gray;
                         CbValue = "ID";
                     }
                 }
@@ -176,8 +177,8 @@ namespace CbClass
                 ConditionChanged?.Invoke(this, e);
                 CbValue = "ID";
                 textBoxColumn.Text = CbColumnName;
-                textBoxColumn.ForeColor = System.Drawing.Color.Gray;
-                textBoxId.ForeColor = System.Drawing.Color.Gray;
+                textBoxColumn.ForeColor = Color.Gray;
+                textBoxId.ForeColor = Color.Gray;
             }
 
             CheckBoxCheckedChanged?.Invoke(this, e);
@@ -201,18 +202,16 @@ namespace CbClass
                 if (query.Read())
                 {
                     textBoxColumn.Text = query.Read(CbColumnName);
-                    textBoxColumn.ForeColor = System.Drawing.Color.Black;
+                    textBoxColumn.ForeColor = Color.Black;
                     return true;
                 }
-                else
-                {
-                    MessageBox.Show("Sem resultados");
-                    textBoxId.Select();
-                    textBoxId.Clear();
-                    textBoxColumn.Text = CbColumnName;
-                    textBoxColumn.ForeColor = System.Drawing.Color.Gray;
-                    return false;
-                }
+
+                MessageBox.Show("Sem resultados");
+                textBoxId.Select();
+                textBoxId.Clear();
+                textBoxColumn.Text = CbColumnName;
+                textBoxColumn.ForeColor = Color.Gray;
+                return false;
             }
         }
 
@@ -221,7 +220,7 @@ namespace CbClass
             if (CbValue != "ID")
             {
                 UpdateColumn();
-                textBoxId.ForeColor = System.Drawing.Color.Black;
+                textBoxId.ForeColor = Color.Black;
                 ConditionChanged?.Invoke(this, new EventArgs());
             }
             else

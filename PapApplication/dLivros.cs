@@ -85,7 +85,7 @@ namespace PapApplication
             using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'livros'"))
             {
                 query.Read();
-                // todo tostring ?
+
                 searchId.CbValue = query.Read("a");
                 _id = int.Parse(searchId.CbValue);
                 buttonEliminar.Visible = false;
@@ -142,12 +142,11 @@ namespace PapApplication
 
         private List<string> CheckData()
         {
-            int num;
             var list = new List<string>();
 
             if (string.IsNullOrWhiteSpace(searchTitulo.CbValue))
                 list.Add("Titulo");
-            if (!int.TryParse(searchPaginas.CbValue, out num) || num <= 0)
+            if (!int.TryParse(searchPaginas.CbValue, out var num) || num <= 0)
                 list.Add("Paginas");
             if (searchCategoria.CbValue == "ID")
                 list.Add("Categoria");
@@ -161,7 +160,7 @@ namespace PapApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            var search = (Search)sender; ;
+            var search = (Search)sender;
 
             switch (search.CbFormName)
             {

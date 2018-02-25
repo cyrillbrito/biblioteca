@@ -11,10 +11,10 @@ namespace PapApplication
         private readonly bool _select;
         private string _conditions;
 
-        public Categoria(bool @select = false)
+        public Categoria(bool select = false)
         {
             InitializeComponent();
-            _select = @select;
+            _select = select;
         }
 
         private void Categoria_Load(object sender, EventArgs e)

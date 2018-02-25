@@ -1,11 +1,14 @@
-﻿namespace CbClass
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CbClass
 {
     partial class SearchLocal
     {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -77,8 +80,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label;
-        private System.Windows.Forms.TextBox textBox;
-        private System.Windows.Forms.Panel panel1;
+        private Label label;
+        private TextBox textBox;
+        private Panel panel1;
     }
 }
