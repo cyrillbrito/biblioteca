@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using CBClass;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CBClass;
 
 namespace PapeApplication
 {
@@ -30,13 +24,13 @@ namespace PapeApplication
             {
                 menuStrip1.Visible = false;
                 buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
-                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                FormBorderStyle = FormBorderStyle.SizableToolWindow;
                 Methods.LoadFormProperties(this, true);
                 label1.Text = "Selecionar Categoria";
             }
             else
                 Methods.LoadFormProperties(this);
-            
+
             Methods.UpdateListView(listView, _columns, _tables, _conditions);
         }
 
@@ -77,7 +71,7 @@ namespace PapeApplication
         private void search_ConditionChanged(object sender, EventArgs e)
         {
             var search = sender as Search;
-            var searchLocal = sender as CBClass.SearchLocal;
+            var searchLocal = sender as SearchLocal;
             int startPosition;
             int endPosition;
 
@@ -95,17 +89,17 @@ namespace PapeApplication
                     _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            if (search != null && search.CbValue != "")// Search normal
+            if (!string.IsNullOrWhiteSpace(search?.CbValue))// Search normal
             {
-                if (_conditions != "")
+                if (!string.IsNullOrWhiteSpace(_conditions))
                     _conditions += " AND ";
                 _conditions += search.CbIdColumn + " = " + search.CbValue;
             }
             else if (searchLocal != null)// SearchLocal
             {
-                if (searchLocal.CbColumnName != "")
+                if (!string.IsNullOrWhiteSpace(searchLocal.CbColumnName))
                 {
-                    if (_conditions != "")
+                    if (!string.IsNullOrWhiteSpace(_conditions))
                         _conditions += " AND ";
                     _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
                 }
@@ -116,7 +110,7 @@ namespace PapeApplication
         private void ToolStrip_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
-            this.Hide();
+            Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
                 case "Livros": var a = new Livros(); a.ShowDialog(); break;
@@ -136,14 +130,14 @@ namespace PapeApplication
                 if (_select)
                 {
                     Variables.ReturnValue = int.Parse(listView.SelectedItems[0].Text);
-                    this.Close();
+                    Close();
                 }
                 else
                 {
                     Methods.SaveFormProperties();
 
                     var c = new Livros(false, listView.SelectedItems[0].Text, "0", "0");
-                    this.Hide();
+                    Hide();
                     c.ShowDialog();
                 }
             }

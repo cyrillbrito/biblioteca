@@ -161,7 +161,7 @@ namespace PapeApplication
         {
             var dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
-                this.Close();
+                Close();
         }
 
         private List<string> CheckData()
@@ -245,7 +245,7 @@ namespace PapeApplication
                 Mysql.Delete("requisita", "id_requ = " + _id);
 
                 MessageBox.Show("Registo Eliminado");
-                this.Close();
+                Close();
             }
         }
     }

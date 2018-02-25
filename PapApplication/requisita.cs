@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CBClass;
+using System;
 using System.Windows.Forms;
-using CBClass;
 
 namespace PapeApplication
 {
@@ -21,7 +14,7 @@ namespace PapeApplication
         {
             InitializeComponent();
 
-            _idli=idLivro;
+            _idli = idLivro;
             _idle = idLeitores;
         }
 
@@ -84,7 +77,7 @@ namespace PapeApplication
         private void search_ConditionChanged(object sender, EventArgs e)
         {
             var search = sender as Search;
-            var searchLocal = sender as CBClass.SearchLocal;
+            var searchLocal = sender as SearchLocal;
             int startPosition;
             int endPosition;
 
@@ -102,17 +95,17 @@ namespace PapeApplication
                     _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            if (search != null && search.CbValue != "")// Search normal
+            if (!string.IsNullOrWhiteSpace(search?.CbValue))// Search normal
             {
-                if (_conditions != "")
+                if (!string.IsNullOrWhiteSpace(_conditions))
                     _conditions += " AND ";
                 _conditions += search.CbIdColumn + " = " + search.CbValue;
             }
             else if (searchLocal != null)// SearchLocal
             {
-                if (searchLocal.CbColumnName != "")
+                if (!string.IsNullOrWhiteSpace(searchLocal.CbColumnName))
                 {
-                    if (_conditions != "")
+                    if (!string.IsNullOrWhiteSpace(_conditions))
                         _conditions += " AND ";
                     _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
                 }
@@ -144,7 +137,7 @@ namespace PapeApplication
         private void ToolStrip_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
-            this.Hide();
+            Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
                 case "Livros": var a = new Livros(); a.ShowDialog(); break;
@@ -199,7 +192,7 @@ namespace PapeApplication
 
             if (!radioTodos.Checked)
             {
-                if (_conditions != "")
+                if (!string.IsNullOrWhiteSpace(_conditions))
                     _conditions += " AND ";
                 _conditions += "data_devo IS ";
                 if (radioNaBiblioteca.Checked)

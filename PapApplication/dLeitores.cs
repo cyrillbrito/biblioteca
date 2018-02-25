@@ -138,7 +138,7 @@ namespace PapeApplication
             {
                 if (File.Exists(Application.StartupPath + @"\leitores\temp"))
                     File.Delete(Application.StartupPath + @"\leitores\temp");
-                this.Close();
+                Close();
             }
         }
 
@@ -167,7 +167,7 @@ namespace PapeApplication
                 Mysql.Delete("leitores", "id_leit = " + _id);
 
                 MessageBox.Show("Registo Eliminado");
-                this.Close();
+                Close();
             }
         }
 

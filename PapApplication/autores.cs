@@ -24,7 +24,7 @@ namespace PapeApplication
             {
                 menuStrip1.Visible = false;
                 buttonSelect.Font = new Font(buttonSelect.Font, FontStyle.Bold);
-                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                FormBorderStyle = FormBorderStyle.SizableToolWindow;
                 Methods.LoadFormProperties(this, true);
                 label1.Text = "Selecionar Autore";
             }
@@ -70,36 +70,34 @@ namespace PapeApplication
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
+            // todo ver o caso negativo deta treta
             var search = sender as Search;
-            var searchLocal = sender as CBClass.SearchLocal;
-            int startPosition;
-            int endPosition;
+            var searchLocal = sender as SearchLocal;
 
-            if (searchLocal == null)
-                startPosition = _conditions.IndexOf(search.CbIdColumn);
-            else
-                startPosition = _conditions.IndexOf(searchLocal.CbColumnName);
+            var column = searchLocal == null ? search.CbIdColumn : searchLocal.CbColumnName;
+            var startPosition = _conditions.IndexOf(column, StringComparison.Ordinal);
 
-            if (startPosition != -1)//Foi encontrado
+            if (startPosition != -1)
             {
-                endPosition = _conditions.IndexOf("AND", startPosition);
+                var endPosition = _conditions.IndexOf("AND", startPosition, StringComparison.Ordinal);
+
                 if (endPosition == -1)//Se for a ultima condicao nao vai ter AND ficar com o valor -1 -2 = -3
                     _conditions = _conditions.Remove((startPosition - 5 >= 0) ? startPosition - 5 : 0);
                 else
                     _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            if (search != null && search.CbValue != "")// Search normal
+            if (!string.IsNullOrWhiteSpace(search?.CbValue))// Search normal
             {
-                if (_conditions != "")
+                if (!string.IsNullOrWhiteSpace(_conditions))
                     _conditions += " AND ";
                 _conditions += search.CbIdColumn + " = " + search.CbValue;
             }
             else if (searchLocal != null)// SearchLocal
             {
-                if (searchLocal.CbColumnName != "")
+                if (!string.IsNullOrWhiteSpace(searchLocal.CbColumnName))
                 {
-                    if (_conditions != "")
+                    if (!string.IsNullOrWhiteSpace(_conditions))
                         _conditions += " AND ";
                     _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
                 }
@@ -110,7 +108,7 @@ namespace PapeApplication
         private void ToolStrip_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
-            this.Hide();
+            Hide();
             switch ((sender as ToolStripMenuItem).Text)
             {
                 case "Livros": var a = new Livros(); a.ShowDialog(); break;
@@ -130,14 +128,14 @@ namespace PapeApplication
                 if (_select)
                 {
                     Variables.ReturnValue = int.Parse(listView.SelectedItems[0].Text);
-                    this.Close();
+                    Close();
                 }
                 else
                 {
                     Methods.SaveFormProperties();
 
                     var c = new Livros(false, "0", listView.SelectedItems[0].Text, "0");
-                    this.Hide();
+                    Hide();
                     c.ShowDialog();
                 }
             }

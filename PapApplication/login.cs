@@ -13,7 +13,7 @@ namespace PapeApplication
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (textBoxId.Text != "")
+            if (!string.IsNullOrWhiteSpace(textBoxId.Text))
             {
                 using (var query = new Mysql("password", "funcionarios", "id_func = " + textBoxId.Text))
                 {
@@ -23,9 +23,9 @@ namespace PapeApplication
 
                         MessageBox.Show("Bem-vindo!");
                         var obj = new Livros();
-                        this.Hide();
+                        Hide();
                         obj.ShowDialog();
-                        this.Close();
+                        Close();
                         return;
                     }
                 }
