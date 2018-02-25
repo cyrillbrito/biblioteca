@@ -1,19 +1,13 @@
-﻿using System;
+﻿using CBClass;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CBClass;
 
 namespace PapeApplication
 {
     public partial class DAutores : Form
     {
-         int _id;
+        int _id;
         bool _edit = false;
 
         public DAutores(int id = 0, bool edit = false)
@@ -39,7 +33,7 @@ namespace PapeApplication
         {
             Methods.LoadFormPosition(this);
         }
-        
+
         private void EditMode()
         {
             _edit = true;
@@ -57,22 +51,24 @@ namespace PapeApplication
 
         private void ViewMode()
         {
-            Mysql query = new Mysql("*", "autores", "id_auto = " + _id);
-            query.Read();
-
-            searchId.CbValue = query.Read("id_auto").ToString();
-            searchNome.CbValue = query.Read("nome").ToString();
-            searchNacionalidade.CbValue = query.Read("nacionalidade").ToString();
-            searchDataNascimento.CbValue = query.Read("data_nasc").ToString();
-            if (query.Read("data_fale").ToString() == "")
-                searchDataFalecimento.Visible = false;
-            else
+            using (var query = new Mysql("*", "autores", "id_auto = " + _id))
             {
-                searchDataFalecimento.Visible = true;
-                searchDataFalecimento.CbValue = query.Read("data_fale").ToString();
-            }
+                query.Read();
 
-            query.Close();
+                searchId.CbValue = query.Read("id_auto").ToString();
+                searchNome.CbValue = query.Read("nome").ToString();
+                searchNacionalidade.CbValue = query.Read("nacionalidade").ToString();
+                searchDataNascimento.CbValue = query.Read("data_nasc").ToString();
+                // todo
+                if (query.Read("data_fale").ToString() == "")
+                    searchDataFalecimento.Visible = false;
+                else
+                {
+                    searchDataFalecimento.Visible = true;
+                    // todo remover esta tostring
+                    searchDataFalecimento.CbValue = query.Read("data_fale").ToString();
+                }
+            }
 
             _edit = false;
             searchNome.CbReadOnly = true;
@@ -89,11 +85,14 @@ namespace PapeApplication
         private void AddMode()
         {
             _edit = false;
-            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'autores'");
-            query.Read();
-            searchId.CbValue = query.Read("a").ToString();
-            _id = Convert.ToInt16(searchId.CbValue);
-            query.Close();
+
+            using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'autores'"))
+            {
+                query.Read();
+                searchId.CbValue = query.Read("a").ToString();
+                _id = int.Parse(searchId.CbValue);
+            }
+
             checkBox.Visible = true;
             buttonEliminar.Visible = false;
         }
@@ -115,7 +114,7 @@ namespace PapeApplication
                     if (_edit)
                     {
                         str = "nome = '" + searchNome.CbValue + "', Nacionalidade = '" + searchNacionalidade.CbValue + "', data_nasc = '" + searchDataNascimento.CbValue + "'";
-                        if(checkBox.Checked)
+                        if (checkBox.Checked)
                             str += ", data_fale = '" + searchDataFalecimento.CbValue + "'";
                         Mysql.Update("autores", str, "id_auto = " + _id.ToString());
                         MessageBox.Show("Os dados foram alterados.");

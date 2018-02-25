@@ -65,12 +65,14 @@ namespace PapeApplication
         private void AddMode()
         {
             _edit = false;
-            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'editoras'");
-            query.Read();
-            searchId.CbValue = query.Read("a").ToString();
-            _id = Convert.ToInt16(searchId.CbValue);
-            buttonEliminar.Visible = false;
-            query.Close();
+
+            using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'editoras'"))
+            {
+                query.Read();
+                searchId.CbValue = query.Read("a").ToString();
+                _id = Convert.ToInt16(searchId.CbValue);
+                buttonEliminar.Visible = false;
+            }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)

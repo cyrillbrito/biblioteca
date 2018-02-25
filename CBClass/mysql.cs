@@ -32,14 +32,6 @@ namespace CBClass
             return _rdr[column].ToString();
         }
 
-        // todo
-        [Obsolete]
-        public void Close()
-        {
-            _rdr.Close();
-            Connection.Close();
-        }
-
         public void Dispose()
         {
             _rdr.Close();

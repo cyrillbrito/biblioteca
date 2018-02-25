@@ -1,13 +1,7 @@
-﻿using System;
+﻿using CBClass;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CBClass;
 
 namespace PapeApplication
 {
@@ -52,12 +46,13 @@ namespace PapeApplication
 
         private void ViewMode()
         {
-            Mysql query = new Mysql("*", "categorias", "id_cate = " + _id);
-            query.Read();
+            using (var query = new Mysql("*", "categorias", "id_cate = " + _id))
+            {
+                query.Read();
 
-            searchId.CbValue = query.Read("id_cate").ToString();
-            searchCategoria.CbValue = query.Read("categoria").ToString();
-            query.Close();
+                searchId.CbValue = query.Read("id_cate").ToString();
+                searchCategoria.CbValue = query.Read("categoria").ToString();
+            }
 
             _edit = false;
             searchCategoria.CbReadOnly = true;
@@ -70,12 +65,14 @@ namespace PapeApplication
         private void AddMode()
         {
             _edit = false;
-            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'categorias'");
-            query.Read();
-            searchId.CbValue = query.Read("a").ToString();
-            _id = Convert.ToInt16(searchId.CbValue);
-            buttonEliminar.Visible = false;
-            query.Close();
+
+            using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'categorias'"))
+            {
+                query.Read();
+                searchId.CbValue = query.Read("a").ToString();
+                _id = Convert.ToInt16(searchId.CbValue);
+                buttonEliminar.Visible = false;
+            }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)

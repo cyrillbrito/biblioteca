@@ -54,32 +54,32 @@ namespace PapeApplication
 
         private void ViewMode()
         {
-            Mysql query = new Mysql("*", "view_requisita", "id_requ = " + _id);
-
-            query.Read();
-
-            searchId.CbValue = query.Read("id_requ").ToString();
-            searchLivro.CbValue = query.Read("id_livr").ToString();
-            searchLeitor.CbValue = query.Read("id_leit").ToString();
-            searchRequisita.CbValue = query.Read("data_requ").ToString();
-            searchEntrega.CbValue = query.Read("data_entr").ToString();
-
-            if (query.Read("data_devo").ToString() == "")
+            using (var query = new Mysql("*", "view_requisita", "id_requ = " + _id))
             {
-                searchDevolucao.Visible = false;
-                label1.Visible = true;
-                buttonEntregar.Visible = true;
-                buttonEstender.Visible = true;
+                query.Read();
+
+                searchId.CbValue = query.Read("id_requ").ToString();
+                searchLivro.CbValue = query.Read("id_livr").ToString();
+                searchLeitor.CbValue = query.Read("id_leit").ToString();
+                searchRequisita.CbValue = query.Read("data_requ").ToString();
+                searchEntrega.CbValue = query.Read("data_entr").ToString();
+
+                if (query.Read("data_devo").ToString() == "")
+                {
+                    searchDevolucao.Visible = false;
+                    label1.Visible = true;
+                    buttonEntregar.Visible = true;
+                    buttonEstender.Visible = true;
+                }
+                else
+                {
+                    searchDevolucao.Visible = true;
+                    label1.Visible = false;
+                    searchDevolucao.CbValue = query.Read("data_devo").ToString();
+                    buttonEntregar.Visible = false;
+                    buttonEstender.Visible = false;
+                }
             }
-            else
-            {
-                searchDevolucao.Visible = true;
-                label1.Visible = false;
-                searchDevolucao.CbValue = query.Read("data_devo").ToString();
-                buttonEntregar.Visible = false;
-                buttonEstender.Visible = false;
-            }
-            query.Close();
 
             _edit = false;
             searchLivro.CbReadOnly = true;
@@ -96,11 +96,13 @@ namespace PapeApplication
         private void AddMode()
         {
             _edit = false;
-            Mysql query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'requisita'");
-            query.Read();
-            searchId.CbValue = query.Read("a").ToString();
-            _id = Convert.ToInt16(searchId.CbValue);
-            query.Close();
+
+            using (var query = new Mysql("`AUTO_INCREMENT` as a", "INFORMATION_SCHEMA.TABLES", "TABLE_SCHEMA = 'biblioteca' AND TABLE_NAME = 'requisita'"))
+            {
+                query.Read();
+                searchId.CbValue = query.Read("a").ToString();
+                _id = int.Parse(searchId.CbValue);
+            }
 
             searchRequisita.CbValue = DateTime.Today.ToString("yyyy-MM-dd");
             searchEntrega.CbValue = DateTime.Today.AddDays(15).ToString("yyyy-MM-dd"); ;
@@ -164,8 +166,7 @@ namespace PapeApplication
 
         private List<string> CheckData()
         {
-            List<string> list = new List<string>();
-            Mysql query;
+            var list = new List<string>();
 
             if (searchLivro.CbValue == "ID")
             {
@@ -173,11 +174,12 @@ namespace PapeApplication
             }
             else
             {
-                query = new Mysql("requisitado", "livros", "id_livr = " + searchLivro.CbValue);
-                query.Read();
-                if (Convert.ToBoolean(query.Read("requisitado")) && _id2 != searchLivro.CbValue)
-                    list.Add("O livro já está requisitado");
-                query.Close();
+                using (var query = new Mysql("requisitado", "livros", "id_livr = " + searchLivro.CbValue))
+                {
+                    query.Read();
+                    if (Convert.ToBoolean(query.Read("requisitado")) && _id2 != searchLivro.CbValue)
+                        list.Add("O livro já está requisitado");
+                }
             }
 
             if (searchLeitor.CbValue == "ID")
@@ -185,7 +187,6 @@ namespace PapeApplication
 
             if (DateTime.Compare(Convert.ToDateTime(searchRequisita.CbValue), Convert.ToDateTime(searchEntrega.CbValue)) >= 0)
                 list.Add("Data de requisição ou data limite de entraga");
-
 
             return list;
         }
@@ -216,7 +217,7 @@ namespace PapeApplication
                     var str = $"data_entr = '{Convert.ToDateTime(query.Read("data_entr")).AddDays(7):yyyy-MM-dd}'";
                     Mysql.Update("requisita", str, "id_requ = " + _id.ToString());
                 }
-                
+
                 MessageBox.Show("Livro entregue.");
                 ViewMode();
             }
