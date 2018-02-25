@@ -7,9 +7,9 @@ namespace PapeApplication
 {
     public partial class DRequisita : Form
     {
-        int _id;
-        string _id2;
-        bool _edit = false;
+        private int _id;
+        private string _id2;
+        private bool _edit = false;
 
         public DRequisita(int id = 0, bool edit = false)
         {

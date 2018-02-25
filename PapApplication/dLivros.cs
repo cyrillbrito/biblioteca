@@ -7,8 +7,8 @@ namespace PapeApplication
 {
     public partial class DLivros : Form
     {
-        int _id;
-        bool _edit = false;
+        private int _id;
+        private bool _edit = false;
 
         public DLivros(int id = 0, bool edit = false)
         {

@@ -8,8 +8,8 @@ namespace PapeApplication
 {
     public partial class DLeitores : Form
     {
-        int _id;
-        bool _edit = false;
+        private int _id;
+        private bool _edit = false;
 
         public DLeitores(int id = 0, bool edit = false)
         {

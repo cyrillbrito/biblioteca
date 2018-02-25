@@ -7,8 +7,8 @@ namespace PapeApplication
 {
     public partial class DEditora : Form
     {
-        int _id;
-        bool _edit = false;
+        private int _id;
+        private bool _edit = false;
 
         public DEditora(int id = 0, bool edit = false)
         {

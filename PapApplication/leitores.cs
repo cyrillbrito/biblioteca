@@ -7,10 +7,10 @@ namespace PapeApplication
 {
     public partial class Leitores : Form
     {
-        string _columns = "id_leit, nome, morada, telemovel";
-        string _tables = "leitores";
-        string _conditions = "";
-        bool _select;
+        private const string Tables = "leitores";
+        private string _columns = "id_leit, nome, morada, telemovel";
+        private readonly bool _select;
+        private string _conditions;
 
         public Leitores(bool @select = false)
         {
@@ -31,7 +31,7 @@ namespace PapeApplication
             else
                 Methods.LoadFormProperties(this);
 
-            Methods.UpdateListView(listView, _columns, _tables, _conditions);
+            Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
         private void buttonDetails_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace PapeApplication
             {
                 var obj = new DLeitores(int.Parse(listView.SelectedItems[0].Text));
                 obj.ShowDialog();
-                Methods.UpdateListView(listView, _columns, _tables, _conditions);
+                Methods.UpdateListView(listView, _columns, Tables, _conditions);
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
@@ -52,7 +52,7 @@ namespace PapeApplication
             {
                 var obj = new DLeitores(int.Parse(listView.SelectedItems[0].Text), true);
                 obj.ShowDialog();
-                Methods.UpdateListView(listView, _columns, _tables, _conditions);
+                Methods.UpdateListView(listView, _columns, Tables, _conditions);
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
@@ -62,7 +62,7 @@ namespace PapeApplication
         {
             var obj = new DLeitores(0, true);
             obj.ShowDialog();
-            Methods.UpdateListView(listView, _columns, _tables, _conditions);
+            Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
         private void search_ConditionChanged(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace PapeApplication
                     _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
                 }
             }
-            Methods.UpdateListView(listView, _columns, _tables, _conditions);
+            Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
         private void search_CheckBoxCheckedChange(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace PapeApplication
                 listView.Columns[i].Dispose();
                 _columns = _columns.Replace(", " + search.CbColumnName, "");
             }
-            Methods.UpdateListView(listView, _columns, _tables, _conditions);
+            Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
         private void ToolStrip_Click(object sender, EventArgs e)
@@ -133,7 +133,6 @@ namespace PapeApplication
                 case "Autores": var d = new Autores(); d.ShowDialog(); break;
                 case "Categorias": var f = new Categoria(); f.ShowDialog(); break;
                 case "Editoras": var g = new Editora(); g.ShowDialog(); break;
-                case "Funcionários": var h = new Funcionarios(); h.ShowDialog(); break;
             }
         }
 
