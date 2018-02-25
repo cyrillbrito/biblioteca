@@ -1,2 +1,4 @@
-﻿.vs/
-**Debug/
+﻿/.vs
+/packages
+**/Debug
+**/docs
