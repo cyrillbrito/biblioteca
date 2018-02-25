@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace CBClass.Controls
+namespace CBClass
 {
     public partial class Search : UserControl
     {
@@ -98,8 +98,7 @@ namespace CBClass.Controls
             {
                 if (CbValue == "")
                 {
-                    if (this.ConditionChanged != null)
-                        this.ConditionChanged(this, e);
+                    ConditionChanged?.Invoke(this, e);
                     textBoxId.ForeColor = System.Drawing.Color.Gray;
                     CbValue = "ID";
                     if (textBoxColumn.Text != CbColumnName)
@@ -108,8 +107,8 @@ namespace CBClass.Controls
                         textBoxColumn.ForeColor = System.Drawing.Color.Gray;
                     }
                 }
-                else if (UpdateColumn() /*&& this.ConditionChanged != null*/)
-                    this.ConditionChanged(this, e);
+                else if (UpdateColumn())
+                    ConditionChanged?.Invoke(this, e);
             }
         }
 
@@ -122,8 +121,7 @@ namespace CBClass.Controls
                     textBoxColumn.Text = CbColumnName;
                     textBoxColumn.ForeColor = System.Drawing.Color.Gray;
                     textBoxId.Clear();
-                    if (this.ConditionChanged != null)
-                        this.ConditionChanged(this, e);
+                    ConditionChanged?.Invoke(this, e);
                     CbValue = "ID";
                     textBoxId.ForeColor = System.Drawing.Color.Gray;
                 }
@@ -179,22 +177,19 @@ namespace CBClass.Controls
             if (!CBisChecked)
             {
                 textBoxId.Clear();
-                if (this.ConditionChanged != null)
-                    this.ConditionChanged(this, e);
+                ConditionChanged?.Invoke(this, e);
                 CbValue = "ID";
                 textBoxColumn.Text = CbColumnName;
                 textBoxColumn.ForeColor = System.Drawing.Color.Gray;
                 textBoxId.ForeColor = System.Drawing.Color.Gray;
             }
 
-            if (this.CheckBoxCheckedChanged != null)
-                this.CheckBoxCheckedChanged(this, e);
+            CheckBoxCheckedChanged?.Invoke(this, e);
         }
 
         private void button_Click(object sender, EventArgs e)
         {
-            if (this.ButtonClick != null)
-                this.ButtonClick(this, e);
+            ButtonClick?.Invoke(this, e);
         }
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
@@ -231,8 +226,7 @@ namespace CBClass.Controls
             {
                 UpdateColumn();
                 textBoxId.ForeColor = System.Drawing.Color.Black;
-                if (this.ConditionChanged != null)
-                    this.ConditionChanged(this, new EventArgs());
+                ConditionChanged?.Invoke(this, new EventArgs());
             }
             else
                 textBoxColumn.Text = CbColumnName;

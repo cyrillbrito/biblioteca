@@ -1,4 +1,6 @@
-﻿namespace PapeApplication
+﻿using CBClass;
+
+namespace PapeApplication
 {
     partial class DRequisita
     {
@@ -34,8 +36,8 @@
             this.searchId = new CBClass.SearchLocal();
             this.searchDevolucao = new CBClass.SearchDate();
             this.searchRequisita = new CBClass.SearchDate();
-            this.searchLivro = new CBClass.Controls.Search();
-            this.searchLeitor = new CBClass.Controls.Search();
+            this.searchLivro = new Search();
+            this.searchLeitor = new Search();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonEntregar = new System.Windows.Forms.Button();
             this.searchEntrega = new CBClass.SearchDate();
@@ -251,8 +253,8 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonEdit;
-        private CBClass.Controls.Search searchLivro;
-        private CBClass.Controls.Search searchLeitor;
+        private Search searchLivro;
+        private Search searchLeitor;
         private CBClass.SearchDate searchRequisita;
         private CBClass.SearchDate searchDevolucao;
         private CBClass.SearchLocal searchId;

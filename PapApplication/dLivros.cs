@@ -161,7 +161,7 @@ namespace PapeApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            CBClass.Controls.Search search = sender as CBClass.Controls.Search;
+            Search search = sender as Search;
 
             switch (search.CbFormName)
             {

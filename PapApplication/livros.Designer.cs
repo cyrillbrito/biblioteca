@@ -1,4 +1,6 @@
-﻿namespace PapeApplication
+﻿using CBClass;
+
+namespace PapeApplication
 {
     partial class Livros
     {
@@ -48,12 +50,12 @@
             this.buttonDetails = new System.Windows.Forms.Button();
             this.p_esquerda = new System.Windows.Forms.Panel();
             this.radioNaBiblioteca = new System.Windows.Forms.RadioButton();
-            this.searchCategoria = new CBClass.Controls.Search();
+            this.searchCategoria = new Search();
             this.radioRequisitado = new System.Windows.Forms.RadioButton();
             this.radioTodos = new System.Windows.Forms.RadioButton();
             this.searchLocal1 = new CBClass.SearchLocal();
-            this.searchEditora = new CBClass.Controls.Search();
-            this.searchAutor = new CBClass.Controls.Search();
+            this.searchEditora = new Search();
+            this.searchAutor = new Search();
             this.p_baixo = new System.Windows.Forms.Panel();
             this.p_cima.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -408,7 +410,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private CBClass.Controls.Search searchAutor;
+        private Search searchAutor;
         private System.Windows.Forms.Panel p_cima;
         private System.Windows.Forms.Button buttonDetails;
         private System.Windows.Forms.Button buttonAdd;
@@ -416,9 +418,9 @@
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Panel p_esquerda;
         private System.Windows.Forms.Panel p_baixo;
-        private CBClass.Controls.Search searchEditora;
+        private Search searchEditora;
         private CBClass.SearchLocal searchLocal1;
-        private CBClass.Controls.Search searchCategoria;
+        private Search searchCategoria;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem livrosToolStrip;
         private System.Windows.Forms.ToolStripMenuItem leitoresToolStrip;

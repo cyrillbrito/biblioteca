@@ -1,4 +1,6 @@
-﻿namespace PapeApplication
+﻿using CBClass;
+
+namespace PapeApplication
 {
     partial class DLivros
     {
@@ -35,9 +37,9 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.searchData = new CBClass.SearchDate();
-            this.searchCategoria = new CBClass.Controls.Search();
-            this.searchEditora = new CBClass.Controls.Search();
-            this.searchAutor = new CBClass.Controls.Search();
+            this.searchCategoria = new Search();
+            this.searchEditora = new Search();
+            this.searchAutor = new Search();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -231,9 +233,9 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
         private CBClass.SearchDate searchData;
-        private CBClass.Controls.Search searchCategoria;
-        private CBClass.Controls.Search searchEditora;
-        private CBClass.Controls.Search searchAutor;
+        private Search searchCategoria;
+        private Search searchEditora;
+        private Search searchAutor;
         private System.Windows.Forms.Button buttonEliminar;
 
     }

@@ -83,7 +83,7 @@ namespace PapeApplication
 
         private void search_ConditionChanged(object sender, EventArgs e)
         {
-            CBClass.Controls.Search search = sender as CBClass.Controls.Search;
+            Search search = sender as Search;
             CBClass.SearchLocal searchLocal = sender as CBClass.SearchLocal;
             int startPosition;
             int endPosition;
@@ -122,7 +122,7 @@ namespace PapeApplication
 
         private void search_CheckBoxCheckedChange(object sender, EventArgs e)
         {
-            CBClass.Controls.Search search = sender as CBClass.Controls.Search;
+            Search search = sender as Search;
             if (!search.CbCheckBoxLocked)
             {
                 if (search.CBisChecked)
@@ -159,7 +159,7 @@ namespace PapeApplication
 
         private void search_ButtonClick(object sender, EventArgs e)
         {
-            CBClass.Controls.Search search = sender as CBClass.Controls.Search;
+            Search search = sender as Search;
             Methods.SaveFormProperties();
 
             switch (search.CbFormName)

@@ -1,4 +1,4 @@
-﻿namespace CBClass.Controls
+﻿namespace CBClass
 {
     partial class Search
     {

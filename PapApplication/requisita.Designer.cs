@@ -1,4 +1,6 @@
-﻿namespace PapeApplication
+﻿using CBClass;
+
+namespace PapeApplication
 {
     partial class Requisita
     {
@@ -33,9 +35,9 @@
             this.radioAtraso = new System.Windows.Forms.RadioButton();
             this.radioNaBiblioteca = new System.Windows.Forms.RadioButton();
             this.radioRequisitado = new System.Windows.Forms.RadioButton();
-            this.searchLeitor = new CBClass.Controls.Search();
+            this.searchLeitor = new Search();
             this.radioTodos = new System.Windows.Forms.RadioButton();
-            this.searchLivro = new CBClass.Controls.Search();
+            this.searchLivro = new Search();
             this.p_direita = new System.Windows.Forms.Panel();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
@@ -365,8 +367,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.Panel p_cima;
-        private CBClass.Controls.Search searchLivro;
-        private CBClass.Controls.Search searchLeitor;
+        private Search searchLivro;
+        private Search searchLeitor;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem livrosToolStrip;
         private System.Windows.Forms.ToolStripMenuItem leitoresToolStrip;
