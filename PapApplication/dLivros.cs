@@ -29,7 +29,7 @@ namespace PapApplication
             }
         }
 
-        private void dLivros_Load(object sender, EventArgs e)
+        private void DLivros_Load(object sender, EventArgs e)
         {
             Methods.LoadFormPosition(this);
         }
@@ -92,12 +92,12 @@ namespace PapApplication
             }
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEdit_Click(object sender, EventArgs e)
         {
             EditMode();
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
             var list = CheckData();
             string str;
@@ -133,7 +133,7 @@ namespace PapApplication
 
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -158,7 +158,7 @@ namespace PapApplication
             return list;
         }
 
-        private void search_ButtonClick(object sender, EventArgs e)
+        private void Search_ButtonClick(object sender, EventArgs e)
         {
             var search = (Search)sender;
 
@@ -173,7 +173,7 @@ namespace PapApplication
             Variables.ReturnValue = 0;
         }
 
-        private void buttonEliminar_Click(object sender, EventArgs e)
+        private void ButtonEliminar_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)

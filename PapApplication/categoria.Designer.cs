@@ -100,7 +100,7 @@ namespace PapApplication
             this.buttonSelect.Text = "Selecionar";
             this.buttonSelect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSelect.UseVisualStyleBackColor = true;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            this.buttonSelect.Click += new System.EventHandler(this.ButtonSelect_Click);
             // 
             // p_direita
             // 
@@ -126,7 +126,7 @@ namespace PapApplication
             this.buttonAdd.Text = "Adicionar Novo";
             this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonEdit
             // 
@@ -140,7 +140,7 @@ namespace PapApplication
             this.buttonEdit.Text = "Editar";
             this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // buttonDetails
             // 
@@ -154,7 +154,7 @@ namespace PapApplication
             this.buttonDetails.Text = "Ver Dados";
             this.buttonDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDetails.UseVisualStyleBackColor = true;
-            this.buttonDetails.Click += new System.EventHandler(this.buttonDetails_Click);
+            this.buttonDetails.Click += new System.EventHandler(this.ButtonDetails_Click);
             // 
             // p_cima
             // 
@@ -265,7 +265,7 @@ namespace PapApplication
             this.listView.TabIndex = 15;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
-            this.listView.DoubleClick += new System.EventHandler(this.buttonDetails_Click);
+            this.listView.DoubleClick += new System.EventHandler(this.ButtonDetails_Click);
             // 
             // columnHeader2
             // 

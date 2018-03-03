@@ -90,7 +90,7 @@ namespace PapApplication
             this.buttonEdit.Text = "Editar";
             this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // buttonSave
             // 
@@ -105,7 +105,7 @@ namespace PapApplication
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Visible = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonCancel
             // 
@@ -120,7 +120,7 @@ namespace PapApplication
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Visible = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // searchData
             // 
@@ -141,7 +141,7 @@ namespace PapApplication
             this.searchCategoria.CbColumnName = "categoria";
             this.searchCategoria.CbFormName = "categoria";
             this.searchCategoria.CbIdColumn = "id_cate";
-            this.searchCategoria.CBisChecked = true;
+            this.searchCategoria.CbIsChecked = true;
             this.searchCategoria.CbReadOnly = true;
             this.searchCategoria.CbTableName = "categorias";
             this.searchCategoria.CbText = "Categoria";
@@ -150,7 +150,7 @@ namespace PapApplication
             this.searchCategoria.Name = "searchCategoria";
             this.searchCategoria.Size = new System.Drawing.Size(172, 65);
             this.searchCategoria.TabIndex = 19;
-            this.searchCategoria.ButtonClick += new System.EventHandler(this.search_ButtonClick);
+            this.searchCategoria.ButtonClick += new System.EventHandler(this.Search_ButtonClick);
             // 
             // searchEditora
             // 
@@ -159,7 +159,7 @@ namespace PapApplication
             this.searchEditora.CbColumnName = "editora";
             this.searchEditora.CbFormName = "editora";
             this.searchEditora.CbIdColumn = "id_edit";
-            this.searchEditora.CBisChecked = true;
+            this.searchEditora.CbIsChecked = true;
             this.searchEditora.CbReadOnly = true;
             this.searchEditora.CbTableName = "editoras";
             this.searchEditora.CbText = "Editora";
@@ -168,7 +168,7 @@ namespace PapApplication
             this.searchEditora.Name = "searchEditora";
             this.searchEditora.Size = new System.Drawing.Size(172, 65);
             this.searchEditora.TabIndex = 20;
-            this.searchEditora.ButtonClick += new System.EventHandler(this.search_ButtonClick);
+            this.searchEditora.ButtonClick += new System.EventHandler(this.Search_ButtonClick);
             // 
             // searchAutor
             // 
@@ -177,7 +177,7 @@ namespace PapApplication
             this.searchAutor.CbColumnName = "nome";
             this.searchAutor.CbFormName = "autores";
             this.searchAutor.CbIdColumn = "id_auto";
-            this.searchAutor.CBisChecked = true;
+            this.searchAutor.CbIsChecked = true;
             this.searchAutor.CbReadOnly = true;
             this.searchAutor.CbTableName = "autores";
             this.searchAutor.CbText = "Autor";
@@ -186,7 +186,7 @@ namespace PapApplication
             this.searchAutor.Name = "searchAutor";
             this.searchAutor.Size = new System.Drawing.Size(172, 65);
             this.searchAutor.TabIndex = 21;
-            this.searchAutor.ButtonClick += new System.EventHandler(this.search_ButtonClick);
+            this.searchAutor.ButtonClick += new System.EventHandler(this.Search_ButtonClick);
             // 
             // buttonEliminar
             // 
@@ -200,7 +200,7 @@ namespace PapApplication
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            this.buttonEliminar.Click += new System.EventHandler(this.ButtonEliminar_Click);
             // 
             // dLivros
             // 
@@ -221,7 +221,7 @@ namespace PapApplication
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DLivros";
             this.Text = "dLivros";
-            this.Load += new System.EventHandler(this.dLivros_Load);
+            this.Load += new System.EventHandler(this.DLivros_Load);
             this.ResumeLayout(false);
 
         }

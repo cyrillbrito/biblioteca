@@ -43,23 +43,23 @@ namespace PapApplication
             {
                 searchCategoria.CbValue = _idc;
                 searchCategoria.Reload();
-                searchCategoria.CBisChecked = true;
+                searchCategoria.CbIsChecked = true;
             }
             else if (_ida != "0")
             {
                 searchAutor.CbValue = _ida;
                 searchAutor.Reload();
-                searchAutor.CBisChecked = true;
+                searchAutor.CbIsChecked = true;
             }
             else if (_ide != "0")
             {
                 searchEditora.CbValue = _ide;
                 searchEditora.Reload();
-                searchEditora.CBisChecked = true;
+                searchEditora.CbIsChecked = true;
             }
         }
 
-        private void buttonDetails_Click(object sender, EventArgs e)
+        private void ButtonDetails_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
@@ -72,7 +72,7 @@ namespace PapApplication
                 MessageBox.Show("Tem de selecionar um item primeiro.");
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEdit_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
@@ -85,7 +85,7 @@ namespace PapApplication
                 MessageBox.Show("Tem de selecionar um item primeiro.");
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
             var obj = new DLivros(0, true);
@@ -97,9 +97,6 @@ namespace PapApplication
         {
             var search = sender as Search;
             var searchLocal = sender as SearchLocal;
-
-            if ((search == null || search.CbValue == "") && (searchLocal == null || searchLocal.CbValue == ""))
-                return;
 
             var startPosition = _conditions.IndexOf(search != null ? search.CbIdColumn : searchLocal.CbColumnName, StringComparison.Ordinal);
 
@@ -117,17 +114,20 @@ namespace PapApplication
                 _conditions += " AND ";
 
             if (search != null)
-                _conditions += search.CbIdColumn + " = " + search.CbValue;
+            {
+                if (search.CbValue != "")
+                    _conditions += search.CbIdColumn + " = " + search.CbValue;
+            }
             else
                 _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
 
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
-        private void search_CheckBoxCheckedChange(object sender, EventArgs e)
+        private void Search_CheckBoxCheckedChange(object sender, EventArgs e)
         {
             var search = (Search)sender;
-            if (search.CBisChecked)
+            if (search.CbIsChecked)
             {
                 listView.Columns.Add(search.CbText);
                 _columns += ", " + search.CbColumnName;
@@ -162,7 +162,7 @@ namespace PapApplication
             }
         }
 
-        private void buttonSelect_Click(object sender, EventArgs e)
+        private void ButtonSelect_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
@@ -184,7 +184,7 @@ namespace PapApplication
                 MessageBox.Show("Tem de selecionar um item primeiro.");
         }
 
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             var startPosition = _conditions.IndexOf("requisitado", StringComparison.Ordinal);
 
@@ -210,7 +210,7 @@ namespace PapApplication
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
-        private void search_ButtonClick(object sender, EventArgs e)
+        private void Search_ButtonClick(object sender, EventArgs e)
         {
             var search = (Search)sender;
             Methods.SaveFormProperties();

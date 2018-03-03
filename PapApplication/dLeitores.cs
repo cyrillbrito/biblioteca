@@ -85,12 +85,12 @@ namespace PapApplication
             }
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEdit_Click(object sender, EventArgs e)
         {
             EditMode();
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
             var list = CheckData();
             string str;
@@ -131,7 +131,7 @@ namespace PapApplication
 
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -158,7 +158,7 @@ namespace PapApplication
             return list;
         }
 
-        private void buttonEliminar_Click(object sender, EventArgs e)
+        private void ButtonEliminar_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -170,7 +170,7 @@ namespace PapApplication
             }
         }
 
-        private void buttonImagem_Click(object sender, EventArgs e)
+        private void ButtonImagem_Click(object sender, EventArgs e)
         {
             var fileDialog = new OpenFileDialog
             {
@@ -187,7 +187,7 @@ namespace PapApplication
             }
         }
 
-        private void dLeitores_Load(object sender, EventArgs e)
+        private void DLeitores_Load(object sender, EventArgs e)
         {
             Methods.LoadFormPosition(this);
         }

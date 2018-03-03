@@ -30,7 +30,7 @@ namespace PapApplication
             }
         }
 
-        private void dRequisita_Load(object sender, EventArgs e)
+        private void DRequisita_Load(object sender, EventArgs e)
         {
             Methods.LoadFormPosition(this);
         }
@@ -112,12 +112,12 @@ namespace PapApplication
             buttonEliminar.Visible = false;
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEdit_Click(object sender, EventArgs e)
         {
             EditMode();
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
             var list = CheckData();
             string str;
@@ -157,7 +157,7 @@ namespace PapApplication
 
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Tem a certeza que pretende cancelar?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -191,7 +191,7 @@ namespace PapApplication
             return list;
         }
 
-        private void buttonEntregar_Click(object sender, EventArgs e)
+        private void ButtonEntregar_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Pretende entregar o livro?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -204,7 +204,7 @@ namespace PapApplication
             }
         }
 
-        private void buttonEstender_Click(object sender, EventArgs e)
+        private void ButtonEstender_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Pretende estender a data de entrega do livro em uma semana?", "", MessageBoxButtons.YesNo);
 
@@ -223,7 +223,7 @@ namespace PapApplication
             }
         }
 
-        private void search_ButtonClick(object sender, EventArgs e)
+        private void Search_ButtonClick(object sender, EventArgs e)
         {
             var search = (Search)sender;
 
@@ -237,7 +237,7 @@ namespace PapApplication
             Variables.ReturnValue = 0;
         }
 
-        private void buttonEliminar_Click(object sender, EventArgs e)
+        private void ButtonEliminar_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Tem a certeza que pretende apagar o registo?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)

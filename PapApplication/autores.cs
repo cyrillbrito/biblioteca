@@ -10,7 +10,7 @@ namespace PapApplication
         private const string Tables = "autores";
         private string _columns = "id_auto, nome, nacionalidade";
         private readonly bool _select;
-        private string _conditions;
+        private string _conditions = "";
 
         public Autores(bool select = false)
         {
@@ -46,7 +46,7 @@ namespace PapApplication
                 MessageBox.Show("Tem de selecionar um item primeiro.");
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEdit_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
@@ -59,7 +59,7 @@ namespace PapApplication
                 MessageBox.Show("Tem de selecionar um item primeiro.");
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
             var obj = new DAutores(0, true);
@@ -71,9 +71,6 @@ namespace PapApplication
         {
             var search = sender as Search;
             var searchLocal = sender as SearchLocal;
-
-            if ((search == null || search.CbValue == "") && (searchLocal == null || searchLocal.CbValue == ""))
-                return;
 
             var startPosition = _conditions.IndexOf(search != null ? search.CbIdColumn : searchLocal.CbColumnName, StringComparison.Ordinal);
 
@@ -91,7 +88,10 @@ namespace PapApplication
                 _conditions += " AND ";
 
             if (search != null)
-                _conditions += search.CbIdColumn + " = " + search.CbValue;
+            {
+                if (search.CbValue != "")
+                    _conditions += search.CbIdColumn + " = " + search.CbValue;
+            }
             else
                 _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
 
@@ -113,7 +113,7 @@ namespace PapApplication
             }
         }
 
-        private void buttonSelect_Click(object sender, EventArgs e)
+        private void ButtonSelect_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
@@ -133,11 +133,6 @@ namespace PapApplication
             }
             else
                 MessageBox.Show("Tem de selecionar um item primeiro.");
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

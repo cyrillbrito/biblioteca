@@ -115,7 +115,7 @@ namespace PapApplication
             this.buttonSelect.Text = "Selecionar";
             this.buttonSelect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSelect.UseVisualStyleBackColor = true;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            this.buttonSelect.Click += new System.EventHandler(this.ButtonSelect_Click);
             // 
             // p_direita
             // 
@@ -141,7 +141,7 @@ namespace PapApplication
             this.buttonAdd.Text = "Adicionar Novo";
             this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonEdit
             // 
@@ -155,7 +155,7 @@ namespace PapApplication
             this.buttonEdit.Text = "Editar";
             this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // buttonDetails
             // 
@@ -222,7 +222,6 @@ namespace PapApplication
             this.label1.TabIndex = 2;
             this.label1.Text = "Lista de Autores";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // menuStrip1
             // 

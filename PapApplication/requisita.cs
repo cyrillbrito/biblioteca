@@ -25,8 +25,8 @@ namespace PapApplication
             Methods.LoadFormProperties(this);
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
 
-            searchLeitor.CBisChecked = true;
-            searchLivro.CBisChecked = true;
+            searchLeitor.CbIsChecked = true;
+            searchLivro.CbIsChecked = true;
             searchLeitor.CbCheckBoxLocked = true;
             searchLivro.CbCheckBoxLocked = true;
 
@@ -42,7 +42,7 @@ namespace PapApplication
             }
         }
 
-        private void buttonDetails_Click(object sender, EventArgs e)
+        private void ButtonDetails_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
@@ -55,7 +55,7 @@ namespace PapApplication
                 MessageBox.Show("Tem de selecionar um item primeiro.");
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEdit_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 1)
             {
@@ -68,7 +68,7 @@ namespace PapApplication
                 MessageBox.Show("Tem de selecionar um item primeiro.");
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             Methods.SaveFormProperties();
             var obj = new DRequisita(0, true);
@@ -80,9 +80,6 @@ namespace PapApplication
         {
             var search = sender as Search;
             var searchLocal = sender as SearchLocal;
-
-            if ((search == null || search.CbValue == "") && (searchLocal == null || searchLocal.CbValue == ""))
-                return;
 
             var startPosition = _conditions.IndexOf(search != null ? search.CbIdColumn : searchLocal.CbColumnName, StringComparison.Ordinal);
 
@@ -100,19 +97,22 @@ namespace PapApplication
                 _conditions += " AND ";
 
             if (search != null)
-                _conditions += search.CbIdColumn + " = " + search.CbValue;
+            {
+                if (search.CbValue != "")
+                    _conditions += search.CbIdColumn + " = " + search.CbValue;
+            }
             else
                 _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
 
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }
 
-        private void search_CheckBoxCheckedChange(object sender, EventArgs e)
+        private void Search_CheckBoxCheckedChange(object sender, EventArgs e)
         {
             var search = (Search)sender;
             if (!search.CbCheckBoxLocked)
             {
-                if (search.CBisChecked)
+                if (search.CbIsChecked)
                 {
                     listView.Columns.Add(search.CbText);
                     _columns += ", " + search.CbColumnName;
@@ -148,7 +148,7 @@ namespace PapApplication
             }
         }
 
-        private void search_ButtonClick(object sender, EventArgs e)
+        private void Search_ButtonClick(object sender, EventArgs e)
         {
             var search = (Search)sender;
             Methods.SaveFormProperties();
@@ -163,7 +163,7 @@ namespace PapApplication
             Variables.ReturnValue = 0;
         }
 
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             var startPosition = _conditions.IndexOf("data_devo", StringComparison.Ordinal);
             if (startPosition != -1)//Foi encontrado

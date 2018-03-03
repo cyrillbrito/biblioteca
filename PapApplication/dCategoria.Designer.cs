@@ -53,7 +53,7 @@ namespace PapApplication
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Visible = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // buttonSave
             // 
@@ -68,7 +68,7 @@ namespace PapApplication
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Visible = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonEdit
             // 
@@ -82,7 +82,7 @@ namespace PapApplication
             this.buttonEdit.Text = "Editar";
             this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // searchCategoria
             // 
@@ -118,7 +118,7 @@ namespace PapApplication
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            this.buttonEliminar.Click += new System.EventHandler(this.ButtonEliminar_Click);
             // 
             // dCategoria
             // 
@@ -132,9 +132,9 @@ namespace PapApplication
             this.Controls.Add(this.searchId);
             this.Controls.Add(this.buttonEliminar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "DCategoria";
+            this.Name = "dCategoria";
             this.Text = "dCategoria";
-            this.Load += new System.EventHandler(this.dCategoria_Load);
+            this.Load += new System.EventHandler(this.DCategoria_Load);
             this.ResumeLayout(false);
 
         }

@@ -59,7 +59,7 @@ namespace PapApplication
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Visible = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // buttonSave
             // 
@@ -74,7 +74,7 @@ namespace PapApplication
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Visible = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonEdit
             // 
@@ -88,7 +88,7 @@ namespace PapApplication
             this.buttonEdit.Text = "Editar";
             this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // searchNome
             // 
@@ -168,7 +168,7 @@ namespace PapApplication
             this.buttonImagem.Text = "Escolher imagem";
             this.buttonImagem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonImagem.UseVisualStyleBackColor = true;
-            this.buttonImagem.Click += new System.EventHandler(this.buttonImagem_Click);
+            this.buttonImagem.Click += new System.EventHandler(this.ButtonImagem_Click);
             // 
             // buttonEliminar
             // 
@@ -182,7 +182,7 @@ namespace PapApplication
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            this.buttonEliminar.Click += new System.EventHandler(this.ButtonEliminar_Click);
             // 
             // dLeitores
             // 
@@ -203,7 +203,7 @@ namespace PapApplication
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DLeitores";
             this.Text = "dLeitores";
-            this.Load += new System.EventHandler(this.dLeitores_Load);
+            this.Load += new System.EventHandler(this.DLeitores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

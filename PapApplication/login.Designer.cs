@@ -97,7 +97,7 @@ namespace PapApplication
             this.buttonLogin.TabIndex = 12;
             this.buttonLogin.Text = "Entrar";
             this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            this.buttonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // pictureBox1
             // 

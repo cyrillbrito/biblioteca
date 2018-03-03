@@ -6,24 +6,24 @@ namespace CbClass
 {
     public partial class SearchLocal : UserControl
     {
-        [Description("Text that will appear"), Category("CB")]
+        [Description("Text that will appear"), Category("Cb")]
         public string CbText
         {
             get => label.Text;
             set => label.Text = value;
         }
 
-        [Description("Name of the column in the DataBase"), Category("CB")]
+        [Description("Name of the column in the DataBase"), Category("Cb")]
         public string CbColumnName { get; set; }
 
-        [Description("Name of the form to serach"), Category("CB")]
+        [Description("Name of the form to serach"), Category("Cb")]
         public string CbValue
         {
             get => textBox.Text;
             set => textBox.Text = value;
         }
 
-        [Description("Name of the form to serach"), Category("CB")]
+        [Description("Name of the form to serach"), Category("Cb")]
         public bool CbReadOnly
         {
             get => textBox.ReadOnly;

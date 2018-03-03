@@ -7,24 +7,24 @@ namespace CbClass
 {
     public partial class Search : UserControl
     {
-        [Description("Text that will appear"), Category("CB")]
+        [Description("Text that will appear"), Category("Cb")]
         public string CbText
         {
             get => checkBox.Text;
             set => checkBox.Text = value;
         }
 
-        [Description("Name of the table in the DataBase"), Category("CB")]
+        [Description("Name of the table in the DataBase"), Category("Cb")]
         public string CbTableName { get; set; }
 
-        [Description("Name of the column in the DataBase"), Category("CB")]
+        [Description("Name of the column in the DataBase"), Category("Cb")]
         public string CbColumnName { get; set; }
 
-        [Description("Name of the primary key column in the DataBase"), Category("CB")]
+        [Description("Name of the primary key column in the DataBase"), Category("Cb")]
         public string CbIdColumn { get; set; }
 
-        [Description("Is the checkBox Checked"), Category("CB")]
-        public bool CBisChecked
+        [Description("Is the checkBox Checked"), Category("Cb")]
+        public bool CbIsChecked
         {
             get => checkBox.Checked;
             set
@@ -36,17 +36,17 @@ namespace CbClass
             }
         }
 
-        [Description("Name of the form to serach"), Category("CB")]
+        [Description("Name of the form to serach"), Category("Cb")]
         public string CbFormName { get; set; }
 
-        [Description("Value in the textBoxId"), Category("CB")]
+        [Description("Value in the textBoxId"), Category("Cb")]
         public string CbValue
         {
             get => textBoxId.Text;
             set => textBoxId.Text = value;
         }
 
-        [Description("Is button visible"), Category("CB")]
+        [Description("Is button visible"), Category("Cb")]
         public bool CbReadOnly
         {
             get => textBoxId.ReadOnly;
@@ -58,7 +58,7 @@ namespace CbClass
             }
         }
 
-        [Description("CheckBox is always on"), Category("CB")]
+        [Description("CheckBox is always on"), Category("Cb")]
         public bool CbCheckBoxLocked { get; set; }
 
         public event EventHandler ButtonClick;
@@ -168,10 +168,10 @@ namespace CbClass
             if (CbCheckBoxLocked)
                 checkBox.Checked = true;//se estiver em locked nao deixa mudar
             else
-                CBisChecked = checkBox.Checked;//para mudar a propriadade
+                CbIsChecked = checkBox.Checked;//para mudar a propriadade
 
 
-            if (!CBisChecked)
+            if (!CbIsChecked)
             {
                 textBoxId.Clear();
                 ConditionChanged?.Invoke(this, e);

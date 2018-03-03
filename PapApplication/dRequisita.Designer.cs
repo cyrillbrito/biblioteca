@@ -60,7 +60,7 @@ namespace PapApplication
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Visible = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // buttonSave
             // 
@@ -75,7 +75,7 @@ namespace PapApplication
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Visible = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonEdit
             // 
@@ -89,7 +89,7 @@ namespace PapApplication
             this.buttonEdit.Text = "Editar";
             this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // searchId
             // 
@@ -133,7 +133,7 @@ namespace PapApplication
             this.searchLivro.CbColumnName = "titulo";
             this.searchLivro.CbFormName = "livros";
             this.searchLivro.CbIdColumn = "id_livr";
-            this.searchLivro.CBisChecked = true;
+            this.searchLivro.CbIsChecked = true;
             this.searchLivro.CbReadOnly = true;
             this.searchLivro.CbTableName = "Livros";
             this.searchLivro.CbText = "Livro";
@@ -142,7 +142,7 @@ namespace PapApplication
             this.searchLivro.Name = "searchLivro";
             this.searchLivro.Size = new System.Drawing.Size(172, 65);
             this.searchLivro.TabIndex = 23;
-            this.searchLivro.ButtonClick += new System.EventHandler(this.search_ButtonClick);
+            this.searchLivro.ButtonClick += new System.EventHandler(this.Search_ButtonClick);
             // 
             // searchLeitor
             // 
@@ -151,7 +151,7 @@ namespace PapApplication
             this.searchLeitor.CbColumnName = "nome";
             this.searchLeitor.CbFormName = "leitores";
             this.searchLeitor.CbIdColumn = "id_leit";
-            this.searchLeitor.CBisChecked = true;
+            this.searchLeitor.CbIsChecked = true;
             this.searchLeitor.CbReadOnly = true;
             this.searchLeitor.CbTableName = "Leitores";
             this.searchLeitor.CbText = "Leitor";
@@ -160,7 +160,7 @@ namespace PapApplication
             this.searchLeitor.Name = "searchLeitor";
             this.searchLeitor.Size = new System.Drawing.Size(172, 65);
             this.searchLeitor.TabIndex = 22;
-            this.searchLeitor.ButtonClick += new System.EventHandler(this.search_ButtonClick);
+            this.searchLeitor.ButtonClick += new System.EventHandler(this.Search_ButtonClick);
             // 
             // label1
             // 
@@ -183,7 +183,7 @@ namespace PapApplication
             this.buttonEntregar.Text = "Entregar Livro";
             this.buttonEntregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEntregar.UseVisualStyleBackColor = true;
-            this.buttonEntregar.Click += new System.EventHandler(this.buttonEntregar_Click);
+            this.buttonEntregar.Click += new System.EventHandler(this.ButtonEntregar_Click);
             // 
             // searchEntrega
             // 
@@ -208,7 +208,7 @@ namespace PapApplication
             this.buttonEstender.Text = "Estender data de entrega";
             this.buttonEstender.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEstender.UseVisualStyleBackColor = true;
-            this.buttonEstender.Click += new System.EventHandler(this.buttonEstender_Click);
+            this.buttonEstender.Click += new System.EventHandler(this.ButtonEstender_Click);
             // 
             // buttonEliminar
             // 
@@ -222,7 +222,7 @@ namespace PapApplication
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            this.buttonEliminar.Click += new System.EventHandler(this.ButtonEliminar_Click);
             // 
             // dRequisita
             // 
@@ -245,7 +245,7 @@ namespace PapApplication
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DRequisita";
             this.Text = "dRequisitar";
-            this.Load += new System.EventHandler(this.dRequisita_Load);
+            this.Load += new System.EventHandler(this.DRequisita_Load);
             this.ResumeLayout(false);
 
         }

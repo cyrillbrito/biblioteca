@@ -11,7 +11,7 @@ namespace PapApplication
             InitializeComponent();
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void ButtonLogin_Click(object sender, EventArgs e)
         {
             if (int.TryParse(textBoxId.Text, out int _))
             {

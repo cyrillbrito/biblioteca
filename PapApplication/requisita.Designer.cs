@@ -94,7 +94,7 @@ namespace PapApplication
             this.radioAtraso.TabIndex = 19;
             this.radioAtraso.Text = "Em atraso";
             this.radioAtraso.UseVisualStyleBackColor = true;
-            this.radioAtraso.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.radioAtraso.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // radioNaBiblioteca
             // 
@@ -106,7 +106,7 @@ namespace PapApplication
             this.radioNaBiblioteca.TabIndex = 18;
             this.radioNaBiblioteca.Text = "Entregues";
             this.radioNaBiblioteca.UseVisualStyleBackColor = true;
-            this.radioNaBiblioteca.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.radioNaBiblioteca.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // radioRequisitado
             // 
@@ -118,7 +118,7 @@ namespace PapApplication
             this.radioRequisitado.TabIndex = 17;
             this.radioRequisitado.Text = "Nao entregues";
             this.radioRequisitado.UseVisualStyleBackColor = true;
-            this.radioRequisitado.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.radioRequisitado.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // searchLeitor
             // 
@@ -127,7 +127,7 @@ namespace PapApplication
             this.searchLeitor.CbColumnName = "Nome";
             this.searchLeitor.CbFormName = "leitores";
             this.searchLeitor.CbIdColumn = "id_leit";
-            this.searchLeitor.CBisChecked = false;
+            this.searchLeitor.CbIsChecked = false;
             this.searchLeitor.CbReadOnly = false;
             this.searchLeitor.CbTableName = "leitores";
             this.searchLeitor.CbText = "Leitor";
@@ -136,8 +136,8 @@ namespace PapApplication
             this.searchLeitor.Name = "searchLeitor";
             this.searchLeitor.Size = new System.Drawing.Size(172, 65);
             this.searchLeitor.TabIndex = 1;
-            this.searchLeitor.ButtonClick += new System.EventHandler(this.search_ButtonClick);
-            this.searchLeitor.CheckBoxCheckedChanged += new System.EventHandler(this.search_CheckBoxCheckedChange);
+            this.searchLeitor.ButtonClick += new System.EventHandler(this.Search_ButtonClick);
+            this.searchLeitor.CheckBoxCheckedChanged += new System.EventHandler(this.Search_CheckBoxCheckedChange);
             this.searchLeitor.ConditionChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // radioTodos
@@ -152,7 +152,7 @@ namespace PapApplication
             this.radioTodos.TabStop = true;
             this.radioTodos.Text = "Todos";
             this.radioTodos.UseVisualStyleBackColor = true;
-            this.radioTodos.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.radioTodos.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // searchLivro
             // 
@@ -161,7 +161,7 @@ namespace PapApplication
             this.searchLivro.CbColumnName = "Titulo";
             this.searchLivro.CbFormName = "livros";
             this.searchLivro.CbIdColumn = "id_livr";
-            this.searchLivro.CBisChecked = false;
+            this.searchLivro.CbIsChecked = false;
             this.searchLivro.CbReadOnly = false;
             this.searchLivro.CbTableName = "livros";
             this.searchLivro.CbText = "Livro";
@@ -170,8 +170,8 @@ namespace PapApplication
             this.searchLivro.Name = "searchLivro";
             this.searchLivro.Size = new System.Drawing.Size(172, 65);
             this.searchLivro.TabIndex = 0;
-            this.searchLivro.ButtonClick += new System.EventHandler(this.search_ButtonClick);
-            this.searchLivro.CheckBoxCheckedChanged += new System.EventHandler(this.search_CheckBoxCheckedChange);
+            this.searchLivro.ButtonClick += new System.EventHandler(this.Search_ButtonClick);
+            this.searchLivro.CheckBoxCheckedChanged += new System.EventHandler(this.Search_CheckBoxCheckedChange);
             this.searchLivro.ConditionChanged += new System.EventHandler(this.Search_ConditionChanged);
             // 
             // p_direita
@@ -197,7 +197,7 @@ namespace PapApplication
             this.buttonAdd.Text = "Adicionar Novo";
             this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonEdit
             // 
@@ -211,7 +211,7 @@ namespace PapApplication
             this.buttonEdit.Text = "Editar";
             this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // buttonDetails
             // 
@@ -225,7 +225,7 @@ namespace PapApplication
             this.buttonDetails.Text = "Ver Dados";
             this.buttonDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDetails.UseVisualStyleBackColor = true;
-            this.buttonDetails.Click += new System.EventHandler(this.buttonDetails_Click);
+            this.buttonDetails.Click += new System.EventHandler(this.ButtonDetails_Click);
             // 
             // columnHeader1
             // 
@@ -245,7 +245,7 @@ namespace PapApplication
             this.listView.TabIndex = 15;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
-            this.listView.DoubleClick += new System.EventHandler(this.buttonDetails_Click);
+            this.listView.DoubleClick += new System.EventHandler(this.ButtonDetails_Click);
             // 
             // p_cima
             // 

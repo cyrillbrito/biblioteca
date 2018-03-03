@@ -6,28 +6,28 @@ namespace CbClass
 {
     public partial class SearchDate : UserControl
     {
-        [Description("Text in the label"), Category("CB")]
+        [Description("Text in the label"), Category("Cb")]
         public string CbText
         {
             get => label.Text;
             set => label.Text = value;
         }
 
-        [Description("Value i the datetimepicker"), Category("CB")]
+        [Description("Value i the datetimepicker"), Category("Cb")]
         public string CbValue
         {
             get => dateTimePicker.Value.ToString("yyyy-MM-dd");
             set => dateTimePicker.Value = Convert.ToDateTime(value);
         }
 
-        [Description("Read Only"), Category("CB")]
+        [Description("Read Only"), Category("Cb")]
         public bool CbReadOnly
         {
             get => !dateTimePicker.Enabled;
             set => dateTimePicker.Enabled = !value;
         }
 
-        [Description("Number od days added to the max date"), Category("CB")]
+        [Description("Number od days added to the max date"), Category("Cb")]
         public int CbNumberDays { get; set; }
 
         public SearchDate()
