@@ -110,16 +110,16 @@ namespace PapApplication
                     _conditions = _conditions.Remove(startPosition, endPosition - startPosition + 3);
             }
 
-            if (_conditions != "")
-                _conditions += " AND ";
-
-            if (search != null)
+            if ((search != null && search.CbValue != "") || (searchLocal != null && searchLocal.CbValue != ""))
             {
-                if (search.CbValue != "")
+                if (_conditions != "")
+                    _conditions += " AND ";
+
+                if (search != null)
                     _conditions += search.CbIdColumn + " = " + search.CbValue;
+                else
+                    _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
             }
-            else
-                _conditions += searchLocal.CbColumnName + " LIKE '%" + searchLocal.CbValue + "%'";
 
             Methods.UpdateListView(listView, _columns, Tables, _conditions);
         }

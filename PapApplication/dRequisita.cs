@@ -210,15 +210,16 @@ namespace PapApplication
 
             if (dialogResult == DialogResult.Yes)
             {
+                string str;
                 using (var query = new Mysql("data_entr", "requisita", "id_requ = " + _id))
                 {
                     query.Read();
-
-                    var str = $"data_entr = '{Convert.ToDateTime(query.Read("data_entr")).AddDays(7):yyyy-MM-dd}'";
-                    Mysql.Update("requisita", str, "id_requ = " + _id);
+                    str = $"data_entr = '{Convert.ToDateTime(query.Read("data_entr")).AddDays(7):yyyy-MM-dd}'";
                 }
 
-                MessageBox.Show("Livro entregue.");
+                Mysql.Update("requisita", str, "id_requ = " + _id);
+
+                MessageBox.Show("Data estendida.");
                 ViewMode();
             }
         }
