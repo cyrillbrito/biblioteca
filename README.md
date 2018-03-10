@@ -20,11 +20,11 @@ This is a software that I develop for school in 2014. The objective of the softw
 
 ## Development
 
-To be able to run the software you need a MySql server and run the `biblioteca.sql` script. Then using VisualStudio it should be plug and play.
+To be able to run the software you need a MySql server and to run the `biblioteca.sql` script. Then using VisualStudio it should be plug and play.
 
 ## Problems
 
-Has I sad before this was a project for school and at the time I was new to software development, this means that there are a lot of problems with the software. Where are a few:
+As I said before this was a project for school and at the time I was new to software development, this means that there are a lot of problems with the software. Here are a few:
 
 * Passwords are not encrypted
 * Forms are not closed instead they are hidden
